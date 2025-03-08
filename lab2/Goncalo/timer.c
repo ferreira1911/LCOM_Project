@@ -6,49 +6,61 @@
 #include "i8254.h"
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-  return 1;
+  if(timer > 2) return 1;
+
+  uint16_t div = TIMER_FREQ / freq;
+  uint8_t lsb8, msb8;
+
+  if(util_get_LSB(div, &lsb8) || util_get_MSB(div, &msb8)) return 1;
+
+  uint8_t st;
+  if(timer_get_conf(timer, &st)) return 1;
+
+  uint8_t control_word = (timer << 6) | TIMER_LSB_MSB | (st & 0x0F);
+
+  if(sys_outb(TIMER_CTRL, control_word)) return 1;
+
+  if(sys_outb(TIMER_0 + timer, lsb8)) return 1;
+
+  if(sys_outb(TIMER_0 + timer, msb8)) return 1;
+
+  return 0;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
   printf("%s is not yet implemented!\n", __func__);
 
   return 1;
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
   printf("%s is not yet implemented!\n", __func__);
   return 1;
 }
 
 void (timer_int_handler)() {
-  /* To be implemented by the students */
   printf("%s is not yet implemented!\n", __func__);
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  /* To be implemented by the students */
-  if(timer != 0) return 1;
+  if(timer > 2) return 1;
 
-  uint8_t readBackCommand = 0xC2; // 11000010 (Ver na Table 2: Format of the i8254 Read-Back command.)
+  uint8_t readBackCommand = 0xC2;
   sys_outb(TIMER_CTRL, readBackCommand);
 
-  if(util_sys_inb(TIMER_0, st) != 0) return 1;
+  if(util_sys_inb(TIMER_0 + timer, st) != 0) return 1;
   
   return 0;
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
-  /* To be implemented by the students */
-  if(timer != 0) return 1;
+  if(timer > 2) return 1;
+  union timer_status_field_val conf;
 
   switch (field)
   {
   case tsf_all:
-    printf("Complete Configuration: 0x%02X\n", st);
+    conf.byte = st;
     break;
   
   case tsf_initial:
@@ -57,19 +69,19 @@ int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field fiel
       switch (initial)
       {
       case 0x01:
-        printf("Initialization Mode: LSB\n");
+        conf.in_mode = LSB_only;
         break;
       
       case 0x02:
-        printf("Initialization Mode: MSB\n");
+        conf.in_mode = MSB_only;
         break;
       
       case 0x03:
-        printf("Initialization Mode: LSB followed by MSB\n");
+        conf.in_mode = MSB_after_LSB;
         break;
       
       default:
-        printf("Initialization Mode: Invalid\n");
+        conf.in_mode = INVAL_val;
         break;
       }
     }
@@ -78,7 +90,7 @@ int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field fiel
   case tsf_mode:
     {
       uint8_t mode = (st >> 1) & 0x07;
-      printf("Operating Mode: %d\n", mode);
+      conf.count_mode = mode;
     }
     break;
   
@@ -86,18 +98,16 @@ int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field fiel
     {
       uint8_t base = st & 1;
       if(base == 0){
-        printf("Counting base: Binary(16 bits)\n");
+        conf.bcd = true;
       }else{
-        printf("Counting base: BCD(4 decades)\n");
+        conf.bcd = false;
       }
     }
     break;
   
   default:
-    printf("Campo Inválido!\n");
-    break;
-
+    return 1;
   }
 
-  return 0;
+  return timer_print_config(timer, field, conf);
 }
