@@ -18,28 +18,33 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 
   uint8_t control_word = (timer << 6) | TIMER_LSB_MSB | (st & 0x0F);
 
-  if(sys_outb(TIMER_CTRL, control_word)) return 1;
+  if(sys_outb(TIMER_CTRL, control_word) != 0) return 1;
 
-  if(sys_outb(TIMER_0 + timer, lsb8)) return 1;
+  if(sys_outb(TIMER_0 + timer, lsb8) != 0) return 1;
 
-  if(sys_outb(TIMER_0 + timer, msb8)) return 1;
+  if(sys_outb(TIMER_0 + timer, msb8) != 0) return 1;
 
   return 0;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-  printf("%s is not yet implemented!\n", __func__);
+  if (bit_no == NULL) return 1;
 
-  return 1;
+  *bit_no = TIMER0_IRQ;
+
+  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &hook_id) != 0) return 1;
+
+  return 0;
 }
 
 int (timer_unsubscribe_int)() {
-  printf("%s is not yet implemented!\n", __func__);
-  return 1;
+  if (sys_irqrmpolicy(&hook_id) != 0) return 1;
+
+  return 0;
 }
 
 void (timer_int_handler)() {
-  printf("%s is not yet implemented!\n", __func__);
+  
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
