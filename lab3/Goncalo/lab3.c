@@ -33,32 +33,39 @@ int (kbd_test_scan)() {
     int ipc_status;
     message msg;
 
-    if (kbd_subscribe_int(&bit_no) != OK) return 1;
+    if (kbd_subscribe_int(&bit_no) != 0) return 1;
 
     int irq_set = BIT(bit_no);
     bool esc_released = false;
 
     while (!esc_released) {
+        printf("Entrou aqui\n");
 
         if (driver_receive(ANY, &msg, &ipc_status) != 0) continue;
 
+        printf("Entrou aqui1\n");
+
         if (is_ipc_notify(ipc_status) && _ENDPOINT_P(msg.m_source) == HARDWARE) {
+            printf("Entrou aqui2\n");
             if (msg.m_notify.interrupts & irq_set) {
-                kbd_ih_handler();
+                printf("Entrou aqui3\n");
+                kbc_ih();
                 if (scancode == 0x81) {
                     esc_released = true;
                     printf("ESC pressionado, a sair...\n");
                 }else if(scancode & 0x80){
+                    printf("Entrou aqui4\n");
                     kbd_print_scancode(false, 1, &scancode);
                 }
                 else {
+                    printf("Entrou aqui5\n");
                     kbd_print_scancode(true, 1, &scancode);
                 }
             }
         }
     }
 
-    if (kbd_unsubscribe_int() != OK) return 1;
+    if (kbd_unsubscribe_int() != 0) return 1;
     return 0;
 }
 
@@ -83,7 +90,6 @@ int (kbd_test_poll)() {
                 return 1;
             } else {
                 scancode = scancode_temp;
-
                 if (scancode == 0x81) {  
                     esc_released = true;
                     printf("ESC pressionado, a sair...\n");

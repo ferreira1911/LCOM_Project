@@ -15,18 +15,22 @@ int (kbd_unsubscribe_int)() {
     return sys_irqrmpolicy(&hook_id);
 }
 
-void kbd_ih_handler(void) {
+void (kbc_ih)(void) {
     uint8_t status;
-    if (sys_inb(KBC_STATUS_REG, (uint32_t *)&status) != OK) {
+    printf("Entrou aqui6\n");
+    if (sys_inb(KBC_STATUS_REG, (uint32_t *)&status) != 0) {
         printf("Erro ao ler o status do KBC!\n");
         return;
     }
 
+    printf("Entrou aqui7\n");
     if (status & 0x01) {
+        printf("Entrou aqui8\n");
         uint8_t scancode_temp;
-        if (sys_inb(KBC_OUT_BUF, (uint32_t *)&scancode_temp) != OK) {
-            printf("Erro ao ler o código de escaneamento!\n");
+        if (sys_inb(KBC_OUT_BUF, (uint32_t *)&scancode_temp) != 0) {
+            printf("Erro ao ler o scancode!\n");
         } else {
+            printf("Entrou aqui9\n");
             scancode = scancode_temp;
         }
     }

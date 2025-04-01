@@ -10,5 +10,8 @@
 #define KBC_OUT_BUF 0x60
 #define KBC_STATUS_REG 0x64
 
+int (kbd_unsubscribe_int)();
+int (kbd_subscribe_int)(uint8_t *bit_no);
+
 #endif /* KEYBOARD_H */
 
