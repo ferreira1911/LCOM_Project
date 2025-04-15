@@ -12,6 +12,7 @@
 
 int (kbd_unsubscribe_int)();
 int (kbd_subscribe_int)(uint8_t *bit_no);
+void (kbc_ih1)(void);
 
 #endif /* KEYBOARD_H */
 

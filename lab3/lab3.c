@@ -11,10 +11,8 @@ int main(int argc, char *argv[]) {
     lcf_set_language("EN-US");
   
     // Habilita o rastreamento de chamadas de função
-    // lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
-  
-    // Habilita a gravação da saída de printf
-    // lcf_log_output("/home/lcom/labs/lab3/output.txt");
+    lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
+    lcf_log_output("/home/lcom/labs/lab3/output.txt");
   
     // Executa a função desejada (pode ser kbd_test_scan ou outra)
     if (lcf_start(argc, argv))
@@ -39,28 +37,25 @@ int (kbd_test_scan)() {
     bool esc_released = false;
 
     while (!esc_released) {
-        printf("Entrou aqui\n");
 
         if (driver_receive(ANY, &msg, &ipc_status) != 0) continue;
 
-        printf("Entrou aqui1\n");
-
         if (is_ipc_notify(ipc_status) && _ENDPOINT_P(msg.m_source) == HARDWARE) {
-            printf("Entrou aqui2\n");
+
             if (msg.m_notify.interrupts & irq_set) {
-                printf("Entrou aqui3\n");
-                kbc_ih();
+                
+                //função de tratamento de interrupção do teclado
+                kbc_ih1();
+
                 if (scancode == 0x81) {
                     esc_released = true;
                     printf("ESC pressionado, a sair...\n");
                 }else if(scancode & 0x80){
-                    printf("Entrou aqui4\n");
                     kbd_print_scancode(false, 1, &scancode);
                 }
                 else {
-                    printf("Entrou aqui5\n");
                     kbd_print_scancode(true, 1, &scancode);
-                }
+                } 
             }
         }
     }

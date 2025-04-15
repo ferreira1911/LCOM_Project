@@ -2,7 +2,7 @@
 PROG=lab3
 
 # Ficheiros de código-fonte a compilar
-SRCS = lab3.c keyboard.c
+SRCS = lab3.c keyboard.c utils.c
 
 # Flags adicionais de compilação
 CFLAGS += -pedantic
