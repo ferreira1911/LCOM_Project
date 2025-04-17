@@ -3,7 +3,6 @@
 
 #include "video.h"
 
-
 char *video_mem;		/* Process (virtual) address to which VRAM is mapped */
 unsigned h_res;	        /* Horizontal resolution in pixels */
 unsigned v_res;	        /* Vertical resolution in pixels */
@@ -62,15 +61,101 @@ int (frame_buffer_init)(uint16_t mode) {
     return 0;
 }
 
-int (draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
-    for (uint16_t i = x; i < x + width; i++) {
-        for (uint16_t j = y; j < y + height; j++) {
-            uint32_t pixel_offset = (j * h_res + i) * (bits_per_pixel / 8);
-            uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
-    
-            // Colorir o pixel
-            *(uint32_t*) pixel_ptr = color;
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
+    for (uint16_t j = y; j < y + height; j++){
+        vg_draw_hline(x,j,width,color);
+    }
+    return 0;
+}
+
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
+    for(int i=x; i < x+len; i++){
+        uint32_t pixel_offset = (y * h_res + i) * (bits_per_pixel / 8);
+        uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+
+        // Colorir o pixel
+        color_pixel(pixel_ptr, color);
+    }
+    return 0;
+}
+
+int (color_pixel)(uint8_t* pixel_ptr, uint32_t color){
+    switch (bits_per_pixel)
+    {
+    case 8:
+        *pixel_ptr = (uint8_t) color;
+        break;
+    case 15:
+        *(uint16_t*) pixel_ptr = (uint16_t) color;
+        break;
+    case 24:
+        pixel_ptr[0] = (uint8_t) color; // blue
+        pixel_ptr[1] = (uint8_t) (color >> 8); // green
+        pixel_ptr[2] = (uint8_t) (color >> 16); // red
+        break;
+    case 16:
+        *(uint16_t*) pixel_ptr = (uint16_t) color;
+        break;
+    case 32:
+        *(uint32_t*) pixel_ptr = color;
+        break;
+    default:
+        return 1;
+    }
+    return 0;
+}
+
+uint32_t (calculate_indexed_color)(uint8_t row, uint8_t col, uint32_t first, uint8_t step, uint8_t bits_per_pixel, uint8_t no_rectangles) {
+    return (first + (row * no_rectangles + col) * step) % (1 << bits_per_pixel);
+}
+
+uint32_t (calculate_direct_color)(uint8_t row, uint8_t col, uint32_t first, uint8_t step, vbe_mode_info_t vmi) {
+    // Obtém o tamanho das máscaras de cor
+    uint8_t red_size = vmi.RedMaskSize;
+    uint8_t green_size = vmi.GreenMaskSize;
+    uint8_t blue_size = vmi.BlueMaskSize;
+
+    // Obtém a posição dos bits para cada componente de cor
+    uint8_t red_pos = vmi.RedFieldPosition;
+    uint8_t green_pos = vmi.GreenFieldPosition;
+    uint8_t blue_pos = vmi.BlueFieldPosition;
+
+    // Extrai os componentes de cor (R, G, B) do valor 'first'
+    uint32_t r = ((first >> red_pos) & ((1 << red_size) - 1));
+    uint32_t g = ((first >> green_pos) & ((1 << green_size) - 1));
+    uint32_t b = ((first >> blue_pos) & ((1 << blue_size) - 1));
+
+    // Ajusta a cor com base na posição (coluna, linha) e no 'step'
+    r = (r + col * step) % (1 << red_size);
+    g = (g + row * step) % (1 << green_size);
+    b = (b + (col + row) * step) % (1 << blue_size);
+
+    return (r << red_pos) | (g << green_pos) | (b << blue_pos);
+}
+
+int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t *img) {
+    uint8_t *colors = img->bytes;  // Assume que 'bytes' contém a sequência de cores da imagem
+
+    // Itera sobre os pixels da imagem XPM
+    for (uint16_t row = 0; row < img->height; row++) {
+        for (uint16_t col = 0; col < img->width; col++) {
+            uint32_t color = *colors;  // Pega a cor do pixel
+
+            // Calcula as coordenadas do pixel na tela
+            uint16_t pixel_x = x + col;
+            uint16_t pixel_y = y + row;
+
+            // Verifica se as coordenadas do pixel estão dentro da tela
+            if (pixel_x < h_res && pixel_y < v_res) {
+                uint32_t pixel_offset = (pixel_y * h_res + pixel_x) * (bits_per_pixel / 8);
+                uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+
+                // Chama a função que colore o pixel de acordo com o bits por pixel
+                color_pixel(pixel_ptr, color);
+            }
+            colors++;
         }
     }
     return 0;
 }
+  
