@@ -1,6 +1,9 @@
 #pragma once
 
 #include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <lcom/lcf.h>
 
 struct packet {
   uint8_t bytes[3]; // mouse packet raw bytes
