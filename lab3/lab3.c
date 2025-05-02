@@ -11,8 +11,8 @@ int main(int argc, char *argv[]) {
     lcf_set_language("EN-US");
   
     // Habilita o rastreamento de chamadas de função
-    lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
-    lcf_log_output("/home/lcom/labs/lab3/output.txt");
+    /* lcf_trace_calls("/home/lcom/labs/lab3/trace.txt");
+    lcf_log_output("/home/lcom/labs/lab3/output.txt"); */
   
     // Executa a função desejada (pode ser kbd_test_scan ou outra)
     if (lcf_start(argc, argv))

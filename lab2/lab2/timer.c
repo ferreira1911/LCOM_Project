@@ -53,7 +53,7 @@ void (timer_int_handler)() {
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   if(timer > 2) return 1;
 
-  uint8_t readBackCommand = 0xC2;
+  uint8_t readBackCommand = TIMER_RB_CMD | TIMER_RB_COUNT_ | TIMER_RB_SEL(timer);
   sys_outb(TIMER_CTRL, readBackCommand);
 
   if(util_sys_inb(TIMER_0 + timer, st) != 0) return 1;

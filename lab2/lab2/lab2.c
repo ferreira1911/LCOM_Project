@@ -12,11 +12,11 @@ int main(int argc, char *argv[]) {
 
   // enables to log function invocations that are being "wrapped" by LCF
   // [comment this out if you don't want/need it]
-  lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
+  // lcf_trace_calls("/home/lcom/labs/lab2/trace.txt");
 
   // enables to save the output of printf function calls on a file
   // [comment this out if you don't want/need it]
-  lcf_log_output("/home/lcom/labs/lab2/output.txt");
+  // lcf_log_output("/home/lcom/labs/lab2/output.txt");
 
   // handles control over to LCF
   // [LCF handles command line arguments and invokes the right function]
@@ -65,6 +65,9 @@ int(timer_test_int)(uint8_t time) {
         case HARDWARE: // Interrupção de Hardware
           if(msg.m_notify.interrupts & irq_set) {
             timer_int_handler();
+            if(counter % 60 == 0){
+              timer_print_elapsed_time();
+            }
           }
           break;
         default:
