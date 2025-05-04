@@ -3,16 +3,16 @@
 
 #include <lcom/lcf.h>
 
-// IRQ Line do teclado ()
-#define KBD_IRQ 1
+#define KBD_IRQ 1 /**< @brief Keyboard IRQ line */
 
-// Registos do i8042
-#define KBC_OUT_BUF 0x60
-#define KBC_STATUS_REG 0x64
+/* Scancode constants */
+
+#define ESC_BREAKCODE 0x81 /**< @brief ESC key breakcode */
+#define BREAKCODE_BIT 0x80    /**< @brief Breakcode identifier */
 
 int (kbd_unsubscribe_int)();
 int (kbd_subscribe_int)(uint8_t *bit_no);
-void (kbc_ih1)(void);
+void (kbc_ih)(void);
 
-#endif /* KEYBOARD_H */
+#endif
 

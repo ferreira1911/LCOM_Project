@@ -1,36 +1,34 @@
-#include <lcom/lab3.h>
 #include <lcom/lcf.h>
+#include <lcom/lab3.h>
 
 #include "keyboard.h"
+#include "kbc.h"
 
-int hook_id = 0;
+int kbc_hook_id = 0;
 uint8_t scancode;
 
 int (kbd_subscribe_int)(uint8_t *bit_no) {
-    hook_id = *bit_no;
-    return sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &hook_id);
+    if (bit_no == NULL) return 1;
+
+    kbc_hook_id = *bit_no;
+    
+    if (sys_irqsetpolicy(KBD_IRQ, IRQ_REENABLE | IRQ_EXCLUSIVE, &kbc_hook_id) != 0) return 1;
+
+    return 0;
 }
 
 int (kbd_unsubscribe_int)() {
-    return sys_irqrmpolicy(&hook_id);
+    if (sys_irqrmpolicy(&kbc_hook_id) != 0) return 1;
+
+    return 0;
 }
 
-void (kbc_ih1)(void) {
+void (kbc_ih)(void) {
+    uint8_t scancode_temp;
 
-    uint8_t status;
-    
-    if (util_sys_inb(KBC_STATUS_REG, &status) != 0) {
-        printf("Erro ao ler o status do KBC!\n");
-        return;
-    }
+    if(read_kbc_cmd(&scancode_temp) != 0) return;
 
-    if (status & 0x01) {
-        uint8_t scancode_temp;
-        if (util_sys_inb(KBC_OUT_BUF, &scancode_temp) != 0) {
-        } else {
-            scancode = scancode_temp;
-        }
-    }
+    scancode = scancode_temp;
 }
 
 

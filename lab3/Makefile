@@ -1,16 +1,16 @@
-# Nome do programa (Minix service)
+# name of the program (Minix service)
 PROG=lab3
 
-# Ficheiros de código-fonte a compilar
-SRCS = lab3.c keyboard.c utils.c
+# source code files to be compiled
+SRCS = lab3.c keyboard.c utils.c kbc.c timer.c
 
-# Flags adicionais de compilação
-CFLAGS += -pedantic
-CPPFLAGS += -DLAB3
+# additional compilation flags
+# "-Wall -Wextra -Werror -I . -std=c11 -Wno-unused-parameter" are already set
+CPPFLAGS += -pedantic -DLAB3
 
-# Dependências de bibliotecas
+# list of library dependencies (for Lab 2, only LCF library)
 DPADD += ${LIBLCF}
 LDADD += -llcf
 
-# Inclui o makefile do LCOM
+# include LCOM's makefile that does all the "heavy lifting"
 .include <minix.lcom.mk>
