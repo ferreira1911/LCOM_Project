@@ -3,54 +3,39 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <lcom/lcf.h>   
+#include "kbc.h"
 
-#define MOUSE_IRQ 12
+#define MOUSE_IRQ 12 /**< @brief Mouse IRQ line */
+#define KBC_WRITE_MOUSE 0xD4 /**< @brief Write command for the mouse */
 
-#define KBC_CMD_REG 0x64
-#define KBC_IN_BUF  0x60
-#define KBC_OUT_BUF 0x60
-#define KBC_ST_REG  0x64
-
-#define WRITE_BYTE_TO_MOUSE 0xD4
-
-#define ACK  0xFA
-#define NACK 0xFE
+#define MOUSE_ACK 0xFA  /**< @brief Mouse Acknowledgment byte */
+#define MOUSE_NACK 0xFE /**< @brief Mouse Error byte */
 #define ERROR 0xFC
 
-#define OBF  BIT(0)
-#define AUX  BIT(5)
-#define TO_ERR  BIT(6)
-#define PAR_ERR BIT(7)
+#define MOUSE_DATA_STREAM_MODE 0xEA    /**< @brief Set Stream Mode */
+#define MOUSE_DATA_REMOTE_MODE 0xEA    /**< @brief Set Remote Mode */
+#define MOUSE_DATA_REPORT_ENABLE 0xF4  /**< @brief Enable Data Reporting */
+#define MOUSE_DATA_REPORT_DISABLE 0xF5 /**< @brief Disable Data Reporting */
 
-#define ENABLE_DATA_REPORTING  0xF4
-#define DISABLE_DATA_REPORTING 0xF5
+/* Control Byte - Byte 1 */
+#define MOUSE_OVERFLOW_Y BIT(7) /**< @brief Y Overflow */
+#define MOUSE_OVERFLOW_X BIT(6) /**< @brief X Overflow */
+#define MOUSE_SIGNAL_Y BIT(5)   /**< @brief Y Sign */
+#define MOUSE_SIGNAL_X BIT(4)   /**< @brief X Sign */
+#define MOUSE_CONTROL_BYTE BIT(3)       /**< @brief Control Byte */
+#define MOUSE_MIDDLE_BUTTON BIT(2)         /**< @brief Middle Button */
+#define MOUSE_RIGHT_BUTTON BIT(1)         /**< @brief Right Button */
+#define MOUSE_LEFT_BUTTON BIT(0)         /**< @brief Left Button */
 
-extern int hook_id; // Variable to store the hook id
-
-struct package {
-    uint8_t bytes[3];
-    bool lb, rb, mb;
-    int16_t delta_x, delta_y;
-    bool x_ov, y_ov;
-};
-
-int (util_sys_outb)(int port, uint8_t value);
-int mouse_subscribe_int(uint8_t *bit_no);
-int mouse_unsubscribe_int();
-
-int enable_mouse_data_reporting();
-int disable_mouse_data_reporting();
-
+int (mouse_subscribe_int)(uint8_t *bit_no);
+int (mouse_unsubscribe_int)();
+int (write_mouse_cmd)(uint8_t cmd);
+int (read_mouse_data)(uint8_t *byte);
 
 void (mouse_ih)();
-
-int write_mouse_cmd(uint8_t cmd);
-
-extern uint8_t mouse_byte;
-
-void parse_packet(uint8_t bytes[3], struct package *pp);
-void print_packet(struct package *pp);
-
+void (sync_bytes)();
+void (parse_packet)(struct packet *pp);
 
 #endif 
 
