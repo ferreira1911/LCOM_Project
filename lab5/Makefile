@@ -2,7 +2,7 @@
 PROG=lab5
 
 # Ficheiros de código-fonte a compilar
-SRCS = lab5.c video.c
+SRCS = lab5.c video.c keyboard.c kbc.c utils.c timer.c
 
 # Flags adicionais de compilação
 CFLAGS += -pedantic

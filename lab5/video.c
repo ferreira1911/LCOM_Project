@@ -3,23 +3,24 @@
 
 #include "video.h"
 
-char *video_mem;		/* Process (virtual) address to which VRAM is mapped */
-unsigned h_res;	        /* Horizontal resolution in pixels */
-unsigned v_res;	        /* Vertical resolution in pixels */
-unsigned bits_per_pixel; /* Number of VRAM bits per pixel */
+char *video_mem;
+
+unsigned h_res;
+unsigned v_res;
+unsigned bits_per_pixel;
 
 int (vbe_set_mode)(uint16_t mode){
-    reg86_t r;
+    reg86_t r86;
 
-    memset(&r, 0, sizeof(r));
-    r.intno = 0x10;
-    // r.ax = 0x4F02; // Podia usar isto ou as duas abaixo (equivalente)
-    r.ah = 0x4F;
-    r.al = 0x02;
+    memset(&r86, 0, sizeof(r86));
 
-    r.bx = mode | BIT(14);
+    r86.intno = INTNO;
+    r86.ah = AH_GRAPHIC_MODE;
+    r86.al = AL_GRAPHIC_MODE;
 
-    if(sys_int86(&r) != OK){
+    r86.bx = mode | LINEAR_FB;
+
+    if(sys_int86(&r86) != 0){
         printf("\tvg_exit(): sys_int86() failed \n");
         return 1;
     }
@@ -33,27 +34,23 @@ int (frame_buffer_init)(uint16_t mode) {
     int r;				    
 
     vbe_mode_info_t vmi;
-    // Obter informações sobre o modo gráfico
     if (vbe_get_mode_info(mode, &vmi) != 0) return 1;
 
-    // Inicializar a base e o tamanho da VRAM
     vram_base = vmi.PhysBasePtr;
-    vram_size = vmi.XResolution * vmi.YResolution * ((vmi.BitsPerPixel + 7) / 8); // Cálculo do tamanho da VRAM
+    vram_size = vmi.XResolution * vmi.YResolution * ((vmi.BitsPerPixel + 7) / 8);
 
     mr.mr_base = vram_base;
     mr.mr_limit = mr.mr_base + vram_size;
 
-    if( OK != (r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr))){
+    if((r = sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)) != 0){
         panic("sys_privctl (ADD_MEM) failed: %d\n", r);
     }
 
-    // Mapear a memória da VRAM para o espaço de endereço do processo
     video_mem = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
     if (video_mem == MAP_FAILED) {
         panic("couldn't map video memory");
     }
 
-    // Inicializar as variáveis globais de resolução e bits por pixel
     h_res = vmi.XResolution;
     v_res = vmi.YResolution;
     bits_per_pixel = vmi.BitsPerPixel;
@@ -73,7 +70,6 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
         uint32_t pixel_offset = (y * h_res + i) * (bits_per_pixel / 8);
         uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
 
-        // Colorir o pixel
         color_pixel(pixel_ptr, color);
     }
     return 0;
@@ -134,28 +130,34 @@ uint32_t (calculate_direct_color)(uint8_t row, uint8_t col, uint32_t first, uint
 }
 
 int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t *img) {
-    uint8_t *colors = img->bytes;  // Assume que 'bytes' contém a sequência de cores da imagem
+    uint8_t *colors = img->bytes;
 
-    // Itera sobre os pixels da imagem XPM
     for (uint16_t row = 0; row < img->height; row++) {
         for (uint16_t col = 0; col < img->width; col++) {
-            uint32_t color = *colors;  // Pega a cor do pixel
+            uint32_t color = *colors;
 
-            // Calcula as coordenadas do pixel na tela
             uint16_t pixel_x = x + col;
             uint16_t pixel_y = y + row;
 
-            // Verifica se as coordenadas do pixel estão dentro da tela
             if (pixel_x < h_res && pixel_y < v_res) {
                 uint32_t pixel_offset = (pixel_y * h_res + pixel_x) * (bits_per_pixel / 8);
                 uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
 
-                // Chama a função que colore o pixel de acordo com o bits por pixel
                 color_pixel(pixel_ptr, color);
             }
             colors++;
         }
     }
+    return 0;
+}
+
+int (vg_clear_screen)() {
+    if (video_mem == NULL) return 1;
+
+    unsigned int vram_size = h_res * v_res * ((bits_per_pixel + 7) / 8);
+    
+    memset(video_mem, 0, vram_size);
+    
     return 0;
 }
   
