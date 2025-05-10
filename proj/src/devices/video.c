@@ -75,6 +75,16 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     return 0;
 }
 
+int (vg_draw_vline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
+    for(int i=y; i < y+len; i++){
+        uint32_t pixel_offset = (i * h_res + x) * (bits_per_pixel / 8);
+        uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+
+        color_pixel(pixel_ptr, color);
+    }
+    return 0;
+}
+
 int (color_pixel)(uint8_t* pixel_ptr, uint32_t color){
     switch (bits_per_pixel)
     {
