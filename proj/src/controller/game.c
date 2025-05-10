@@ -2,6 +2,7 @@
 
 #include "game.h"
 #include "mouse_controller.h"
+#include "target_controller.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -24,6 +25,8 @@ int (game_init)() {
     crosshair_init(400,300);
 
     draw_crosshair();
+
+    target_controller();
 
     return 0;
 }

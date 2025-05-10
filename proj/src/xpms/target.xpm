@@ -1,0 +1,32 @@
+/* XPM */
+static char *target[] = {
+/* columns rows colors chars-per-pixel */
+"60 20 6 1",
+"  c #000000",
+". c #000000",
+"X c #C00E0E",
+"o c #DEA91A",
+"O c #2582C4",
+"+ c #50A6E4",
+/* pixels */
+"               OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO               ",
+"            OOOOOO++++++++++++++++++++++++OOOOOO            ",
+"         OOOOOO++++++++++++++++++++++++++++++OOOOOO         ",
+"      OOOOOO+++++++++OOOOOOOOOOOOOOOOOO+++++++++OOOOOO      ",
+"   OOOOOO+++++++++OOO++++++++++++++++++OOO+++++++++OOOOOO   ",
+"OOO++++++++++++OOO++++++++++++++++++++++++OOO++++++++++++OOO",
+"OOO+++++++++OOO+++++++++............+++++++++OOO+++++++++OOO",
+"OOO++++++OOO+++++++++...oooooooooooo...+++++++++OOO++++++OOO",
+"OOO++++++OOO++++++...oooooo......oooooo...++++++OOO++++++OOO",
+"OOO++++++OOO++++++...ooo...XXXXXX...ooo...++++++OOO++++++OOO",
+"OOO++++++OOO++++++...ooo...XXXXXX...ooo...++++++OOO++++++OOO",
+"OOO++++++OOO++++++...oooooo......oooooo...++++++OOO++++++OOO",
+"OOO++++++OOO+++++++++...oooooooooooo...+++++++++OOO++++++OOO",
+"OOO+++++++++OOO+++++++++............+++++++++OOO+++++++++OOO",
+"OOO++++++++++++OOO++++++++++++++++++++++++OOO++++++++++++OOO",
+"   OOOOOO+++++++++OOO++++++++++++++++++OOO+++++++++OOOOOO   ",
+"      OOOOOO+++++++++OOOOOOOOOOOOOOOOOO+++++++++OOOOOO      ",
+"         OOOOOO++++++++++++++++++++++++++++++OOOOOO         ",
+"            OOOOOO++++++++++++++++++++++++OOOOOO            ",
+"               OOOOOOOOOOOOOOOOOOOOOOOOOOOOOO               "
+};
