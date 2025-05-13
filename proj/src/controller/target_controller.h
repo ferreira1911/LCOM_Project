@@ -12,6 +12,7 @@ void (target_controller_init)();
 void (target_controller_update)();
 void (target_controller_draw)();
 void (target_controller_reset)();
+bool (target_controller_check_hit)(uint16_t x, uint16_t y, uint16_t width, uint16_t height);
 
 /* bool (target_controller_check_hit)(int16_t x, int16_t y); */
 
