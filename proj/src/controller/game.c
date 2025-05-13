@@ -1,7 +1,8 @@
 #include <lcom/lcf.h>
 
 #include "game.h"
-#include "mouse_controller.h"
+#include "crosshair_controller.h"
+#include "target_controller.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -9,21 +10,32 @@
 #include "devices/mouse.h"
 #include "devices/video.h"
 
-#include "model/crosshair.h"
-
-#include "view/crosshair_view.h"
-
 extern uint8_t scancode;
 extern uint8_t byte_index;
+extern int counter;
+
+extern uint8_t target_hits;
+
+int (draw_elements)() {
+    vg_clear_screen();
+
+    target_controller_draw();
+
+    crosshair_controller_draw();
+    
+    return 0;
+}
 
 int (game_init)() {
     if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
     
     if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
 
-    crosshair_init(400,300);
+    crosshair_controller_init();
+    crosshair_controller_draw();
 
-    draw_crosshair();
+    target_controller_init();
+    target_controller_draw();
 
     return 0;
 }
@@ -48,6 +60,7 @@ int (game_loop)(){
     if (write_mouse_cmd(MOUSE_DATA_REPORT_ENABLE) != 0) return 1;
 
     bool esc_released = false;
+    uint8_t seconds_counter = 0;
 
     while (!esc_released) {
 
@@ -73,10 +86,9 @@ int (game_loop)(){
                   struct packet pp;
                 
                   parse_packet(&pp);
-                  handle_mouse_packet(&pp);
+                  crosshair_controller_update(&pp);
 
-                  vg_clear_screen();
-                  draw_crosshair();
+                  if(draw_elements() != 0) return 1;
                   
                   byte_index = 0;
                 }
@@ -84,6 +96,14 @@ int (game_loop)(){
 
             if (msg.m_notify.interrupts & timer_irq_set) {
                 timer_int_handler();
+                
+                if (counter % 60 == 0) {
+                    seconds_counter++;
+                    if (seconds_counter >= GAME_MODE_1_DURATION) {
+                        esc_released = true;
+                        break;
+                    }
+                }
             }
         }
     }
@@ -98,6 +118,8 @@ int (game_loop)(){
 
 int (game_exit)(){
     if (vg_exit() != 0) return 1;
+
+    printf("Game Over! You hit %d targets in %d seconds\n", target_hits, GAME_MODE_1_DURATION);
 
     return 0;
 }

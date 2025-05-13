@@ -139,12 +139,16 @@ uint32_t (calculate_direct_color)(uint8_t row, uint8_t col, uint32_t first, uint
     return (r << red_pos) | (g << green_pos) | (b << blue_pos);
 }
 
-int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t *img) {
+int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img) {
     uint8_t *colors = img->bytes;
 
     for (uint16_t row = 0; row < img->height; row++) {
         for (uint16_t col = 0; col < img->width; col++) {
-            uint32_t color = *colors;
+            uint8_t r = *colors++; // Extrai o componente vermelho
+            uint8_t g = *colors++; // Extrai o componente verde
+            uint8_t b = *colors++; // Extrai o componente azul
+
+            uint32_t color = (r << 16) | (g << 8) | b; // Cria um valor RGB de 24 bits
 
             uint16_t pixel_x = x + col;
             uint16_t pixel_y = y + row;
@@ -155,7 +159,6 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t *img) {
 
                 color_pixel(pixel_ptr, color);
             }
-            colors++;
         }
     }
     return 0;

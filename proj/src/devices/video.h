@@ -24,7 +24,7 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 int (vg_draw_vline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color);
 int (color_pixel)(uint8_t* pixel_ptr, uint32_t color);
-int (vg_draw_xpm)(uint16_t x, uint16_t y, xpm_image_t *img);
+int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img);
 int (vg_clear_screen)();
 
 uint32_t (calculate_indexed_color)(uint8_t row, uint8_t col, uint32_t first, uint8_t step, uint8_t bits_per_pixel, uint8_t no_rectangles);
