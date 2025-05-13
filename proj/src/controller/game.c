@@ -12,6 +12,9 @@
 
 extern uint8_t scancode;
 extern uint8_t byte_index;
+extern int counter;
+
+extern uint8_t target_hits;
 
 int (draw_elements)() {
     vg_clear_screen();
@@ -57,6 +60,7 @@ int (game_loop)(){
     if (write_mouse_cmd(MOUSE_DATA_REPORT_ENABLE) != 0) return 1;
 
     bool esc_released = false;
+    uint8_t seconds_counter = 0;
 
     while (!esc_released) {
 
@@ -92,6 +96,14 @@ int (game_loop)(){
 
             if (msg.m_notify.interrupts & timer_irq_set) {
                 timer_int_handler();
+                
+                if (counter % 60 == 0) {
+                    seconds_counter++;
+                    if (seconds_counter >= GAME_MODE_1_DURATION) {
+                        esc_released = true;
+                        break;
+                    }
+                }
             }
         }
     }
@@ -106,6 +118,8 @@ int (game_loop)(){
 
 int (game_exit)(){
     if (vg_exit() != 0) return 1;
+
+    printf("Game Over! You hit %d targets in %d seconds\n", target_hits, GAME_MODE_1_DURATION);
 
     return 0;
 }
