@@ -6,18 +6,15 @@
 extern unsigned h_res;
 extern unsigned v_res;
 
-Target create_target(int16_t x, int16_t y, xpm_map_t image){
-    Target target;
-    target.x = x;
-    target.y = y;
+void create_target(Target* target, int16_t x, int16_t y, xpm_map_t image) {
+    target->x = x;
+    target->y = y;
 
-    target.TargetImage.bytes = xpm_load(image, XPM_8_8_8, &target.TargetImage);
-    target.isVisible = true;
+    target->TargetImage.bytes = xpm_load(image, XPM_8_8_8, &target->TargetImage);
+    target->isVisible = true;
 
-    target.width = target.TargetImage.width;
-    target.height = target.TargetImage.height;
-
-    return target;
+    target->width = target->TargetImage.width;
+    target->height = target->TargetImage.height;
 }
 
 void target_update_position(Target *target, int16_t delta_x, int16_t delta_y){
