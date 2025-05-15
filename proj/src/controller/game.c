@@ -3,6 +3,8 @@
 #include "game.h"
 #include "crosshair_controller.h"
 #include "target_controller.h"
+#include "state.h"
+#include "menu.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -125,9 +127,16 @@ int (game_exit)(){
 }
 
 int (game_controller)() {
+
+    game_state = MENU;
+
     if (game_init() != 0) return 1;
 
+    if(menu_loop() != 0) return 1;
+
     if (game_loop() != 0) return 1;
+
+    game_state = GAME_OVER;
 
     if (game_exit() != 0) return 1;
 

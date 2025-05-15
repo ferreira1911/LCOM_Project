@@ -5,6 +5,7 @@
 
 int kbc_hook_id = 0;
 uint8_t scancode;
+bool scancode_ready = false; 
 
 int (kbd_subscribe_int)(uint8_t *bit_no) {
     if (bit_no == NULL) return 1;
@@ -28,6 +29,7 @@ void (kbc_ih)(void) {
     if(read_kbc_cmd(&scancode_temp) != 0) return;
 
     scancode = scancode_temp;
+    scancode_ready = true;
 }
 
 

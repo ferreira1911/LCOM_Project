@@ -37,5 +37,9 @@ void (mouse_ih)();
 void (sync_bytes)();
 void (parse_packet)(struct packet *pp);
 
+bool mouse_packet_ready();
+void get_mouse_packet(struct packet *pp);
+void reset_mouse_packet();
+
 #endif 
 
