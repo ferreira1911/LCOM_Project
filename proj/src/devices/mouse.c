@@ -93,3 +93,16 @@ void (parse_packet)(struct packet *pp) {
         pp->delta_y = packet[2];
     }
 }
+
+bool mouse_packet_ready() {
+    return byte_index == 3;
+}
+
+void get_mouse_packet(struct packet *pp) {
+    parse_packet(pp);
+}
+
+void reset_mouse_packet() {
+    byte_index = 0;
+}
+
