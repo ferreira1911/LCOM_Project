@@ -4,7 +4,7 @@
 #include "crosshair_controller.h"
 #include "target_controller.h"
 #include "state.h"
-#include "menu.h"
+#include "menu_controller.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -29,10 +29,7 @@ int (draw_elements)() {
 }
 
 int (game_init)() {
-    if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
-    
-    if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
-
+    vg_clear_screen();
     crosshair_controller_init();
     crosshair_controller_draw();
 
@@ -127,12 +124,15 @@ int (game_exit)(){
 }
 
 int (game_controller)() {
+    if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
+    
+    if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
 
     game_state = MENU;
 
-    if (game_init() != 0) return 1;
-
     if(menu_loop() != 0) return 1;
+
+    if (game_init() != 0) return 1;
 
     if (game_loop() != 0) return 1;
 

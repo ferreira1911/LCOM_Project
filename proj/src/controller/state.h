@@ -4,9 +4,9 @@
 #include <lcom/lcf.h>
 
 typedef enum {
-    MENU,       ///< Estado inicial, mostra o menu
-    PLAYING,    ///< Estado durante o jogo
-    GAME_OVER   ///< Estado após o fim do jogo
+    MENU,
+    PLAYING,
+    GAME_OVER
 } GameState;
 
 extern GameState game_state;
