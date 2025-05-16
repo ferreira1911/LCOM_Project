@@ -5,6 +5,7 @@
 #include "target_controller.h"
 #include "model/state.h"
 #include "menu_controller.h"
+#include "view/game_view.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -143,6 +144,10 @@ int (game_controller)() {
     if (game_loop() != 0) return 1;
 
     game_state = GAME_OVER;
+
+    draw_game_over_screen(target_hits);
+
+    tickdelay(micros_to_ticks(3000000));
 
     if (game_exit() != 0) return 1;
 

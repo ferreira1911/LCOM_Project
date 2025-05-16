@@ -24,7 +24,7 @@ extern GameState game_state;
 extern Crosshair crosshair;
 
 void (menu_controller_init)() {
-    create_menu_item(&menu_items[0], 250, 100, (xpm_map_t) logo);
+    create_menu_item(&menu_items[0], 125, 100, (xpm_map_t) logo);
     create_menu_item(&menu_items[1], 229, 310, (xpm_map_t) classic);
     create_menu_item(&menu_items[2], 425, 310, (xpm_map_t) falling);
     create_menu_item(&menu_items[3], 229, 414, (xpm_map_t) fly);
