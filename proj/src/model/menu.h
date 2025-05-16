@@ -10,6 +10,6 @@ typedef struct {
     bool isVisible;
 } MenuItem;
 
-void create_menu_item(MenuItem* item, int16_t x, int16_t y, xpm_map_t image);
+void (create_menu_item)(MenuItem* item, int16_t x, int16_t y, xpm_map_t image);
 
 #endif

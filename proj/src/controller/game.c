@@ -3,7 +3,7 @@
 #include "game.h"
 #include "crosshair_controller.h"
 #include "target_controller.h"
-#include "state.h"
+#include "model/state.h"
 #include "menu_controller.h"
 
 #include "devices/i8254.h"
@@ -17,8 +17,9 @@ extern uint8_t byte_index;
 extern int counter;
 
 extern uint8_t target_hits;
+GameState game_state;
 
-int (draw_elements)() {
+int (draw_game_elements)() {
     vg_clear_screen();
 
     target_controller_draw();
@@ -87,7 +88,7 @@ int (game_loop)(){
                   parse_packet(&pp);
                   crosshair_controller_update(&pp);
 
-                  if(draw_elements() != 0) return 1;
+                  if(draw_game_elements() != 0) return 1;
                   
                   byte_index = 0;
                 }
@@ -131,6 +132,11 @@ int (game_controller)() {
     game_state = MENU;
 
     if(menu_loop() != 0) return 1;
+
+    if (game_state == GAME_OVER) {
+        if (vg_exit() != 0) return 1;
+        return 0;
+    }
 
     if (game_init() != 0) return 1;
 

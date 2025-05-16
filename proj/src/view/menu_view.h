@@ -5,6 +5,6 @@
 
 #include "model/menu.h"
 
-void draw_menu_item(const MenuItem *item);
+void (draw_menu_item)(const MenuItem *item);
 
 #endif

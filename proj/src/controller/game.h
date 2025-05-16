@@ -11,6 +11,6 @@ int (game_controller)();
 int (game_init)();
 int (game_loop)();
 int (game_exit)();
-int (draw_elements)();
+int (draw_game_elements)();
 
 #endif

@@ -8,7 +8,7 @@
 #include "model/target.h"
 #include "devices/video.h"
 
-void draw_target(const Target *target){
+void (draw_target)(const Target *target){
     if(target == NULL || !target->isVisible) return;
 
     vg_draw_xpm(target->x, target->y, &target->TargetImage);

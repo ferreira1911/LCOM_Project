@@ -5,7 +5,9 @@
 
 typedef enum {
     MENU,
-    PLAYING,
+    PLAYING_MODE_1,
+    PLAYING_MODE_2,
+    PLAYING_MODE_3,
     GAME_OVER
 } GameState;
 
