@@ -3,9 +3,9 @@
 
 #include <lcom/lcf.h>
 
-#define DIGIT_WIDTH 40
-#define DIGIT_HEIGHT 60
-#define DIGIT_SPACING 5
+#define DIGIT_WIDTH 25
+#define DIGIT_HEIGHT 36
+#define DIGIT_SPACING 0
 
 void draw_number(uint32_t number, int x, int y);
 
