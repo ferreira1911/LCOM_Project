@@ -5,6 +5,6 @@
 
 #include "model/target.h"
 
-void draw_target(const Target *target);
+void (draw_target)(const Target *target);
 
 #endif

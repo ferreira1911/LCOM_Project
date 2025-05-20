@@ -20,7 +20,8 @@ void (target_controller_init)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x = rand() % (h_res - 50); // 50 é uma margem de "segurança"
         int16_t y = rand() % (v_res - 50);
-        targets[i] = create_target(x, y, (xpm_map_t) target);
+        
+        create_target(&targets[i], x, y, (xpm_map_t) target);
     }
 }
 
@@ -29,7 +30,8 @@ void (target_controller_update)() {
         if (!targets[i].isVisible) {
             int16_t x = rand() % (h_res - 50);
             int16_t y = rand() % (v_res - 50);
-            targets[i] = create_target(x, y, (xpm_map_t) target);
+            
+            create_target(&targets[i], x, y, (xpm_map_t) target);
         }
     }
 }

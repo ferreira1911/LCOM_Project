@@ -3,8 +3,9 @@
 #include "game.h"
 #include "crosshair_controller.h"
 #include "target_controller.h"
-#include "state.h"
-#include "menu.h"
+#include "model/state.h"
+#include "menu_controller.h"
+#include "view/game_view.h"
 
 #include "devices/i8254.h"
 #include "devices/kbc.h"
@@ -17,8 +18,9 @@ extern uint8_t byte_index;
 extern int counter;
 
 extern uint8_t target_hits;
+GameState game_state;
 
-int (draw_elements)() {
+int (draw_game_elements)() {
     vg_clear_screen();
 
     target_controller_draw();
@@ -29,10 +31,7 @@ int (draw_elements)() {
 }
 
 int (game_init)() {
-    if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
-    
-    if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
-
+    vg_clear_screen();
     crosshair_controller_init();
     crosshair_controller_draw();
 
@@ -90,7 +89,7 @@ int (game_loop)(){
                   parse_packet(&pp);
                   crosshair_controller_update(&pp);
 
-                  if(draw_elements() != 0) return 1;
+                  if(draw_game_elements() != 0) return 1;
                   
                   byte_index = 0;
                 }
@@ -127,16 +126,28 @@ int (game_exit)(){
 }
 
 int (game_controller)() {
+    if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
+    
+    if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
 
     game_state = MENU;
 
-    if (game_init() != 0) return 1;
-
     if(menu_loop() != 0) return 1;
+
+    if (game_state == GAME_OVER) {
+        if (vg_exit() != 0) return 1;
+        return 0;
+    }
+
+    if (game_init() != 0) return 1;
 
     if (game_loop() != 0) return 1;
 
     game_state = GAME_OVER;
+
+    draw_game_over_screen(target_hits);
+
+    tickdelay(micros_to_ticks(3000000));
 
     if (game_exit() != 0) return 1;
 

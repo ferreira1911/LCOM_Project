@@ -10,9 +10,8 @@ typedef struct {
     bool isVisible;
 } Target;
 
-Target create_target(int16_t x, int16_t y, xpm_map_t image);
-
-void target_update_position(Target *target, int16_t delta_x, int16_t delta_y);
+void (create_target)(Target* target, int16_t x, int16_t y, xpm_map_t image);
+void (target_update_position)(Target *target, int16_t delta_x, int16_t delta_y);
 
 #endif
 

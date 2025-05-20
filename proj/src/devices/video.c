@@ -111,42 +111,14 @@ int (color_pixel)(uint8_t* pixel_ptr, uint32_t color){
     return 0;
 }
 
-uint32_t (calculate_indexed_color)(uint8_t row, uint8_t col, uint32_t first, uint8_t step, uint8_t bits_per_pixel, uint8_t no_rectangles) {
-    return (first + (row * no_rectangles + col) * step) % (1 << bits_per_pixel);
-}
-
-uint32_t (calculate_direct_color)(uint8_t row, uint8_t col, uint32_t first, uint8_t step, vbe_mode_info_t vmi) {
-    // Obtém o tamanho das máscaras de cor
-    uint8_t red_size = vmi.RedMaskSize;
-    uint8_t green_size = vmi.GreenMaskSize;
-    uint8_t blue_size = vmi.BlueMaskSize;
-
-    // Obtém a posição dos bits para cada componente de cor
-    uint8_t red_pos = vmi.RedFieldPosition;
-    uint8_t green_pos = vmi.GreenFieldPosition;
-    uint8_t blue_pos = vmi.BlueFieldPosition;
-
-    // Extrai os componentes de cor (R, G, B) do valor 'first'
-    uint32_t r = ((first >> red_pos) & ((1 << red_size) - 1));
-    uint32_t g = ((first >> green_pos) & ((1 << green_size) - 1));
-    uint32_t b = ((first >> blue_pos) & ((1 << blue_size) - 1));
-
-    // Ajusta a cor com base na posição (coluna, linha) e no 'step'
-    r = (r + col * step) % (1 << red_size);
-    g = (g + row * step) % (1 << green_size);
-    b = (b + (col + row) * step) % (1 << blue_size);
-
-    return (r << red_pos) | (g << green_pos) | (b << blue_pos);
-}
-
 int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img) {
     uint8_t *colors = img->bytes;
 
     for (uint16_t row = 0; row < img->height; row++) {
         for (uint16_t col = 0; col < img->width; col++) {
-            uint8_t r = *colors++; // Extrai o componente vermelho
-            uint8_t g = *colors++; // Extrai o componente verde
             uint8_t b = *colors++; // Extrai o componente azul
+            uint8_t g = *colors++; // Extrai o componente verde
+            uint8_t r = *colors++; // Extrai o componente vermelho
 
             uint32_t color = (r << 16) | (g << 8) | b; // Cria um valor RGB de 24 bits
 
@@ -167,10 +139,16 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img) {
 int (vg_clear_screen)() {
     if (video_mem == NULL) return 1;
 
-    unsigned int vram_size = h_res * v_res * ((bits_per_pixel + 7) / 8);
-    
-    memset(video_mem, 0, vram_size);
-    
+    uint32_t beige_color = (245 << 16) | (245 << 8) | 220; // Nossa cor de fundo : #F5F5DC
+
+    for (unsigned y = 0; y < v_res; y++) {
+        for (unsigned x = 0; x < h_res; x++) {
+            uint32_t offset = (y * h_res + x) * (bits_per_pixel / 8);
+            uint8_t *pixel_ptr = (uint8_t *)video_mem + offset;
+            color_pixel(pixel_ptr, beige_color);
+        }
+    }
+
     return 0;
 }
   

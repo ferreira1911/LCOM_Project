@@ -5,6 +5,6 @@
 
 #define CROSSHAIR_COLOR 0xFF0000 /**< @brief RED */
 
-void draw_crosshair();
+void (draw_crosshair)();
 
 #endif
