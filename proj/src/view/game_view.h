@@ -4,5 +4,6 @@
 #include <lcom/lcf.h>
 
 void (draw_game_over_screen)(uint8_t hits);
+void (draw_timer)(uint8_t seconds);
 
 #endif

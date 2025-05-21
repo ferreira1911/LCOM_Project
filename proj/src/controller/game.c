@@ -38,6 +38,8 @@ int (game_init)() {
     target_controller_init();
     target_controller_draw();
 
+    draw_timer(GAME_MODE_1_DURATION);
+
     return 0;
 }
 
@@ -100,6 +102,7 @@ int (game_loop)(){
                 
                 if (counter % 60 == 0) {
                     seconds_counter++;
+                    draw_timer(GAME_MODE_1_DURATION - seconds_counter);
                     if (seconds_counter >= GAME_MODE_1_DURATION) {
                         esc_released = true;
                         break;

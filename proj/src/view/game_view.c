@@ -5,6 +5,16 @@
 #include "numbers.h"
 
 #include "xpms/logo.xpm"
+#include "xpms/timer.xpm"
+
+void (draw_timer)(uint8_t seconds){
+    xpm_image_t timer_img;
+    timer_img.bytes = xpm_load((xpm_map_t) timer, XPM_8_8_8, &timer_img);
+
+    vg_draw_xpm(10, 10, &timer_img);
+
+    draw_number(seconds, 105, 10);
+}
 
 void (draw_game_over_screen)(uint8_t hits){
     vg_clear_screen();
