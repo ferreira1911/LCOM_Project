@@ -5,9 +5,12 @@
 #include "devices/mouse.h"
 #include "model/crosshair.h"
 #include "target_controller.h"
+#include "model/state.h"
 
 extern Crosshair crosshair;
 extern uint8_t target_hits;
+uint8_t mouse_clicks = 0;
+extern GameState game_state;
 
 void (crosshair_controller_init)() {
     crosshair_init(400, 300);
@@ -17,6 +20,9 @@ void (crosshair_controller_update)(struct packet *pp) {
     crosshair_update_position(pp->delta_x, pp->delta_y);
 
     if(pp->lb){
+        if(game_state != MENU) {
+            mouse_clicks++;
+        }
         if(target_controller_check_hit(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2)) {
             target_hits++;
             target_controller_update();

@@ -21,17 +21,17 @@ extern uint8_t target_hits;
 GameState game_state;
 
 uint8_t seconds_counter = 0;
+extern uint8_t mouse_clicks;
 
 int (draw_game_elements)() {
     vg_clear_screen();
 
     target_controller_draw();
 
-    crosshair_controller_draw();
-
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
     draw_hits(target_hits);
     
+    crosshair_controller_draw();
     return 0;
 }
 
@@ -129,7 +129,8 @@ int (game_exit)(){
     if (vg_exit() != 0) return 1;
 
     printf("Game Over! You hit %d targets in %d seconds\n", target_hits, GAME_MODE_1_DURATION - seconds_counter);
-
+    printf("Mouse clicks: %d\n", mouse_clicks);
+    
     return 0;
 }
 
@@ -153,7 +154,7 @@ int (game_controller)() {
 
     game_state = GAME_OVER;
 
-    draw_game_over_screen(target_hits);
+    draw_game_over_screen(mouse_clicks, target_hits, seconds_counter);
 
     tickdelay(micros_to_ticks(3000000));
 

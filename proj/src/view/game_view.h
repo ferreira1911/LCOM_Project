@@ -3,7 +3,7 @@
 
 #include <lcom/lcf.h>
 
-void (draw_game_over_screen)(uint8_t hits);
+void (draw_game_over_screen)(uint8_t mouse_clicks, uint8_t target_hits, uint8_t seconds);
 void (draw_timer)(uint8_t seconds);
 void (draw_hits)(uint8_t target_hits);
 
