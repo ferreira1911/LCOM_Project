@@ -8,7 +8,6 @@
 #include "view/crosshair_view.h"
 
 
-void (crosshair_controller)(struct packet *pp);
 void (crosshair_controller_init)();
 void (crosshair_controller_update)(struct packet *pp);
 void (crosshair_controller_draw)();

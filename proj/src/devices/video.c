@@ -152,20 +152,4 @@ int (vg_clear_screen)() {
     return 0;
 }
 
-int (vg_clear_area)(uint16_t x, uint16_t y, uint16_t width, uint16_t height) {
-    if (video_mem == NULL) return 1;
-
-    uint32_t beige_color = (245 << 16) | (245 << 8) | 220; // Cor de fundo: #F5F5DC
-
-    for (unsigned row = y; row < y + height && row < v_res; row++) {
-        for (unsigned col = x; col < x + width && col < h_res; col++) {
-            uint32_t offset = (row * h_res + col) * (bits_per_pixel / 8);
-            uint8_t *pixel_ptr = (uint8_t *)video_mem + offset;
-            color_pixel(pixel_ptr, beige_color);
-        }
-    }
-
-    return 0;
-}
-
   

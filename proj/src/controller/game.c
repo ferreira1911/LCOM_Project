@@ -30,6 +30,7 @@ int (draw_game_elements)() {
     crosshair_controller_draw();
 
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
+    draw_hits(target_hits);
     
     return 0;
 }
@@ -43,6 +44,7 @@ int (game_init)() {
     target_controller_draw();
 
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
+    draw_hits(target_hits);
 
     return 0;
 }

@@ -6,6 +6,16 @@
 
 #include "xpms/logo.xpm"
 #include "xpms/timer.xpm"
+#include "xpms/hits.xpm"
+
+void (draw_hits)(uint8_t target_hits){
+    xpm_image_t hits_img;
+    hits_img.bytes = xpm_load((xpm_map_t) hits, XPM_8_8_8, &hits_img);
+
+    vg_draw_xpm(650, 10, &hits_img);
+
+    draw_number(target_hits, 738, 10);
+}
 
 void (draw_timer)(uint8_t seconds){
     xpm_image_t timer_img;
@@ -13,7 +23,7 @@ void (draw_timer)(uint8_t seconds){
 
     vg_draw_xpm(10, 10, &timer_img);
 
-    draw_number(seconds, 105, 10);
+    draw_number(seconds, 115, 10);
 }
 
 void (draw_game_over_screen)(uint8_t hits){

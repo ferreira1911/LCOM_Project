@@ -33,13 +33,3 @@ void (crosshair_controller_draw)(){
 void (crosshair_controller_reset)() {
     crosshair_init(400, 300);
 }
-
-void (crosshair_controller)(struct packet *pp) {
-    crosshair_controller_init();
-
-    crosshair_controller_update(pp);
-
-    crosshair_controller_draw();
-
-    crosshair_controller_reset();
-}
