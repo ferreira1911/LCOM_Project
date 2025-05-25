@@ -20,12 +20,16 @@ extern int counter;
 extern uint8_t target_hits;
 GameState game_state;
 
+uint8_t seconds_counter = 0;
+
 int (draw_game_elements)() {
     vg_clear_screen();
 
     target_controller_draw();
 
     crosshair_controller_draw();
+
+    draw_timer(GAME_MODE_1_DURATION - seconds_counter);
     
     return 0;
 }
@@ -38,7 +42,7 @@ int (game_init)() {
     target_controller_init();
     target_controller_draw();
 
-    draw_timer(GAME_MODE_1_DURATION);
+    draw_timer(GAME_MODE_1_DURATION - seconds_counter);
 
     return 0;
 }
@@ -63,7 +67,6 @@ int (game_loop)(){
     if (write_mouse_cmd(MOUSE_DATA_REPORT_ENABLE) != 0) return 1;
 
     bool esc_released = false;
-    uint8_t seconds_counter = 0;
 
     while (!esc_released) {
 
@@ -102,7 +105,7 @@ int (game_loop)(){
                 
                 if (counter % 60 == 0) {
                     seconds_counter++;
-                    draw_timer(GAME_MODE_1_DURATION - seconds_counter);
+                    if(draw_game_elements() != 0) return 1;
                     if (seconds_counter >= GAME_MODE_1_DURATION) {
                         esc_released = true;
                         break;
@@ -123,7 +126,7 @@ int (game_loop)(){
 int (game_exit)(){
     if (vg_exit() != 0) return 1;
 
-    printf("Game Over! You hit %d targets in %d seconds\n", target_hits, GAME_MODE_1_DURATION);
+    printf("Game Over! You hit %d targets in %d seconds\n", target_hits, GAME_MODE_1_DURATION - seconds_counter);
 
     return 0;
 }

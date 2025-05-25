@@ -72,7 +72,7 @@ void (target_controller_draw)() {
     }
 }
 
-bool (target_controller_check_hit)(uint16_t x, uint16_t y, uint16_t width, uint16_t height) {
+bool (target_controller_check_hit)(uint16_t x, uint16_t y) {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) continue;
 
@@ -81,7 +81,8 @@ bool (target_controller_check_hit)(uint16_t x, uint16_t y, uint16_t width, uint1
         int16_t tw = targets[i].width;
         int16_t th = targets[i].height;
 
-        if (x < tx + tw && x + width > tx &&  y < ty + th && y + height > ty) {
+        // Check if the crosshair is within the target's area
+        if (x >= tx && x < tx + tw && y >= ty && y < ty + th) {
             targets[i].isVisible = false;
             return true;
         }

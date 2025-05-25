@@ -17,7 +17,7 @@ void (crosshair_controller_update)(struct packet *pp) {
     crosshair_update_position(pp->delta_x, pp->delta_y);
 
     if(pp->lb){
-        if(target_controller_check_hit(crosshair.x, crosshair.y, crosshair.width, crosshair.height)){
+        if(target_controller_check_hit(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2)) {
             target_hits++;
             target_controller_update();
         }
