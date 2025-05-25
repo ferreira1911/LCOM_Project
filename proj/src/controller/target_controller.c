@@ -24,7 +24,7 @@ bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t he
 }
 
 
-void (target_controller_init)() {
+void (target_controller_init_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
         generate_random_position_in_game_area(&x, &y);
@@ -33,7 +33,7 @@ void (target_controller_init)() {
     }
 }
 
-void (target_controller_update)() {
+void (target_controller_update_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
@@ -94,16 +94,6 @@ void (target_controller_reset)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         targets[i].isVisible = false;
     }
-}
-
-void (target_controller)() {
-    target_controller_init();
-  
-    target_controller_update();
-  
-    target_controller_draw();
-  
-    target_controller_reset();
 }
 
 

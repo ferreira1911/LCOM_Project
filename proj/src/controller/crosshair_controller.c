@@ -25,7 +25,12 @@ void (crosshair_controller_update)(struct packet *pp) {
         }
         if(target_controller_check_hit(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2)) {
             target_hits++;
-            target_controller_update();
+            if(game_state == PLAYING_MODE_1) {
+                target_controller_update_mode1();
+            }
+            if(game_state == PLAYING_MODE_2) {
+                // target_controller_update_mode2();
+            }
         }
             
     }

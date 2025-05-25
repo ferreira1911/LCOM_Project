@@ -7,9 +7,8 @@
 
 #define MAX_ACTIVE_TARGETS 3 /**< @brief Maximum number of active targets on the screen */
 
-void (target_controller)();
-void (target_controller_init)();
-void (target_controller_update)();
+void (target_controller_init_mode1)();
+void (target_controller_update_mode1)();
 void (target_controller_draw)();
 void (target_controller_reset)();
 bool (target_controller_check_hit)(uint16_t x, uint16_t y);

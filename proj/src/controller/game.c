@@ -40,7 +40,13 @@ int (game_init)() {
     crosshair_controller_init();
     crosshair_controller_draw();
 
-    target_controller_init();
+    if(game_state == PLAYING_MODE_1) {
+        target_controller_init_mode1();
+    } else if (game_state == PLAYING_MODE_2) {
+        // Initialize targets for mode 2
+    } else if (game_state == PLAYING_MODE_3) {
+        // Initialize targets for mode 3
+    }
     target_controller_draw();
 
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
