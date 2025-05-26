@@ -43,7 +43,7 @@ int (game_init)() {
     if(game_state == PLAYING_MODE_1) {
         target_controller_init_mode1();
     } else if (game_state == PLAYING_MODE_2) {
-         target_controller_init_mode2();
+        target_controller_init_mode2();
     } else if (game_state == PLAYING_MODE_3) {
         // Initialize targets for mode 3
     }

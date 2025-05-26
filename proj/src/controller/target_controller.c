@@ -19,9 +19,9 @@ void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
     *y = 40 + rand() % (541 - 40);         // 40 a 540 => 501 valores
 }
 
-void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //change
-    *x = rand() % 726;                     // 0 a 725 => 726 valores
-    *y = 40 + rand() % (541 - 40);         // 40 a 540 => 501 valores
+void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //changed by pedro
+    *x = rand() % 726;     // posição horizontal aleatória entre 0 e 725
+    *y = rand() % 40;      // posição vertical aleatória entre 0 e 39 (topo da tela)
 }
 
 bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t height) {
@@ -41,9 +41,11 @@ void (target_controller_init_mode1)() {
 void (target_controller_init_mode2)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        generate_random_position_in_game_area(&x, &y); //change
+        generate_random_position_in_game_area_mode2(&x, &y); //changed by pedro
         
         create_target(&targets[i], x, y, (xpm_map_t) target);
+
+        targets[i].fall_speed = 2; // Define a velocidade de queda para o modo 2
     }
 }
 
@@ -79,7 +81,7 @@ void (target_controller_update_mode1)() {
 }
 
 
-void (target_controller_update_mode2)() { //change
+void target_controller_update_mode2() { //changed by pedro
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
@@ -90,7 +92,7 @@ void (target_controller_update_mode2)() { //change
             int max_attempts = 100;
 
             while (!valid_position && max_attempts-- > 0) {
-                generate_random_position_in_game_area(&x, &y);
+                generate_random_position_in_game_area_mode2(&x, &y);  // posição no topo
                 valid_position = true;
 
                 for (int j = 0; j < MAX_ACTIVE_TARGETS; j++) {
@@ -103,12 +105,14 @@ void (target_controller_update_mode2)() { //change
                 }
             }
             
-            if(valid_position){
+            if (valid_position) {
                 create_target(&targets[i], x, y, (xpm_map_t) target);
+                targets[i].fall_speed = 2;
             }
         }
     }
 }
+
 
 void (target_controller_draw)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
@@ -141,6 +145,21 @@ void (target_controller_reset)() {
         targets[i].isVisible = false;
     }
 }
+
+
+void target_controller_fall_update() { //changed by pedro
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        if (targets[i].isVisible) {
+            targets[i].y += targets[i].fall_speed;  // move para baixo
+
+            // se sair da tela, desative o alvo
+            if (targets[i].y > v_res) {
+                targets[i].isVisible = false;
+            }
+        }
+    }
+}
+
 
 
 
