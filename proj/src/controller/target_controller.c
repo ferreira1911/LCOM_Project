@@ -33,6 +33,17 @@ void (target_controller_init_mode1)() {
     }
 }
 
+
+void (target_controller_init_mode2)() {
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        int16_t x, y;
+        generate_random_position_in_game_area(&x, &y);
+        
+        create_target(&targets[i], x, y, (xpm_map_t) target);
+    }
+}
+
+
 void (target_controller_update_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
