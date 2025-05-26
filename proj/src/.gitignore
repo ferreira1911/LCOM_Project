@@ -1,3 +1,4 @@
 *.o
 proj
 .gdbinit
+**/.DS_Store
