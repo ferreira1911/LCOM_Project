@@ -29,7 +29,7 @@ void (crosshair_controller_update)(struct packet *pp) {
                 target_controller_update_mode1();
             }
             if(game_state == PLAYING_MODE_2) {
-                // target_controller_update_mode2();
+                target_controller_update_mode2();
             }
         }
             
