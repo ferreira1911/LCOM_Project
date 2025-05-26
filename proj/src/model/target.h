@@ -9,6 +9,8 @@ typedef struct {
     xpm_image_t TargetImage;
     bool isVisible;
     int16_t fall_speed; //changed
+    int16_t move_speed; //changed
+    int direction; //changed, for horizontal movement
 } Target;
 
 void (create_target)(Target* target, int16_t x, int16_t y, xpm_map_t image);

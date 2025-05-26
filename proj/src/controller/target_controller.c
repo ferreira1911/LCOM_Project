@@ -21,7 +21,18 @@ void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
 
 void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //changed by pedro
     *x = rand() % 726;     // posição horizontal aleatória entre 0 e 725
-    *y = 45     // posição vertical aleatória entre 0 e 39 (topo da tela)
+    *y = 45;     // posição vertical aleatória entre 0 e 39 (topo da tela)
+}
+
+void generate_random_position_in_game_area_mode3(int16_t *x, int16_t *y, int *direction) { //changed by pedro
+    *y = 40 + rand() % (541 - 40); // altura aleatória
+    if (rand() % 2 == 0) {
+        *x = 0;        // borda esquerda
+        *direction = 1; // direita
+    } else {
+        *x = 725;      // borda direita
+        *direction = -1; // esquerda
+    }
 }
 
 bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t height) {
@@ -46,6 +57,17 @@ void (target_controller_init_mode2)() {
         create_target(&targets[i], x, y, (xpm_map_t) target);
 
         targets[i].fall_speed = 2; // Define a velocidade de queda para o modo 2
+    }
+}
+
+void target_controller_init_mode3() {
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        int16_t x, y;
+        int direction;
+        generate_random_position_in_game_area_mode3(&x, &y, &direction);
+        create_target(&targets[i], x, y, (xpm_map_t) target);
+        targets[i].move_speed = 4; // velocidade horizontal
+        targets[i].direction = direction; // nova variável: direção horizontal
     }
 }
 
@@ -113,6 +135,40 @@ void target_controller_update_mode2() { //changed by pedro
     }
 }
 
+void target_controller_update_mode3() {
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        if (!targets[i].isVisible) {
+            int16_t x, y;
+            int direction;
+            uint16_t width = targets[i].width;
+            uint16_t height = targets[i].height;
+
+            bool valid_position = false;
+            int max_attempts = 100;
+
+            while (!valid_position && max_attempts-- > 0) {
+                generate_random_position_in_game_area_mode3(&x, &y, &direction);
+                valid_position = true;
+
+                for (int j = 0; j < MAX_ACTIVE_TARGETS; j++) {
+                    if (j == i || !targets[j].isVisible) continue;
+
+                    if (is_overlapping(&targets[j], x, y, width, height)) {
+                        valid_position = false;
+                        break;
+                    }
+                }
+            }
+
+            if (valid_position) {
+                create_target(&targets[i], x, y, (xpm_map_t) target);
+                targets[i].move_speed = 4;
+                targets[i].fall_speed = 1;
+                targets[i].direction = direction;
+            }
+        }
+    }
+}
 
 void (target_controller_draw)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
@@ -154,6 +210,19 @@ void target_controller_fall_update() { //changed by pedro
 
             // se sair da tela, desative o alvo
             if ((int)targets[i].y > (int)v_res) {
+                targets[i].isVisible = false;
+            }
+        }
+    }
+}
+
+void target_controller_horizontal_update() {
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        if (targets[i].isVisible) {
+            targets[i].x += targets[i].move_speed * targets[i].direction;
+            targets[i].y += targets[i].fall_speed; // mantém a velocidade de queda
+            // Se sair do ecrã, torna invisível
+            if (targets[i].x < 0 || targets[i].x > 725) {
                 targets[i].isVisible = false;
             }
         }

@@ -116,6 +116,12 @@ int (game_loop)(){
                     target_controller_update_mode2();
                     draw_game_elements();
                 }
+
+                if (game_state == PLAYING_MODE_3) {
+                    target_controller_horizontal_update();
+                    target_controller_update_mode3();
+                    draw_game_elements();
+                } 
                 
                 if (counter % 60 == 0) {
                     seconds_counter++;
