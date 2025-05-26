@@ -11,6 +11,7 @@ void (target_controller_init_mode1)();
 void (target_controller_init_mode2)();
 void (target_controller_update_mode1)();
 void (target_controller_update_mode2)();
+void (target_controller_fall_update)();
 void (target_controller_draw)();
 void (target_controller_reset)();
 bool (target_controller_check_hit)(uint16_t x, uint16_t y);

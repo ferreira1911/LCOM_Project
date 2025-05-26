@@ -21,7 +21,7 @@ void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
 
 void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //changed by pedro
     *x = rand() % 726;     // posição horizontal aleatória entre 0 e 725
-    *y = rand() % 40;      // posição vertical aleatória entre 0 e 39 (topo da tela)
+    *y = 45     // posição vertical aleatória entre 0 e 39 (topo da tela)
 }
 
 bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t height) {
@@ -107,7 +107,7 @@ void target_controller_update_mode2() { //changed by pedro
             
             if (valid_position) {
                 create_target(&targets[i], x, y, (xpm_map_t) target);
-                targets[i].fall_speed = 2;
+                targets[i].fall_speed = 4;
             }
         }
     }
@@ -153,7 +153,7 @@ void target_controller_fall_update() { //changed by pedro
             targets[i].y += targets[i].fall_speed;  // move para baixo
 
             // se sair da tela, desative o alvo
-            if (targets[i].y > v_res) {
+            if ((int)targets[i].y > (int)v_res) {
                 targets[i].isVisible = false;
             }
         }

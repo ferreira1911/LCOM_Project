@@ -110,6 +110,12 @@ int (game_loop)(){
 
             if (msg.m_notify.interrupts & timer_irq_set) {
                 timer_int_handler();
+
+                if (game_state == PLAYING_MODE_2) {
+                    target_controller_fall_update();
+                    target_controller_update_mode2();
+                    draw_game_elements();
+                }
                 
                 if (counter % 60 == 0) {
                     seconds_counter++;
