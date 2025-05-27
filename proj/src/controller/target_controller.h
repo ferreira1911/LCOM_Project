@@ -7,6 +7,7 @@
 
 #define MAX_ACTIVE_TARGETS 3 /**< @brief Maximum number of active targets on the screen */
 
+void (target_controller_clear_targets)();
 void (target_controller_init_mode1)();
 void (target_controller_init_mode2)();
 void (target_controller_init_mode3)();

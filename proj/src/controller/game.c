@@ -174,14 +174,14 @@ int (game_controller)() {
 
         if (game_loop() != 0) return 1;
 
-        // Se saiu do game_loop (ESC), mostra tela de game over e volta ao menu
         draw_game_over_screen(mouse_clicks, target_hits, seconds_counter);
         tickdelay(micros_to_ticks(3000000));
 
         target_hits = 0;
-        target_fails = 0;
+        target_fails = -1;
         mouse_clicks = 0;
         seconds_counter = 0;
+        target_controller_clear_targets();
 
         game_state = MENU;
     }

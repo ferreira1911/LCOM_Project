@@ -15,6 +15,12 @@ Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
 uint8_t target_fails = -1;
 
+void target_controller_clear_targets() {
+    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+        memset(&targets[i], 0, sizeof(Target));
+    }
+}
+
 void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
     *x = rand() % 726;
     *y = 40 + rand() % (541 - 40);
@@ -242,9 +248,8 @@ void target_controller_horizontal_update() {
             targets[i].x += targets[i].move_speed * targets[i].direction;
             targets[i].y += targets[i].fall_speed; // mantém a velocidade de queda
             // Se sair do ecrã, torna invisível
-            if (targets[i].x < 0 || targets[i].x > 725) {
+            if (targets[i].x < -100 || targets[i].x > 800 || targets[i].y > 650 || targets[i].y < 40) {
                 targets[i].isVisible = false;
-                target_fails++;
             }
         }
     }
