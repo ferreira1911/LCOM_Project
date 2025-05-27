@@ -25,7 +25,7 @@ void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //cha
 }
 
 void generate_random_position_in_game_area_mode3(int16_t *x, int16_t *y, int *direction) { //changed by pedro
-    *y = 40 + rand() % (541 - 40); // altura aleatória
+    *y = 40 + rand() % (400 - 40); // altura aleatória
     if (rand() % 2 == 0) {
         *x = 0;        // borda esquerda
         *direction = 1; // direita
