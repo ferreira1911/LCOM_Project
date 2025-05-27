@@ -15,23 +15,23 @@ Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
 
 void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
-    *x = rand() % 726;                     // 0 a 725 => 726 valores
-    *y = 40 + rand() % (541 - 40);         // 40 a 540 => 501 valores
+    *x = rand() % 726;
+    *y = 40 + rand() % (541 - 40);
 }
 
-void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) { //changed by pedro
-    *x = rand() % 726;     // posição horizontal aleatória entre 0 e 725
-    *y = 45;     // posição vertical aleatória entre 0 e 39 (topo da tela)
+void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) {
+    *x = rand() % 726;
+    *y = 45;
 }
 
 void generate_random_position_in_game_area_mode3(int16_t *x, int16_t *y, int *direction) { //changed by pedro
     *y = 40 + rand() % (400 - 40); // altura aleatória
     if (rand() % 2 == 0) {
-        *x = 0;        // borda esquerda
-        *direction = 1; // direita
+        *x = 0;
+        *direction = 1;
     } else {
-        *x = 725;      // borda direita
-        *direction = -1; // esquerda
+        *x = 725;
+        *direction = -1;
     }
 }
 
@@ -52,11 +52,11 @@ void (target_controller_init_mode1)() {
 void (target_controller_init_mode2)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        generate_random_position_in_game_area_mode2(&x, &y); //changed by pedro
+        generate_random_position_in_game_area_mode2(&x, &y);
         
         create_target(&targets[i], x, y, (xpm_map_t) target);
 
-        targets[i].fall_speed = 2; // Define a velocidade de queda para o modo 2
+        targets[i].fall_speed = 2;
     }
 }
 
@@ -66,8 +66,8 @@ void target_controller_init_mode3() {
         int direction;
         generate_random_position_in_game_area_mode3(&x, &y, &direction);
         create_target(&targets[i], x, y, (xpm_map_t) target);
-        targets[i].move_speed = 4; // velocidade horizontal
-        targets[i].direction = direction; // nova variável: direção horizontal
+        targets[i].move_speed = 4;
+        targets[i].direction = direction;
     }
 }
 
@@ -114,7 +114,7 @@ void target_controller_update_mode2() { //changed by pedro
             int max_attempts = 100;
 
             while (!valid_position && max_attempts-- > 0) {
-                generate_random_position_in_game_area_mode2(&x, &y);  // posição no topo
+                generate_random_position_in_game_area_mode2(&x, &y);
                 valid_position = true;
 
                 for (int j = 0; j < MAX_ACTIVE_TARGETS; j++) {
@@ -187,7 +187,6 @@ bool (target_controller_check_hit)(uint16_t x, uint16_t y) {
         int16_t tw = targets[i].width;
         int16_t th = targets[i].height;
 
-        // Check if the crosshair is within the target's area
         if (x >= tx && x < tx + tw && y >= ty && y < ty + th) {
             targets[i].isVisible = false;
             return true;
@@ -203,12 +202,11 @@ void (target_controller_reset)() {
 }
 
 
-void target_controller_fall_update() { //changed by pedro
+void target_controller_fall_update() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (targets[i].isVisible) {
-            targets[i].y += targets[i].fall_speed;  // move para baixo
+            targets[i].y += targets[i].fall_speed;
 
-            // se sair da tela, desative o alvo
             if ((int)targets[i].y > (int)v_res) {
                 targets[i].isVisible = false;
             }
