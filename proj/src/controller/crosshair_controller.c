@@ -23,13 +23,17 @@ void (crosshair_controller_update)(struct packet *pp) {
         if(game_state != MENU) {
             mouse_clicks++;
         }
-        if(target_controller_check_hit(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2)) {
+        bool hit = false;
+        if (game_state == PLAYING_MODE_3) {
+            hit = target_controller_check_hit_mode3(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2);
+        }
+        else {
+            hit = target_controller_check_hit(crosshair.x + crosshair.width / 2, crosshair.y + crosshair.height / 2);
+        }
+        if(hit) {
             target_hits++;
             if(game_state == PLAYING_MODE_1) {
                 target_controller_update_mode1();
-            }
-            if(game_state == PLAYING_MODE_2) {
-                target_controller_update_mode2();
             }
         }
             

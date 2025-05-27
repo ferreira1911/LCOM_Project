@@ -22,6 +22,7 @@ GameState game_state;
 
 uint8_t seconds_counter = 0;
 extern uint8_t mouse_clicks;
+extern uint8_t target_fails;
 
 int (draw_game_elements)() {
     vg_clear_screen();
@@ -30,6 +31,7 @@ int (draw_game_elements)() {
 
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
     draw_hits(target_hits);
+    draw_fails(target_fails);
     
     crosshair_controller_draw();
     return 0;
@@ -51,6 +53,7 @@ int (game_init)() {
 
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
     draw_hits(target_hits);
+    draw_fails(target_fails);
 
     return 0;
 }

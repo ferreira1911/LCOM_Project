@@ -9,6 +9,7 @@
 #include "xpms/hits.xpm"
 #include "xpms/accuracy.xpm"
 #include "xpms/numbers/percentage.xpm"
+#include "xpms/fail.xpm"
 
 void (draw_hits)(uint8_t target_hits){
     xpm_image_t hits_img;
@@ -61,4 +62,14 @@ void (draw_game_over_screen)(uint8_t mouse_clicks, uint8_t target_hits, uint8_t 
 
     uint16_t per_x = (accuracy_value < 10) ? 460 - 28 : 460;
     vg_draw_xpm(per_x, 360, &percentage_img);
+}
+
+
+void (draw_fails)(uint8_t target_fails){
+    xpm_image_t fail_img;
+    fail_img.bytes = xpm_load((xpm_map_t) fail, XPM_8_8_8, &fail_img);
+
+    vg_draw_xpm(350, 10, &fail_img);
+
+    draw_number(target_fails, 415, 10);
 }

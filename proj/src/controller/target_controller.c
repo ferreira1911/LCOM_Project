@@ -13,6 +13,7 @@ extern unsigned v_res;
 
 Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
+uint8_t target_fails = -1;
 
 void generate_random_position_in_game_area(int16_t *x, int16_t *y) {
     *x = rand() % 726;
@@ -136,7 +137,7 @@ void target_controller_update_mode2() { //changed by pedro
 }
 
 void target_controller_update_mode3() {
-    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
+    for (int i = 0; i < 1; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
             int direction;
@@ -150,7 +151,7 @@ void target_controller_update_mode3() {
                 generate_random_position_in_game_area_mode3(&x, &y, &direction);
                 valid_position = true;
 
-                for (int j = 0; j < MAX_ACTIVE_TARGETS; j++) {
+                for (int j = 0; j < 1; j++) {
                     if (j == i || !targets[j].isVisible) continue;
 
                     if (is_overlapping(&targets[j], x, y, width, height)) {
@@ -162,8 +163,8 @@ void target_controller_update_mode3() {
 
             if (valid_position) {
                 create_target(&targets[i], x, y, (xpm_map_t) target);
-                targets[i].move_speed = 4;
-                targets[i].fall_speed = 1;
+                targets[i].move_speed = rand() % 8 + 3; // velocidade de movimento aleatória entre 8 e 3
+                targets[i].fall_speed = rand() % 3 + 1; // velocidade de queda aleatória entre 1 e 3
                 targets[i].direction = direction;
             }
         }
@@ -192,6 +193,27 @@ bool (target_controller_check_hit)(uint16_t x, uint16_t y) {
             return true;
         }
     }
+    target_fails++;
+    return false;
+}
+
+bool target_controller_check_hit_mode3(uint16_t x, uint16_t y) {
+    for (int i = 0; i < 1; i++) { // modo 3 só tem 1 alvo
+        if (!targets[i].isVisible) continue;
+
+        int16_t tx = targets[i].x;
+        int16_t ty = targets[i].y;
+        int16_t tw = targets[i].width;
+        int16_t th = targets[i].height;
+
+        if (x >= tx && x < tx + tw && y >= ty && y < ty + th) {
+            targets[i].isVisible = false;
+            return true;
+        }
+    }
+    // Se não acertou, incrementa e torna o alvo invisível
+    target_fails++;
+    targets[0].isVisible = false;
     return false;
 }
 
@@ -222,6 +244,7 @@ void target_controller_horizontal_update() {
             // Se sair do ecrã, torna invisível
             if (targets[i].x < 0 || targets[i].x > 725) {
                 targets[i].isVisible = false;
+                target_fails++;
             }
         }
     }
