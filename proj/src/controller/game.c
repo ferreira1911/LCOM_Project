@@ -91,6 +91,7 @@ int (game_loop)(){
   
                 if (scancode == ESC_BREAKCODE) {
                     esc_released = true;
+                    game_state = MENU;
                     break;
                 }
             }
@@ -157,29 +158,33 @@ int (game_exit)(){
 
 int (game_controller)() {
     if (frame_buffer_init(VBE_GAME_MODE) != 0) return 1;
-    
     if (vbe_set_mode(VBE_GAME_MODE) != 0) return 1;
 
     game_state = MENU;
 
-    if(menu_loop() != 0) return 1;
+    while (1) {
+        if(menu_loop() != 0) return 1;
 
-    if (game_state == GAME_OVER) {
-        if (vg_exit() != 0) return 1;
-        return 0;
+        if (game_state == GAME_OVER) {
+            if (vg_exit() != 0) return 1;
+            return 0;
+        }
+
+        if (game_init() != 0) return 1;
+
+        if (game_loop() != 0) return 1;
+
+        // Se saiu do game_loop (ESC), mostra tela de game over e volta ao menu
+        draw_game_over_screen(mouse_clicks, target_hits, seconds_counter);
+        tickdelay(micros_to_ticks(3000000));
+
+        target_hits = 0;
+        target_fails = 0;
+        mouse_clicks = 0;
+        seconds_counter = 0;
+
+        game_state = MENU;
     }
-
-    if (game_init() != 0) return 1;
-
-    if (game_loop() != 0) return 1;
-
-    game_state = GAME_OVER;
-
-    draw_game_over_screen(mouse_clicks, target_hits, seconds_counter);
-
-    tickdelay(micros_to_ticks(3000000));
-
-    if (game_exit() != 0) return 1;
 
     return 0;
 }
