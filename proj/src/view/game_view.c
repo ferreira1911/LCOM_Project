@@ -64,7 +64,14 @@ void (draw_game_over_screen)(uint8_t mouse_clicks, uint8_t target_hits, uint8_t 
     xpm_image_t percentage_img;
     percentage_img.bytes = xpm_load((xpm_map_t) percentage, XPM_8_8_8, &percentage_img);
 
-    uint16_t per_x = (accuracy_value < 10) ? 460 - 28 : 460;
+    uint16_t per_x;
+    if (accuracy_value < 10)
+        per_x = 460 - 28;
+    else if (accuracy_value < 100)
+        per_x = 460;
+    else
+        per_x = 460 + 28;
+    
     vg_draw_xpm(per_x, 360, &percentage_img);
 }
 
