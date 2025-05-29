@@ -3,6 +3,10 @@
 
 #include <lcom/lcf.h>
 
+/**
+ * @enum GameState
+ * @brief Represents the different states of the game.
+ */
 typedef enum {
     MENU,
     PLAYING_MODE_1,
