@@ -3,6 +3,7 @@
 #include "game_view.h"
 #include "devices/video.h"
 #include "numbers.h"
+#include "model/state.h"
 
 #include "xpms/logo.xpm"
 #include "xpms/timer.xpm"
@@ -10,6 +11,9 @@
 #include "xpms/accuracy.xpm"
 #include "xpms/numbers/percentage.xpm"
 #include "xpms/fail.xpm"
+#include "xpms/lost.xpm"
+
+extern GameState game_state;
 
 void (draw_hits)(uint8_t target_hits){
     xpm_image_t hits_img;
@@ -69,7 +73,24 @@ void (draw_fails)(uint8_t target_fails){
     xpm_image_t fail_img;
     fail_img.bytes = xpm_load((xpm_map_t) fail, XPM_8_8_8, &fail_img);
 
-    vg_draw_xpm(350, 10, &fail_img);
+    if(game_state == PLAYING_MODE_1){
+        vg_draw_xpm(350, 10, &fail_img);
 
-    draw_number(target_fails, 415, 10);
+        draw_number(target_fails, 420, 10);
+    }
+    else{    
+        vg_draw_xpm(285, 10, &fail_img);
+
+        draw_number(target_fails, 350, 10);
+    }
 }
+
+void (draw_losses)(uint8_t target_losses){
+    xpm_image_t lost_img;
+    lost_img.bytes = xpm_load((xpm_map_t) lost, XPM_8_8_8, &lost_img);
+
+    vg_draw_xpm(430, 10, &lost_img);
+
+    draw_number(target_losses, 490, 10);
+}
+

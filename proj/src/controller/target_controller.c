@@ -14,6 +14,7 @@ extern unsigned v_res;
 Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
 uint8_t target_fails = -1;
+uint8_t target_losses = 0; 
 
 void target_controller_clear_targets() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
@@ -31,8 +32,8 @@ void generate_random_position_in_game_area_mode2(int16_t *x, int16_t *y) {
     *y = 45;
 }
 
-void generate_random_position_in_game_area_mode3(int16_t *x, int16_t *y, int *direction) { //changed by pedro
-    *y = 40 + rand() % (400 - 40); // altura aleatória
+void generate_random_position_in_game_area_mode3(int16_t *x, int16_t *y, int *direction) { 
+    *y = 40 + rand() % (400 - 40);
     if (rand() % 2 == 0) {
         *x = 0;
         *direction = 1;
@@ -50,20 +51,61 @@ bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t he
 void (target_controller_init_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        generate_random_position_in_game_area(&x, &y);
-        
-        create_target(&targets[i], x, y, (xpm_map_t) target);
+        uint16_t width = targets[i].width;
+        uint16_t height = targets[i].height;
+
+        bool valid_position = false;
+        int max_attempts = 100;
+
+        while (!valid_position && max_attempts-- > 0) {
+            generate_random_position_in_game_area(&x, &y);
+            valid_position = true;
+
+            for (int j = 0; j < i; j++) {
+                if (!targets[j].isVisible) continue;
+                if (is_overlapping(&targets[j], x, y, width, height)) {
+                    valid_position = false;
+                    break;
+                }
+            }
+        }
+
+        if (valid_position) {
+            create_target(&targets[i], x, y, (xpm_map_t) target);
+        } else {
+            targets[i].isVisible = false;
+        }
     }
 }
 
 void (target_controller_init_mode2)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        generate_random_position_in_game_area_mode2(&x, &y);
-        
-        create_target(&targets[i], x, y, (xpm_map_t) target);
+        uint16_t width = targets[i].width;
+        uint16_t height = targets[i].height;
 
-        targets[i].fall_speed = 2;
+        bool valid_position = false;
+        int max_attempts = 100;
+
+        while (!valid_position && max_attempts-- > 0) {
+            generate_random_position_in_game_area_mode2(&x, &y);
+            valid_position = true;
+
+            for (int j = 0; j < i; j++) {
+                if (!targets[j].isVisible) continue;
+                if (is_overlapping(&targets[j], x, y, width, height)) {
+                    valid_position = false;
+                    break;
+                }
+            }
+        }
+
+        if (valid_position) {
+            create_target(&targets[i], x, y, (xpm_map_t) target);
+            targets[i].fall_speed = 2;
+        } else {
+            targets[i].isVisible = false;
+        }
     }
 }
 
@@ -71,10 +113,32 @@ void target_controller_init_mode3() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
         int direction;
-        generate_random_position_in_game_area_mode3(&x, &y, &direction);
-        create_target(&targets[i], x, y, (xpm_map_t) target);
-        targets[i].move_speed = 4;
-        targets[i].direction = direction;
+        uint16_t width = targets[i].width;
+        uint16_t height = targets[i].height;
+
+        bool valid_position = false;
+        int max_attempts = 100;
+
+        while (!valid_position && max_attempts-- > 0) {
+            generate_random_position_in_game_area_mode3(&x, &y, &direction);
+            valid_position = true;
+
+            for (int j = 0; j < i; j++) {
+                if (!targets[j].isVisible) continue;
+                if (is_overlapping(&targets[j], x, y, width, height)) {
+                    valid_position = false;
+                    break;
+                }
+            }
+        }
+
+        if (valid_position) {
+            create_target(&targets[i], x, y, (xpm_map_t) target);
+            targets[i].move_speed = 4;
+            targets[i].direction = direction;
+        } else {
+            targets[i].isVisible = false;
+        }
     }
 }
 
@@ -110,7 +174,7 @@ void (target_controller_update_mode1)() {
 }
 
 
-void target_controller_update_mode2() { //changed by pedro
+void target_controller_update_mode2() { 
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
@@ -237,6 +301,7 @@ void target_controller_fall_update() {
 
             if ((int)targets[i].y > (int)v_res) {
                 targets[i].isVisible = false;
+                target_losses++;
             }
         }
     }
@@ -250,6 +315,7 @@ void target_controller_horizontal_update() {
             // Se sair do ecrã, torna invisível
             if (targets[i].x < -100 || targets[i].x > 800 || targets[i].y > 650 || targets[i].y < 40) {
                 targets[i].isVisible = false;
+                target_losses++;
             }
         }
     }
