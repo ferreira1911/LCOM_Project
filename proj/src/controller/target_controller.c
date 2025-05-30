@@ -13,7 +13,7 @@ extern unsigned v_res;
 
 Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
-uint8_t target_fails = -1;
+uint8_t target_fails = 0;
 uint8_t target_losses = 0; 
 
 void target_controller_clear_targets() {

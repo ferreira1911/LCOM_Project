@@ -43,6 +43,12 @@ int (draw_game_elements)() {
 }
 
 int (game_init)() {
+    target_hits = 0;
+    target_fails = 0;
+    target_losses = 0;
+    mouse_clicks = 0;
+    seconds_counter = 0;
+
     vg_clear_screen();
     crosshair_controller_init();
     crosshair_controller_draw();
@@ -51,8 +57,6 @@ int (game_init)() {
         target_controller_init_mode1();
     } else if (game_state == PLAYING_MODE_2) {
         target_controller_init_mode2();
-    } else if (game_state == PLAYING_MODE_3) {
-        // Initialize targets for mode 3
     }
     target_controller_draw();
 
@@ -183,11 +187,6 @@ int (game_controller)() {
         draw_game_over_screen(mouse_clicks, target_hits, seconds_counter);
         tickdelay(micros_to_ticks(3000000));
 
-        target_hits = 0;
-        target_fails = -1;
-        target_losses = 0;
-        mouse_clicks = 0;
-        seconds_counter = 0;
         target_controller_clear_targets();
 
         game_state = MENU;
