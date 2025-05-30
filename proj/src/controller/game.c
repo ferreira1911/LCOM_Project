@@ -63,7 +63,9 @@ int (game_init)() {
     draw_timer(GAME_MODE_1_DURATION - seconds_counter);
     draw_hits(target_hits);
     draw_fails(target_fails);
-    draw_losses(target_losses);
+    if(game_state != PLAYING_MODE_1) {
+        draw_losses(target_losses);
+    }
 
     return 0;
 }

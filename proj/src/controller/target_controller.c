@@ -51,8 +51,8 @@ bool is_overlapping(Target *a, int16_t x, int16_t y, uint16_t width, uint16_t he
 void (target_controller_init_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        uint16_t width = targets[i].width;
-        uint16_t height = targets[i].height;
+        uint16_t width = TARGET_WIDTH;
+        uint16_t height = TARGET_HEIGHT;
 
         bool valid_position = false;
         int max_attempts = 100;
@@ -81,8 +81,8 @@ void (target_controller_init_mode1)() {
 void (target_controller_init_mode2)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
-        uint16_t width = targets[i].width;
-        uint16_t height = targets[i].height;
+        uint16_t width = TARGET_WIDTH;
+        uint16_t height = TARGET_HEIGHT;
 
         bool valid_position = false;
         int max_attempts = 100;
@@ -113,8 +113,8 @@ void target_controller_init_mode3() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         int16_t x, y;
         int direction;
-        uint16_t width = targets[i].width;
-        uint16_t height = targets[i].height;
+        uint16_t width = TARGET_WIDTH;
+        uint16_t height = TARGET_HEIGHT;
 
         bool valid_position = false;
         int max_attempts = 100;
@@ -146,8 +146,8 @@ void (target_controller_update_mode1)() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
-            uint16_t width = targets[i].width;
-            uint16_t height = targets[i].height;
+            uint16_t width = TARGET_WIDTH;
+            uint16_t height = TARGET_HEIGHT;
 
             bool valid_position = false;
             int max_attempts = 100;
@@ -178,8 +178,8 @@ void target_controller_update_mode2() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (!targets[i].isVisible) {
             int16_t x, y;
-            uint16_t width = targets[i].width;
-            uint16_t height = targets[i].height;
+            uint16_t width = TARGET_WIDTH;
+            uint16_t height = TARGET_HEIGHT;
 
             bool valid_position = false;
             int max_attempts = 100;
@@ -211,8 +211,8 @@ void target_controller_update_mode3() {
         if (!targets[i].isVisible) {
             int16_t x, y;
             int direction;
-            uint16_t width = targets[i].width;
-            uint16_t height = targets[i].height;
+            uint16_t width = TARGET_WIDTH;
+            uint16_t height = TARGET_HEIGHT;
 
             bool valid_position = false;
             int max_attempts = 100;

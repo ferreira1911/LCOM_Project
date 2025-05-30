@@ -6,6 +6,8 @@
 #include "model/target.h"
 
 #define MAX_ACTIVE_TARGETS 3 /**< @brief Maximum number of active targets on the screen */
+#define TARGET_WIDTH 75 /**< @brief Width of the target */
+#define TARGET_HEIGHT 60 /**< @brief Height of the target */
 
 void (target_controller_clear_targets)();
 void (target_controller_init_mode1)();
