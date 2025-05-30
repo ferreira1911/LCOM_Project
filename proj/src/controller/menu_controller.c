@@ -37,12 +37,15 @@ void (menu_controller_draw)() {
         if (menu_items[i].isVisible)
             draw_menu_item(&menu_items[i]);
     }
+
 }
 
 int (draw_menu_elements)() {
     vg_clear_screen();
     menu_controller_draw();
     crosshair_controller_draw();
+
+    swap_buffers();
     return 0;
 }
 
@@ -68,9 +71,8 @@ int menu_controller_check_click(int x, int y) {
 int (menu_loop)() {
     menu_controller_init();
     crosshair_controller_init();
-    vg_clear_screen();
-    menu_controller_draw();
-    crosshair_controller_draw();
+    
+    draw_menu_elements();
 
 
     uint8_t kbd_bit_no = 1;

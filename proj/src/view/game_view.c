@@ -15,6 +15,14 @@
 
 extern GameState game_state;
 
+extern char *video_mem;
+
+extern unsigned h_res;
+extern unsigned v_res;
+extern unsigned bits_per_pixel;
+
+extern char* double_buffer;
+
 void (draw_hits)(uint8_t target_hits){
     xpm_image_t hits_img;
     hits_img.bytes = xpm_load((xpm_map_t) hits, XPM_8_8_8, &hits_img);
@@ -73,6 +81,8 @@ void (draw_game_over_screen)(uint8_t mouse_clicks, uint8_t target_hits, uint8_t 
         per_x = 460 + 28;
     
     vg_draw_xpm(per_x, 360, &percentage_img);
+
+    swap_buffers();
 }
 
 

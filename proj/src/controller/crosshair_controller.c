@@ -45,6 +45,7 @@ void (crosshair_controller_update)(struct packet *pp) {
 
 void (crosshair_controller_draw)(){
     draw_crosshair(crosshair.x, crosshair.y, crosshair.width, crosshair.height);
+    
 }
 
 void (crosshair_controller_reset)() {

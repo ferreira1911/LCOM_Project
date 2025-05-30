@@ -9,6 +9,8 @@ unsigned h_res;
 unsigned v_res;
 unsigned bits_per_pixel;
 
+char* double_buffer = NULL;
+
 int (vbe_set_mode)(uint16_t mode){
     reg86_t r86;
 
@@ -51,6 +53,11 @@ int (frame_buffer_init)(uint16_t mode) {
         panic("couldn't map video memory");
     }
 
+    double_buffer = (char*) malloc(vram_size);
+    if (double_buffer == NULL) {
+        panic("couldn't allocate memory for double buffer");
+    }
+
     h_res = vmi.XResolution;
     v_res = vmi.YResolution;
     bits_per_pixel = vmi.BitsPerPixel;
@@ -68,7 +75,7 @@ int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height,
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     for(int i=x; i < x+len; i++){
         uint32_t pixel_offset = (y * h_res + i) * (bits_per_pixel / 8);
-        uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+        uint8_t* pixel_ptr = (uint8_t*) double_buffer + pixel_offset;
 
         color_pixel(pixel_ptr, color);
     }
@@ -78,7 +85,7 @@ int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
 int (vg_draw_vline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     for(int i=y; i < y+len; i++){
         uint32_t pixel_offset = (i * h_res + x) * (bits_per_pixel / 8);
-        uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+        uint8_t* pixel_ptr = (uint8_t*) double_buffer + pixel_offset;
 
         color_pixel(pixel_ptr, color);
     }
@@ -127,7 +134,7 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img) {
 
             if (pixel_x < h_res && pixel_y < v_res) {
                 uint32_t pixel_offset = (pixel_y * h_res + pixel_x) * (bits_per_pixel / 8);
-                uint8_t* pixel_ptr = (uint8_t*) video_mem + pixel_offset;
+                uint8_t* pixel_ptr = (uint8_t*) double_buffer + pixel_offset;
 
                 color_pixel(pixel_ptr, color);
             }
@@ -137,19 +144,24 @@ int (vg_draw_xpm)(uint16_t x, uint16_t y, const xpm_image_t *img) {
 }
 
 int (vg_clear_screen)() {
-    if (video_mem == NULL) return 1;
+    if (double_buffer == NULL) return 1;
 
     uint32_t beige_color = (245 << 16) | (245 << 8) | 220; // Nossa cor de fundo : #F5F5DC
 
     for (unsigned y = 0; y < v_res; y++) {
         for (unsigned x = 0; x < h_res; x++) {
             uint32_t offset = (y * h_res + x) * (bits_per_pixel / 8);
-            uint8_t *pixel_ptr = (uint8_t *)video_mem + offset;
+            uint8_t *pixel_ptr = (uint8_t *)double_buffer + offset;
             color_pixel(pixel_ptr, beige_color);
         }
     }
 
     return 0;
 }
+
+void (swap_buffers)() {
+    memcpy(video_mem, double_buffer, h_res * v_res * (bits_per_pixel / 8));
+}
+
 
   

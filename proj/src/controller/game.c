@@ -39,6 +39,8 @@ int (draw_game_elements)() {
     }
     
     crosshair_controller_draw();
+
+    swap_buffers();
     return 0;
 }
 
@@ -49,23 +51,15 @@ int (game_init)() {
     mouse_clicks = 0;
     seconds_counter = 0;
 
-    vg_clear_screen();
     crosshair_controller_init();
-    crosshair_controller_draw();
 
     if(game_state == PLAYING_MODE_1) {
         target_controller_init_mode1();
     } else if (game_state == PLAYING_MODE_2) {
         target_controller_init_mode2();
     }
-    target_controller_draw();
 
-    draw_timer(GAME_MODE_1_DURATION - seconds_counter);
-    draw_hits(target_hits);
-    draw_fails(target_fails);
-    if(game_state != PLAYING_MODE_1) {
-        draw_losses(target_losses);
-    }
+    draw_game_elements();
 
     return 0;
 }
