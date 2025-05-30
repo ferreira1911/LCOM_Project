@@ -1,6 +1,7 @@
 #include <lcom/lcf.h>
 
 #include "target_controller.h"
+#include "view/game_view.h"
 
 #include "model/target.h"
 #include "view/target_view.h"
@@ -14,7 +15,10 @@ extern unsigned v_res;
 Target targets[MAX_ACTIVE_TARGETS]; /**< @brief Array of targets */
 uint8_t target_hits = 0; /**< @brief Number of targets hit */
 uint8_t target_fails = 0;
-uint8_t target_losses = 0; 
+uint8_t target_losses = 0;
+
+bool show_warning = false;
+int warning_timer = 0;
 
 void target_controller_clear_targets() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
@@ -264,6 +268,8 @@ bool (target_controller_check_hit)(uint16_t x, uint16_t y) {
         }
     }
     target_fails++;
+    show_warning = true;
+    warning_timer = 30; 
     return false;
 }
 
@@ -281,9 +287,10 @@ bool target_controller_check_hit_mode3(uint16_t x, uint16_t y) {
             return true;
         }
     }
-    // Se não acertou, incrementa e torna o alvo invisível
     target_fails++;
     targets[0].isVisible = false;
+    show_warning = true;
+    warning_timer = 30; 
     return false;
 }
 

@@ -12,6 +12,7 @@
 #include "xpms/numbers/percentage.xpm"
 #include "xpms/fail.xpm"
 #include "xpms/lost.xpm"
+#include "xpms/you_fail.xpm"
 
 extern GameState game_state;
 
@@ -111,3 +112,9 @@ void (draw_losses)(uint8_t target_losses){
     draw_number(target_losses, 490, 10);
 }
 
+void (draw_warning)() {
+    xpm_image_t you_fail_img;
+    you_fail_img.bytes = xpm_load((xpm_map_t) you_fail, XPM_8_8_8, &you_fail_img);
+
+    vg_draw_xpm(340, 45, &you_fail_img);
+}

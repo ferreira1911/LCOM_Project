@@ -43,5 +43,6 @@ void (draw_hits)(uint8_t target_hits);
  */
 void (draw_fails)(uint8_t target_fails);
 void (draw_losses)(uint8_t target_losses);
+void (draw_warning)();
 
 #endif

@@ -24,6 +24,9 @@ uint8_t seconds_counter = 0;
 extern uint8_t mouse_clicks;
 extern uint8_t target_fails;
 extern uint8_t target_losses;
+extern bool show_warning;
+extern int warning_timer;
+
 
 int (draw_game_elements)() {
     vg_clear_screen();
@@ -40,6 +43,12 @@ int (draw_game_elements)() {
     
     crosshair_controller_draw();
 
+    if (show_warning) {
+        draw_warning();
+        warning_timer--;
+        if (warning_timer <= 0) show_warning = false;
+    }
+
     swap_buffers();
     return 0;
 }
@@ -50,6 +59,8 @@ int (game_init)() {
     target_losses = 0;
     mouse_clicks = 0;
     seconds_counter = 0;
+    show_warning = false;
+    warning_timer = 0;
 
     crosshair_controller_init();
 

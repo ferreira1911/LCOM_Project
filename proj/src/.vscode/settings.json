@@ -8,6 +8,7 @@
   "editor.wordWrapColumn": 100,
   "files.associations": {
     "*.xpm": "c",
-    "video.h": "c"
+    "video.h": "c",
+    "crosshair_view.h": "c"
   },
 }
