@@ -1,0 +1,348 @@
+\doxysection{target\+\_\+controller.\+c File Reference}
+\hypertarget{target__controller_8c}{}\label{target__controller_8c}\index{target\_controller.c@{target\_controller.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}target\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}view/game\+\_\+view.\+h"{}}\newline
+{\ttfamily \#include "{}model/target.\+h"{}}\newline
+{\ttfamily \#include "{}view/target\+\_\+view.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+{\ttfamily \#include "{}xpms/target.\+xpm"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{target__controller_8c_a76a327b536cf10226f6f7fcbc2e897fd}{target\+\_\+controller\+\_\+clear\+\_\+targets}} ()
+\begin{DoxyCompactList}\small\item\em Clears all targets (sets them to invisible and resets their data). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a417b71e004395b7afefdb4dc6733c13e}{generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y)
+\begin{DoxyCompactList}\small\item\em Generates a random position inside the game area (used in mode 1). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_afcf2c04abca937f5cb779b90d89365a1}{generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area\+\_\+mode2}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y)
+\begin{DoxyCompactList}\small\item\em Generates a random top position for falling targets (mode 2). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a5bbbb40cd51bf1bfba7c3d18832190ca}{generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area\+\_\+mode3}} (int16\+\_\+t \texorpdfstring{$\ast$}{*}x, int16\+\_\+t \texorpdfstring{$\ast$}{*}y, int \texorpdfstring{$\ast$}{*}direction)
+\begin{DoxyCompactList}\small\item\em Generates a random position and direction for targets in mode 3. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{target__controller_8c_a1d594ca1abde546804126e2196be96fa}{is\+\_\+overlapping}} (\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}a, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height)
+\begin{DoxyCompactList}\small\item\em Checks if a new target at position (x, y) overlaps with an existing target. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_ae1aa99d6f4b2fcc7ecbf3cdaa3af861e}{target\+\_\+controller\+\_\+init\+\_\+mode1}} ()
+\begin{DoxyCompactList}\small\item\em Initializes targets for mode 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a53acf60a54472d43bebf92b6d15cc525}{target\+\_\+controller\+\_\+init\+\_\+mode2}} ()
+\begin{DoxyCompactList}\small\item\em Initializes targets for mode 2 (falling from the top). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a8bb0dc9b4c225975869258ddc28f0f73}{target\+\_\+controller\+\_\+init\+\_\+mode3}} ()
+\begin{DoxyCompactList}\small\item\em Initializes targets for mode 3 (horizontal movement with falling). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a40e5898c51bee01ccc1c129d273bd680}{target\+\_\+controller\+\_\+update\+\_\+mode1}} ()
+\begin{DoxyCompactList}\small\item\em Updates the state of targets in mode 1 (respawn after hit or timeout). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a12131b116d7fc69de85aa6557d47fd0a}{target\+\_\+controller\+\_\+update\+\_\+mode2}} ()
+\begin{DoxyCompactList}\small\item\em Updates the state of targets in mode 2 (falling vertically). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_ad58f5a5b64f33fe5725ddea16269fb51}{target\+\_\+controller\+\_\+update\+\_\+mode3}} ()
+\begin{DoxyCompactList}\small\item\em Updates the state of targets in mode 3 (horizontal + vertical movement). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_a017eb4194cc5d0794482bdb2497fccb3}{target\+\_\+controller\+\_\+draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws all visible targets on the screen. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{target__controller_8c_aede1d7032f9237a36e42c88a1de49037}{target\+\_\+controller\+\_\+check\+\_\+hit}} (uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Checks if a given coordinate (x, y) hits any target. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{target__controller_8c_a8258e4260d4270f51a0a85f8f728fd85}{target\+\_\+controller\+\_\+check\+\_\+hit\+\_\+mode3}} (uint16\+\_\+t x, uint16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Checks if a given coordinate (x, y) hits the target in mode 3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_ab1aa37764e6c6c46ad36f72c78c257e7}{target\+\_\+controller\+\_\+fall\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Updates the falling motion of targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{target__controller_8c_aa3d4c8018c7208f9032166701fa9b1a0}{target\+\_\+controller\+\_\+horizontal\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em Updates horizontal and vertical movement of targets. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{target__controller_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}{h\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{target__controller_8c_a5bda1b499253a8fbf3cab646f8760391}{v\+\_\+res}}
+\item 
+\mbox{\hyperlink{struct_target}{Target}} \mbox{\hyperlink{target__controller_8c_a3c4bdf322d9594b5b01638dce73f2bdb}{targets}} \mbox{[}\mbox{\hyperlink{target__controller_8h_ab8e11f79ecbfe0f6bca244d29529451e}{MAX\+\_\+\+ACTIVE\+\_\+\+TARGETS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Array of targets. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{target__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}} = 0
+\begin{DoxyCompactList}\small\item\em Number of targets hit. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{target__controller_8c_a3f65ef594c14698c361291ecab93d206}{target\+\_\+fails}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{target__controller_8c_ac6345261bfc5ca0d9b467ffbfb041427}{target\+\_\+losses}} = 0
+\item 
+bool \mbox{\hyperlink{target__controller_8c_a49b688fda1029c38e6f613e2fc81fa24}{show\+\_\+warning}} = false
+\item 
+int \mbox{\hyperlink{target__controller_8c_a056a15c44fa8c41e65ba8f875a047975}{warning\+\_\+timer}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{target__controller_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{target__controller_8c_a417b71e004395b7afefdb4dc6733c13e}\index{target\_controller.c@{target\_controller.c}!generate\_random\_position\_in\_game\_area@{generate\_random\_position\_in\_game\_area}}
+\index{generate\_random\_position\_in\_game\_area@{generate\_random\_position\_in\_game\_area}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_position\_in\_game\_area()}{generate\_random\_position\_in\_game\_area()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a417b71e004395b7afefdb4dc6733c13e} 
+void generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area (\begin{DoxyParamCaption}\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{x}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Generates a random position inside the game area (used in mode 1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pointer to store the generated x coordinate. \\
+\hline
+{\em y} & Pointer to store the generated y coordinate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{target__controller_8c_afcf2c04abca937f5cb779b90d89365a1}\index{target\_controller.c@{target\_controller.c}!generate\_random\_position\_in\_game\_area\_mode2@{generate\_random\_position\_in\_game\_area\_mode2}}
+\index{generate\_random\_position\_in\_game\_area\_mode2@{generate\_random\_position\_in\_game\_area\_mode2}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_position\_in\_game\_area\_mode2()}{generate\_random\_position\_in\_game\_area\_mode2()}}
+{\footnotesize\ttfamily \label{target__controller_8c_afcf2c04abca937f5cb779b90d89365a1} 
+void generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area\+\_\+mode2 (\begin{DoxyParamCaption}\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{x}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Generates a random top position for falling targets (mode 2). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pointer to store the generated x coordinate. \\
+\hline
+{\em y} & Pointer to store the generated y coordinate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{target__controller_8c_a5bbbb40cd51bf1bfba7c3d18832190ca}\index{target\_controller.c@{target\_controller.c}!generate\_random\_position\_in\_game\_area\_mode3@{generate\_random\_position\_in\_game\_area\_mode3}}
+\index{generate\_random\_position\_in\_game\_area\_mode3@{generate\_random\_position\_in\_game\_area\_mode3}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_position\_in\_game\_area\_mode3()}{generate\_random\_position\_in\_game\_area\_mode3()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a5bbbb40cd51bf1bfba7c3d18832190ca} 
+void generate\+\_\+random\+\_\+position\+\_\+in\+\_\+game\+\_\+area\+\_\+mode3 (\begin{DoxyParamCaption}\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{x}{, }\item[{int16\+\_\+t \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Generates a random position and direction for targets in mode 3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Pointer to store the generated x coordinate. \\
+\hline
+{\em y} & Pointer to store the generated y coordinate. \\
+\hline
+{\em direction} & Pointer to store the movement direction (1\+: right, -\/1\+: left). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{target__controller_8c_a1d594ca1abde546804126e2196be96fa}\index{target\_controller.c@{target\_controller.c}!is\_overlapping@{is\_overlapping}}
+\index{is\_overlapping@{is\_overlapping}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{is\_overlapping()}{is\_overlapping()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a1d594ca1abde546804126e2196be96fa} 
+bool is\+\_\+overlapping (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}}]{a}{, }\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{width}{, }\item[{uint16\+\_\+t}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a new target at position (x, y) overlaps with an existing target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Pointer to the existing target. \\
+\hline
+{\em x} & X coordinate of the new target. \\
+\hline
+{\em y} & Y coordinate of the new target. \\
+\hline
+{\em width} & Width of the new target. \\
+\hline
+{\em height} & Height of the new target. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the new target overlaps the existing one, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{target__controller_8c_aede1d7032f9237a36e42c88a1de49037}\index{target\_controller.c@{target\_controller.c}!target\_controller\_check\_hit@{target\_controller\_check\_hit}}
+\index{target\_controller\_check\_hit@{target\_controller\_check\_hit}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_check\_hit()}{target\_controller\_check\_hit()}}
+{\footnotesize\ttfamily \label{target__controller_8c_aede1d7032f9237a36e42c88a1de49037} 
+bool target\+\_\+controller\+\_\+check\+\_\+hit (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a given coordinate (x, y) hits any target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the click. \\
+\hline
+{\em y} & The y coordinate of the click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a target was hit, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{target__controller_8c_a8258e4260d4270f51a0a85f8f728fd85}\index{target\_controller.c@{target\_controller.c}!target\_controller\_check\_hit\_mode3@{target\_controller\_check\_hit\_mode3}}
+\index{target\_controller\_check\_hit\_mode3@{target\_controller\_check\_hit\_mode3}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_check\_hit\_mode3()}{target\_controller\_check\_hit\_mode3()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a8258e4260d4270f51a0a85f8f728fd85} 
+bool target\+\_\+controller\+\_\+check\+\_\+hit\+\_\+mode3 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a given coordinate (x, y) hits the target in mode 3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The x coordinate of the click. \\
+\hline
+{\em y} & The y coordinate of the click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the target was hit, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{target__controller_8c_a76a327b536cf10226f6f7fcbc2e897fd}\index{target\_controller.c@{target\_controller.c}!target\_controller\_clear\_targets@{target\_controller\_clear\_targets}}
+\index{target\_controller\_clear\_targets@{target\_controller\_clear\_targets}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_clear\_targets()}{target\_controller\_clear\_targets()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a76a327b536cf10226f6f7fcbc2e897fd} 
+void target\+\_\+controller\+\_\+clear\+\_\+targets (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all targets (sets them to invisible and resets their data). 
+
+\Hypertarget{target__controller_8c_a017eb4194cc5d0794482bdb2497fccb3}\index{target\_controller.c@{target\_controller.c}!target\_controller\_draw@{target\_controller\_draw}}
+\index{target\_controller\_draw@{target\_controller\_draw}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_draw()}{target\_controller\_draw()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a017eb4194cc5d0794482bdb2497fccb3} 
+void target\+\_\+controller\+\_\+draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws all visible targets on the screen. 
+
+\Hypertarget{target__controller_8c_ab1aa37764e6c6c46ad36f72c78c257e7}\index{target\_controller.c@{target\_controller.c}!target\_controller\_fall\_update@{target\_controller\_fall\_update}}
+\index{target\_controller\_fall\_update@{target\_controller\_fall\_update}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_fall\_update()}{target\_controller\_fall\_update()}}
+{\footnotesize\ttfamily \label{target__controller_8c_ab1aa37764e6c6c46ad36f72c78c257e7} 
+void target\+\_\+controller\+\_\+fall\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the falling motion of targets. 
+
+\Hypertarget{target__controller_8c_aa3d4c8018c7208f9032166701fa9b1a0}\index{target\_controller.c@{target\_controller.c}!target\_controller\_horizontal\_update@{target\_controller\_horizontal\_update}}
+\index{target\_controller\_horizontal\_update@{target\_controller\_horizontal\_update}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_horizontal\_update()}{target\_controller\_horizontal\_update()}}
+{\footnotesize\ttfamily \label{target__controller_8c_aa3d4c8018c7208f9032166701fa9b1a0} 
+void target\+\_\+controller\+\_\+horizontal\+\_\+update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates horizontal and vertical movement of targets. 
+
+\Hypertarget{target__controller_8c_ae1aa99d6f4b2fcc7ecbf3cdaa3af861e}\index{target\_controller.c@{target\_controller.c}!target\_controller\_init\_mode1@{target\_controller\_init\_mode1}}
+\index{target\_controller\_init\_mode1@{target\_controller\_init\_mode1}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_init\_mode1()}{target\_controller\_init\_mode1()}}
+{\footnotesize\ttfamily \label{target__controller_8c_ae1aa99d6f4b2fcc7ecbf3cdaa3af861e} 
+void target\+\_\+controller\+\_\+init\+\_\+mode1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes targets for mode 1. 
+
+\Hypertarget{target__controller_8c_a53acf60a54472d43bebf92b6d15cc525}\index{target\_controller.c@{target\_controller.c}!target\_controller\_init\_mode2@{target\_controller\_init\_mode2}}
+\index{target\_controller\_init\_mode2@{target\_controller\_init\_mode2}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_init\_mode2()}{target\_controller\_init\_mode2()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a53acf60a54472d43bebf92b6d15cc525} 
+void target\+\_\+controller\+\_\+init\+\_\+mode2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes targets for mode 2 (falling from the top). 
+
+\Hypertarget{target__controller_8c_a8bb0dc9b4c225975869258ddc28f0f73}\index{target\_controller.c@{target\_controller.c}!target\_controller\_init\_mode3@{target\_controller\_init\_mode3}}
+\index{target\_controller\_init\_mode3@{target\_controller\_init\_mode3}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_init\_mode3()}{target\_controller\_init\_mode3()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a8bb0dc9b4c225975869258ddc28f0f73} 
+void target\+\_\+controller\+\_\+init\+\_\+mode3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes targets for mode 3 (horizontal movement with falling). 
+
+\Hypertarget{target__controller_8c_a40e5898c51bee01ccc1c129d273bd680}\index{target\_controller.c@{target\_controller.c}!target\_controller\_update\_mode1@{target\_controller\_update\_mode1}}
+\index{target\_controller\_update\_mode1@{target\_controller\_update\_mode1}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_update\_mode1()}{target\_controller\_update\_mode1()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a40e5898c51bee01ccc1c129d273bd680} 
+void target\+\_\+controller\+\_\+update\+\_\+mode1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the state of targets in mode 1 (respawn after hit or timeout). 
+
+\Hypertarget{target__controller_8c_a12131b116d7fc69de85aa6557d47fd0a}\index{target\_controller.c@{target\_controller.c}!target\_controller\_update\_mode2@{target\_controller\_update\_mode2}}
+\index{target\_controller\_update\_mode2@{target\_controller\_update\_mode2}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_update\_mode2()}{target\_controller\_update\_mode2()}}
+{\footnotesize\ttfamily \label{target__controller_8c_a12131b116d7fc69de85aa6557d47fd0a} 
+void target\+\_\+controller\+\_\+update\+\_\+mode2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the state of targets in mode 2 (falling vertically). 
+
+\Hypertarget{target__controller_8c_ad58f5a5b64f33fe5725ddea16269fb51}\index{target\_controller.c@{target\_controller.c}!target\_controller\_update\_mode3@{target\_controller\_update\_mode3}}
+\index{target\_controller\_update\_mode3@{target\_controller\_update\_mode3}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_controller\_update\_mode3()}{target\_controller\_update\_mode3()}}
+{\footnotesize\ttfamily \label{target__controller_8c_ad58f5a5b64f33fe5725ddea16269fb51} 
+void target\+\_\+controller\+\_\+update\+\_\+mode3 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Updates the state of targets in mode 3 (horizontal + vertical movement). 
+
+
+
+\label{doc-var-members}
+\Hypertarget{target__controller_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{target__controller_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}\index{target\_controller.c@{target\_controller.c}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily \label{target__controller_8c_a43e7e5a0a8f9069e6413b2066ca52f3e} 
+unsigned h\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{target__controller_8c_a49b688fda1029c38e6f613e2fc81fa24}\index{target\_controller.c@{target\_controller.c}!show\_warning@{show\_warning}}
+\index{show\_warning@{show\_warning}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{show\_warning}{show\_warning}}
+{\footnotesize\ttfamily \label{target__controller_8c_a49b688fda1029c38e6f613e2fc81fa24} 
+bool show\+\_\+warning = false}
+
+\Hypertarget{target__controller_8c_a3f65ef594c14698c361291ecab93d206}\index{target\_controller.c@{target\_controller.c}!target\_fails@{target\_fails}}
+\index{target\_fails@{target\_fails}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_fails}{target\_fails}}
+{\footnotesize\ttfamily \label{target__controller_8c_a3f65ef594c14698c361291ecab93d206} 
+uint8\+\_\+t target\+\_\+fails = 0}
+
+\Hypertarget{target__controller_8c_a27e109f52105b239cd461fae194cb931}\index{target\_controller.c@{target\_controller.c}!target\_hits@{target\_hits}}
+\index{target\_hits@{target\_hits}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_hits}{target\_hits}}
+{\footnotesize\ttfamily \label{target__controller_8c_a27e109f52105b239cd461fae194cb931} 
+uint8\+\_\+t target\+\_\+hits = 0}
+
+
+
+Number of targets hit. 
+
+\Hypertarget{target__controller_8c_ac6345261bfc5ca0d9b467ffbfb041427}\index{target\_controller.c@{target\_controller.c}!target\_losses@{target\_losses}}
+\index{target\_losses@{target\_losses}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_losses}{target\_losses}}
+{\footnotesize\ttfamily \label{target__controller_8c_ac6345261bfc5ca0d9b467ffbfb041427} 
+uint8\+\_\+t target\+\_\+losses = 0}
+
+\Hypertarget{target__controller_8c_a3c4bdf322d9594b5b01638dce73f2bdb}\index{target\_controller.c@{target\_controller.c}!targets@{targets}}
+\index{targets@{targets}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{targets}{targets}}
+{\footnotesize\ttfamily \label{target__controller_8c_a3c4bdf322d9594b5b01638dce73f2bdb} 
+\mbox{\hyperlink{struct_target}{Target}} targets\mbox{[}\mbox{\hyperlink{target__controller_8h_ab8e11f79ecbfe0f6bca244d29529451e}{MAX\+\_\+\+ACTIVE\+\_\+\+TARGETS}}\mbox{]}}
+
+
+
+Array of targets. 
+
+\Hypertarget{target__controller_8c_a5bda1b499253a8fbf3cab646f8760391}\index{target\_controller.c@{target\_controller.c}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily \label{target__controller_8c_a5bda1b499253a8fbf3cab646f8760391} 
+unsigned v\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{target__controller_8c_a056a15c44fa8c41e65ba8f875a047975}\index{target\_controller.c@{target\_controller.c}!warning\_timer@{warning\_timer}}
+\index{warning\_timer@{warning\_timer}!target\_controller.c@{target\_controller.c}}
+\doxysubsubsection{\texorpdfstring{warning\_timer}{warning\_timer}}
+{\footnotesize\ttfamily \label{target__controller_8c_a056a15c44fa8c41e65ba8f875a047975} 
+int warning\+\_\+timer = 0}
+

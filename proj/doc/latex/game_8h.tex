@@ -1,0 +1,128 @@
+\doxysection{game.\+h File Reference}
+\hypertarget{game_8h}{}\label{game_8h}\index{game.h@{game.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{game_8h_a4bd01ba99caed1f376eda774e290eba3}{VBE\+\_\+\+GAME\+\_\+\+MODE}}~0x115
+\begin{DoxyCompactList}\small\item\em 800x600 -\/ Direct Color -\/ 24 (8\+:8\+:8) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{game_8h_a910ed40cc9ffc0409b4d448c514f2f28}{GAME\+\_\+\+MODE\+\_\+1\+\_\+\+DURATION}}~30
+\begin{DoxyCompactList}\small\item\em Duration of game mode 1 in seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game_8h_ace843de16cbda4204489f2bfa387c34c}{game\+\_\+controller}} ()
+\begin{DoxyCompactList}\small\item\em Main controller function for the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_a47d86c55c1bc9d2a93df0b9476c4d630}{game\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes game resources and resets state for a new session. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_a04e415c2c57bcb7efab2055169302eed}{game\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_abc1fb57f21dfdfe8414ed5ff0c744a10}{game\+\_\+exit}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up and exits the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_a99a267e0549de96c12d18f0e765f7167}{draw\+\_\+game\+\_\+elements}} ()
+\begin{DoxyCompactList}\small\item\em Draws all current game elements to the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{game_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{game_8h_a910ed40cc9ffc0409b4d448c514f2f28}\index{game.h@{game.h}!GAME\_MODE\_1\_DURATION@{GAME\_MODE\_1\_DURATION}}
+\index{GAME\_MODE\_1\_DURATION@{GAME\_MODE\_1\_DURATION}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{GAME\_MODE\_1\_DURATION}{GAME\_MODE\_1\_DURATION}}
+{\footnotesize\ttfamily \label{game_8h_a910ed40cc9ffc0409b4d448c514f2f28} 
+\#define GAME\+\_\+\+MODE\+\_\+1\+\_\+\+DURATION~30}
+
+
+
+Duration of game mode 1 in seconds. 
+
+\Hypertarget{game_8h_a4bd01ba99caed1f376eda774e290eba3}\index{game.h@{game.h}!VBE\_GAME\_MODE@{VBE\_GAME\_MODE}}
+\index{VBE\_GAME\_MODE@{VBE\_GAME\_MODE}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{VBE\_GAME\_MODE}{VBE\_GAME\_MODE}}
+{\footnotesize\ttfamily \label{game_8h_a4bd01ba99caed1f376eda774e290eba3} 
+\#define VBE\+\_\+\+GAME\+\_\+\+MODE~0x115}
+
+
+
+800x600 -\/ Direct Color -\/ 24 (8\+:8\+:8) 
+
+
+
+\label{doc-func-members}
+\Hypertarget{game_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{game_8h_a99a267e0549de96c12d18f0e765f7167}\index{game.h@{game.h}!draw\_game\_elements@{draw\_game\_elements}}
+\index{draw\_game\_elements@{draw\_game\_elements}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_elements()}{draw\_game\_elements()}}
+{\footnotesize\ttfamily \label{game_8h_a99a267e0549de96c12d18f0e765f7167} 
+int draw\+\_\+game\+\_\+elements (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws all current game elements to the screen. 
+
+Includes targets, timer, hit/fail counters, crosshair, and optional warning messages.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8h_ace843de16cbda4204489f2bfa387c34c}\index{game.h@{game.h}!game\_controller@{game\_controller}}
+\index{game\_controller@{game\_controller}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_controller()}{game\_controller()}}
+{\footnotesize\ttfamily \label{game_8h_ace843de16cbda4204489f2bfa387c34c} 
+int game\+\_\+controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main controller function for the game. 
+
+Initializes the frame buffer, enters the main loop alternating between the menu and gameplay.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8h_abc1fb57f21dfdfe8414ed5ff0c744a10}\index{game.h@{game.h}!game\_exit@{game\_exit}}
+\index{game\_exit@{game\_exit}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_exit()}{game\_exit()}}
+{\footnotesize\ttfamily \label{game_8h_abc1fb57f21dfdfe8414ed5ff0c744a10} 
+int game\+\_\+exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Cleans up and exits the game. 
+
+Displays game statistics and frees video memory.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8h_a47d86c55c1bc9d2a93df0b9476c4d630}\index{game.h@{game.h}!game\_init@{game\_init}}
+\index{game\_init@{game\_init}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_init()}{game\_init()}}
+{\footnotesize\ttfamily \label{game_8h_a47d86c55c1bc9d2a93df0b9476c4d630} 
+int game\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes game resources and resets state for a new session. 
+
+Resets counters, initializes targets and crosshair based on the game mode.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8h_a04e415c2c57bcb7efab2055169302eed}\index{game.h@{game.h}!game\_loop@{game\_loop}}
+\index{game\_loop@{game\_loop}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{game\_loop()}{game\_loop()}}
+{\footnotesize\ttfamily \label{game_8h_a04e415c2c57bcb7efab2055169302eed} 
+int game\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop. 
+
+Handles timer, keyboard, and mouse interrupts. Updates the game state, renders elements, and checks for timeout or exit conditions.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}

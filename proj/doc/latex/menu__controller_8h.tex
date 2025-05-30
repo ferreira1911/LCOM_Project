@@ -1,0 +1,110 @@
+\doxysection{menu\+\_\+controller.\+h File Reference}
+\hypertarget{menu__controller_8h}{}\label{menu__controller_8h}\index{menu\_controller.h@{menu\_controller.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}model/menu.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{menu__controller_8h_a40fa5a9b5252d792b8fab08a31d8b9cc}{NUM\+\_\+\+MENU\+\_\+\+ITEMS}}~5
+\begin{DoxyCompactList}\small\item\em Total number of menu items. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu__controller_8h_aabd8ae44d41b9b6a2da04e36793e5dfd}{menu\+\_\+controller\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes all the menu items with their respective positions and images. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{menu__controller_8h_a46c44badcf62486774068ed9c900d80c}{menu\+\_\+controller\+\_\+draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws all visible menu items on the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__controller_8h_afd7981c8544caa64d14e2aed014840b1}{draw\+\_\+menu\+\_\+elements}} ()
+\begin{DoxyCompactList}\small\item\em Clears the screen, draws the menu and the crosshair, and swaps the buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__controller_8h_ab54a0466cb96a06a901b961225ffb6a0}{menu\+\_\+controller\+\_\+check\+\_\+click}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Checks if a given (x, y) coordinate hits any clickable menu item. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{menu__controller_8h_a723f15e7b045c3cb03909f674ac02c46}{menu\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em Main loop of the menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{menu__controller_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{menu__controller_8h_a40fa5a9b5252d792b8fab08a31d8b9cc}\index{menu\_controller.h@{menu\_controller.h}!NUM\_MENU\_ITEMS@{NUM\_MENU\_ITEMS}}
+\index{NUM\_MENU\_ITEMS@{NUM\_MENU\_ITEMS}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_MENU\_ITEMS}{NUM\_MENU\_ITEMS}}
+{\footnotesize\ttfamily \label{menu__controller_8h_a40fa5a9b5252d792b8fab08a31d8b9cc} 
+\#define NUM\+\_\+\+MENU\+\_\+\+ITEMS~5}
+
+
+
+Total number of menu items. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{menu__controller_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{menu__controller_8h_afd7981c8544caa64d14e2aed014840b1}\index{menu\_controller.h@{menu\_controller.h}!draw\_menu\_elements@{draw\_menu\_elements}}
+\index{draw\_menu\_elements@{draw\_menu\_elements}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{draw\_menu\_elements()}{draw\_menu\_elements()}}
+{\footnotesize\ttfamily \label{menu__controller_8h_afd7981c8544caa64d14e2aed014840b1} 
+int draw\+\_\+menu\+\_\+elements (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the screen, draws the menu and the crosshair, and swaps the buffer. 
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{menu__controller_8h_ab54a0466cb96a06a901b961225ffb6a0}\index{menu\_controller.h@{menu\_controller.h}!menu\_controller\_check\_click@{menu\_controller\_check\_click}}
+\index{menu\_controller\_check\_click@{menu\_controller\_check\_click}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{menu\_controller\_check\_click()}{menu\_controller\_check\_click()}}
+{\footnotesize\ttfamily \label{menu__controller_8h_ab54a0466cb96a06a901b961225ffb6a0} 
+int menu\+\_\+controller\+\_\+check\+\_\+click (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a given (x, y) coordinate hits any clickable menu item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of the click. \\
+\hline
+{\em y} & Y coordinate of the click. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the clicked menu item or 0 if none. 
+\end{DoxyReturn}
+\Hypertarget{menu__controller_8h_a46c44badcf62486774068ed9c900d80c}\index{menu\_controller.h@{menu\_controller.h}!menu\_controller\_draw@{menu\_controller\_draw}}
+\index{menu\_controller\_draw@{menu\_controller\_draw}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{menu\_controller\_draw()}{menu\_controller\_draw()}}
+{\footnotesize\ttfamily \label{menu__controller_8h_a46c44badcf62486774068ed9c900d80c} 
+void menu\+\_\+controller\+\_\+draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws all visible menu items on the screen. 
+
+Should be called after initializing the menu items. \Hypertarget{menu__controller_8h_aabd8ae44d41b9b6a2da04e36793e5dfd}\index{menu\_controller.h@{menu\_controller.h}!menu\_controller\_init@{menu\_controller\_init}}
+\index{menu\_controller\_init@{menu\_controller\_init}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{menu\_controller\_init()}{menu\_controller\_init()}}
+{\footnotesize\ttfamily \label{menu__controller_8h_aabd8ae44d41b9b6a2da04e36793e5dfd} 
+void menu\+\_\+controller\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes all the menu items with their respective positions and images. 
+
+This function must be called before rendering or interacting with the menu. \Hypertarget{menu__controller_8h_a723f15e7b045c3cb03909f674ac02c46}\index{menu\_controller.h@{menu\_controller.h}!menu\_loop@{menu\_loop}}
+\index{menu\_loop@{menu\_loop}!menu\_controller.h@{menu\_controller.h}}
+\doxysubsubsection{\texorpdfstring{menu\_loop()}{menu\_loop()}}
+{\footnotesize\ttfamily \label{menu__controller_8h_a723f15e7b045c3cb03909f674ac02c46} 
+int menu\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main loop of the menu. 
+
+Handles keyboard and mouse events to navigate the menu and select game modes.
+
+\begin{DoxyReturn}{Returns}
+0 on successful transition to game or quit, 1 on error. 
+\end{DoxyReturn}

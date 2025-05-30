@@ -1,0 +1,41 @@
+\doxysection{target.\+h File Reference}
+\hypertarget{target_8h}{}\label{target_8h}\index{target.h@{target.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_target}{Target}}
+\begin{DoxyCompactList}\small\item\em Represents a target in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{target_8h_a5f840555e2e72b30fc66e9a1d4ad37d5}{create\+\_\+target}} (\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}target, int16\+\_\+t x, int16\+\_\+t y, xpm\+\_\+map\+\_\+t image)
+\begin{DoxyCompactList}\small\item\em Initializes a target with given position and image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{target_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{target_8h_a5f840555e2e72b30fc66e9a1d4ad37d5}\index{target.h@{target.h}!create\_target@{create\_target}}
+\index{create\_target@{create\_target}!target.h@{target.h}}
+\doxysubsubsection{\texorpdfstring{create\_target()}{create\_target()}}
+{\footnotesize\ttfamily \label{target_8h_a5f840555e2e72b30fc66e9a1d4ad37d5} 
+void create\+\_\+target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}}]{target}{, }\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{, }\item[{xpm\+\_\+map\+\_\+t}]{image}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a target with given position and image. 
+
+Sets the position, loads the XPM image, and initializes visibility and size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the \doxylink{struct_target}{Target} to initialize \\
+\hline
+{\em x} & Horizontal position on screen \\
+\hline
+{\em y} & Vertical position on screen \\
+\hline
+{\em image} & XPM map image to use for the target \\
+\hline
+\end{DoxyParams}

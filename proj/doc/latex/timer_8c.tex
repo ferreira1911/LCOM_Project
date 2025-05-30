@@ -1,0 +1,86 @@
+\doxysection{timer.\+c File Reference}
+\hypertarget{timer_8c}{}\label{timer_8c}\index{timer.c@{timer.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/timer.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}i8254.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{timer_8c_aca1506be74dfc71c6f90772ca269c619}{timer\+\_\+set\+\_\+frequency}} (uint8\+\_\+t timer, uint32\+\_\+t freq)
+\item 
+int \mbox{\hyperlink{timer_8c_a6f786481e80308348d629d605ffa2d84}{timer\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\item 
+int \mbox{\hyperlink{timer_8c_ab9eea51549744bca5c5c923b388bb4ee}{timer\+\_\+unsubscribe\+\_\+int}} ()
+\item 
+void \mbox{\hyperlink{timer_8c_a10fc9c867b15c7da6649311c9987cd17}{timer\+\_\+int\+\_\+handler}} ()
+\item 
+int \mbox{\hyperlink{timer_8c_afafc1891c876602d55b894103b1841a7}{timer\+\_\+get\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t \texorpdfstring{$\ast$}{*}st)
+\item 
+int \mbox{\hyperlink{timer_8c_a2f6a1c71f61dce5b3b6eecba83e7d7e9}{timer\+\_\+display\+\_\+conf}} (uint8\+\_\+t timer, uint8\+\_\+t st, enum timer\+\_\+status\+\_\+field field)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{timer_8c_a617a47c70795bcff659815ad0efd2266}{counter}} = 0
+\item 
+int \mbox{\hyperlink{timer_8c_a96e6321e488d93a8134897510c435eb7}{timer\+\_\+hook\+\_\+id}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{timer_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{timer_8c_a2f6a1c71f61dce5b3b6eecba83e7d7e9}\index{timer.c@{timer.c}!timer\_display\_conf@{timer\_display\_conf}}
+\index{timer\_display\_conf@{timer\_display\_conf}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_display\_conf()}{timer\_display\_conf()}}
+{\footnotesize\ttfamily \label{timer_8c_a2f6a1c71f61dce5b3b6eecba83e7d7e9} 
+int timer\+\_\+display\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint8\+\_\+t}]{st}{, }\item[{enum timer\+\_\+status\+\_\+field}]{field}{}\end{DoxyParamCaption})}
+
+\Hypertarget{timer_8c_afafc1891c876602d55b894103b1841a7}\index{timer.c@{timer.c}!timer\_get\_conf@{timer\_get\_conf}}
+\index{timer\_get\_conf@{timer\_get\_conf}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_get\_conf()}{timer\_get\_conf()}}
+{\footnotesize\ttfamily \label{timer_8c_afafc1891c876602d55b894103b1841a7} 
+int timer\+\_\+get\+\_\+conf (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{st}{}\end{DoxyParamCaption})}
+
+\Hypertarget{timer_8c_a10fc9c867b15c7da6649311c9987cd17}\index{timer.c@{timer.c}!timer\_int\_handler@{timer\_int\_handler}}
+\index{timer\_int\_handler@{timer\_int\_handler}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_int\_handler()}{timer\_int\_handler()}}
+{\footnotesize\ttfamily \label{timer_8c_a10fc9c867b15c7da6649311c9987cd17} 
+void timer\+\_\+int\+\_\+handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{timer_8c_aca1506be74dfc71c6f90772ca269c619}\index{timer.c@{timer.c}!timer\_set\_frequency@{timer\_set\_frequency}}
+\index{timer\_set\_frequency@{timer\_set\_frequency}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_set\_frequency()}{timer\_set\_frequency()}}
+{\footnotesize\ttfamily \label{timer_8c_aca1506be74dfc71c6f90772ca269c619} 
+int timer\+\_\+set\+\_\+frequency (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer}{, }\item[{uint32\+\_\+t}]{freq}{}\end{DoxyParamCaption})}
+
+\Hypertarget{timer_8c_a6f786481e80308348d629d605ffa2d84}\index{timer.c@{timer.c}!timer\_subscribe\_int@{timer\_subscribe\_int}}
+\index{timer\_subscribe\_int@{timer\_subscribe\_int}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_subscribe\_int()}{timer\_subscribe\_int()}}
+{\footnotesize\ttfamily \label{timer_8c_a6f786481e80308348d629d605ffa2d84} 
+int timer\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no}{}\end{DoxyParamCaption})}
+
+\Hypertarget{timer_8c_ab9eea51549744bca5c5c923b388bb4ee}\index{timer.c@{timer.c}!timer\_unsubscribe\_int@{timer\_unsubscribe\_int}}
+\index{timer\_unsubscribe\_int@{timer\_unsubscribe\_int}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_unsubscribe\_int()}{timer\_unsubscribe\_int()}}
+{\footnotesize\ttfamily \label{timer_8c_ab9eea51549744bca5c5c923b388bb4ee} 
+int timer\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{timer_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{timer_8c_a617a47c70795bcff659815ad0efd2266}\index{timer.c@{timer.c}!counter@{counter}}
+\index{counter@{counter}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily \label{timer_8c_a617a47c70795bcff659815ad0efd2266} 
+int counter = 0}
+
+\Hypertarget{timer_8c_a96e6321e488d93a8134897510c435eb7}\index{timer.c@{timer.c}!timer\_hook\_id@{timer\_hook\_id}}
+\index{timer\_hook\_id@{timer\_hook\_id}!timer.c@{timer.c}}
+\doxysubsubsection{\texorpdfstring{timer\_hook\_id}{timer\_hook\_id}}
+{\footnotesize\ttfamily \label{timer_8c_a96e6321e488d93a8134897510c435eb7} 
+int timer\+\_\+hook\+\_\+id = 0}
+

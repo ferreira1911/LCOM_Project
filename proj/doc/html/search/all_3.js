@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['digit_5fheight_0',['DIGIT_HEIGHT',['../numbers_8h.html#a1b4f54247ebb1b1811b8988a11431cdd',1,'numbers.h']]],
+  ['digit_5fspacing_1',['DIGIT_SPACING',['../numbers_8h.html#a7c375bb5cb070281a84833193ff0d41b',1,'numbers.h']]],
+  ['digit_5fwidth_2',['DIGIT_WIDTH',['../numbers_8h.html#a1f9ab24c58660b3d90b2e9f978a85ddc',1,'numbers.h']]],
+  ['direction_3',['direction',['../struct_target.html#a12257cc9a612a1d8b95e0b344cb3cdcd',1,'Target']]],
+  ['double_5fbuffer_4',['double_buffer',['../video_8c.html#a767d9dbba9c236b453eaaaf76976a6d0',1,'double_buffer:&#160;video.c'],['../game__view_8c.html#a767d9dbba9c236b453eaaaf76976a6d0',1,'double_buffer:&#160;video.c']]],
+  ['draw_5fcrosshair_5',['draw_crosshair',['../crosshair__view_8c.html#a603f773a53c38958a891ad1c0d5c7a19',1,'draw_crosshair():&#160;crosshair_view.c'],['../crosshair__view_8h.html#a603f773a53c38958a891ad1c0d5c7a19',1,'draw_crosshair():&#160;crosshair_view.c']]],
+  ['draw_5ffails_6',['draw_fails',['../game__view_8c.html#a65b693ff0dd3f62e7203b2789921f79d',1,'draw_fails(uint8_t target_fails):&#160;game_view.c'],['../game__view_8h.html#a65b693ff0dd3f62e7203b2789921f79d',1,'draw_fails(uint8_t target_fails):&#160;game_view.c']]],
+  ['draw_5fgame_5felements_7',['draw_game_elements',['../game_8c.html#a99a267e0549de96c12d18f0e765f7167',1,'draw_game_elements():&#160;game.c'],['../game_8h.html#a99a267e0549de96c12d18f0e765f7167',1,'draw_game_elements():&#160;game.c']]],
+  ['draw_5fgame_5fover_5fscreen_8',['draw_game_over_screen',['../game__view_8c.html#a14057dbc03b01eb22556a2e05774eb18',1,'draw_game_over_screen(uint8_t mouse_clicks, uint8_t target_hits, uint8_t seconds):&#160;game_view.c'],['../game__view_8h.html#a14057dbc03b01eb22556a2e05774eb18',1,'draw_game_over_screen(uint8_t mouse_clicks, uint8_t target_hits, uint8_t seconds):&#160;game_view.c']]],
+  ['draw_5fhits_9',['draw_hits',['../game__view_8c.html#a271a7b2db25bad7b59d0a307bab214d1',1,'draw_hits(uint8_t target_hits):&#160;game_view.c'],['../game__view_8h.html#a271a7b2db25bad7b59d0a307bab214d1',1,'draw_hits(uint8_t target_hits):&#160;game_view.c']]],
+  ['draw_5flosses_10',['draw_losses',['../game__view_8c.html#aaae079255502b6d9d3c18114d6c7bb38',1,'draw_losses(uint8_t target_losses):&#160;game_view.c'],['../game__view_8h.html#aaae079255502b6d9d3c18114d6c7bb38',1,'draw_losses(uint8_t target_losses):&#160;game_view.c']]],
+  ['draw_5fmenu_5felements_11',['draw_menu_elements',['../menu__controller_8c.html#afd7981c8544caa64d14e2aed014840b1',1,'draw_menu_elements():&#160;menu_controller.c'],['../menu__controller_8h.html#afd7981c8544caa64d14e2aed014840b1',1,'draw_menu_elements():&#160;menu_controller.c']]],
+  ['draw_5fmenu_5fitem_12',['draw_menu_item',['../menu__view_8c.html#a60d6de749b28700a3a36db1de011824d',1,'draw_menu_item(const MenuItem *item):&#160;menu_view.c'],['../menu__view_8h.html#a60d6de749b28700a3a36db1de011824d',1,'draw_menu_item(const MenuItem *item):&#160;menu_view.c']]],
+  ['draw_5fnumber_13',['draw_number',['../numbers_8c.html#acc2b5e5bcee440b992902778fe5e2a24',1,'draw_number(uint32_t number, int x, int y):&#160;numbers.c'],['../numbers_8h.html#acc2b5e5bcee440b992902778fe5e2a24',1,'draw_number(uint32_t number, int x, int y):&#160;numbers.c']]],
+  ['draw_5ftarget_14',['draw_target',['../target__view_8c.html#a3137236f421f68e756bcc4d13b89e76d',1,'draw_target(const Target *target):&#160;target_view.c'],['../target__view_8h.html#a3137236f421f68e756bcc4d13b89e76d',1,'draw_target(const Target *target):&#160;target_view.c']]],
+  ['draw_5ftimer_15',['draw_timer',['../game__view_8c.html#ac9a129ad456e63715b1e95a5692ca782',1,'draw_timer(uint8_t seconds):&#160;game_view.c'],['../game__view_8h.html#ac9a129ad456e63715b1e95a5692ca782',1,'draw_timer(uint8_t seconds):&#160;game_view.c']]],
+  ['draw_5fwarning_16',['draw_warning',['../game__view_8c.html#aebd5a93267cf2f190676c7335be2ac3a',1,'draw_warning():&#160;game_view.c'],['../game__view_8h.html#aebd5a93267cf2f190676c7335be2ac3a',1,'draw_warning():&#160;game_view.c']]]
+];

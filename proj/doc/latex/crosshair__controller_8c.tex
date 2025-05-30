@@ -1,0 +1,115 @@
+\doxysection{crosshair\+\_\+controller.\+c File Reference}
+\hypertarget{crosshair__controller_8c}{}\label{crosshair__controller_8c}\index{crosshair\_controller.c@{crosshair\_controller.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}crosshair\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}devices/mouse.\+h"{}}\newline
+{\ttfamily \#include "{}model/crosshair.\+h"{}}\newline
+{\ttfamily \#include "{}target\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}model/state.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{crosshair__controller_8c_a8ec7b11ef7a258fab27e02cdedb5143d}{crosshair\+\_\+controller\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the crosshair\textquotesingle{}s position on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{crosshair__controller_8c_a12370f655e15dba7143f6d9a5179dd17}{crosshair\+\_\+controller\+\_\+update}} (struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}pp)
+\begin{DoxyCompactList}\small\item\em Updates the crosshair based on mouse input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{crosshair__controller_8c_ac3dc58d5b6fd52fea409763c2d72aaab}{crosshair\+\_\+controller\+\_\+draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the crosshair on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{crosshair__controller_8c_a141864d4381b82edd8a96e41f8570f36}{crosshair\+\_\+controller\+\_\+reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the crosshair to its default initial position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} \mbox{\hyperlink{crosshair__controller_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}{crosshair}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}}
+\begin{DoxyCompactList}\small\item\em Number of targets hit. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a1f12f435de5095b24bdcb2a05a20c270}{mouse\+\_\+clicks}} = 0
+\item 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{crosshair__controller_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}{game\+\_\+state}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{crosshair__controller_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{crosshair__controller_8c_ac3dc58d5b6fd52fea409763c2d72aaab}\index{crosshair\_controller.c@{crosshair\_controller.c}!crosshair\_controller\_draw@{crosshair\_controller\_draw}}
+\index{crosshair\_controller\_draw@{crosshair\_controller\_draw}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_controller\_draw()}{crosshair\_controller\_draw()}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_ac3dc58d5b6fd52fea409763c2d72aaab} 
+void crosshair\+\_\+controller\+\_\+draw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the crosshair on the screen. 
+
+Uses the current position and size of the crosshair. \Hypertarget{crosshair__controller_8c_a8ec7b11ef7a258fab27e02cdedb5143d}\index{crosshair\_controller.c@{crosshair\_controller.c}!crosshair\_controller\_init@{crosshair\_controller\_init}}
+\index{crosshair\_controller\_init@{crosshair\_controller\_init}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_controller\_init()}{crosshair\_controller\_init()}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a8ec7b11ef7a258fab27e02cdedb5143d} 
+void crosshair\+\_\+controller\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the crosshair\textquotesingle{}s position on the screen. 
+
+Sets the crosshair to a default starting position. \Hypertarget{crosshair__controller_8c_a141864d4381b82edd8a96e41f8570f36}\index{crosshair\_controller.c@{crosshair\_controller.c}!crosshair\_controller\_reset@{crosshair\_controller\_reset}}
+\index{crosshair\_controller\_reset@{crosshair\_controller\_reset}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_controller\_reset()}{crosshair\_controller\_reset()}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a141864d4381b82edd8a96e41f8570f36} 
+void crosshair\+\_\+controller\+\_\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the crosshair to its default initial position. 
+
+\Hypertarget{crosshair__controller_8c_a12370f655e15dba7143f6d9a5179dd17}\index{crosshair\_controller.c@{crosshair\_controller.c}!crosshair\_controller\_update@{crosshair\_controller\_update}}
+\index{crosshair\_controller\_update@{crosshair\_controller\_update}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_controller\_update()}{crosshair\_controller\_update()}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a12370f655e15dba7143f6d9a5179dd17} 
+void crosshair\+\_\+controller\+\_\+update (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}}]{pp}{}\end{DoxyParamCaption})}
+
+
+
+Updates the crosshair based on mouse input. 
+
+Moves the crosshair using mouse deltas and handles left button clicks to detect hits on targets and update scores accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pp} & Pointer to a parsed mouse packet. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-var-members}
+\Hypertarget{crosshair__controller_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{crosshair__controller_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}\index{crosshair\_controller.c@{crosshair\_controller.c}!crosshair@{crosshair}}
+\index{crosshair@{crosshair}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{crosshair}{crosshair}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a5f4ca3b28f7e431f02f63cda6f1337bd} 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} crosshair\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__controller_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}\index{crosshair\_controller.c@{crosshair\_controller.c}!game\_state@{game\_state}}
+\index{game\_state@{game\_state}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{game\_state}{game\_state}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_ab8c8a2816ae974e5a2df22ec1e87fa51} 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+\_\+state\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__controller_8c_a1f12f435de5095b24bdcb2a05a20c270}\index{crosshair\_controller.c@{crosshair\_controller.c}!mouse\_clicks@{mouse\_clicks}}
+\index{mouse\_clicks@{mouse\_clicks}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_clicks}{mouse\_clicks}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a1f12f435de5095b24bdcb2a05a20c270} 
+uint8\+\_\+t mouse\+\_\+clicks = 0}
+
+\Hypertarget{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}\index{crosshair\_controller.c@{crosshair\_controller.c}!target\_hits@{target\_hits}}
+\index{target\_hits@{target\_hits}!crosshair\_controller.c@{crosshair\_controller.c}}
+\doxysubsubsection{\texorpdfstring{target\_hits}{target\_hits}}
+{\footnotesize\ttfamily \label{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931} 
+uint8\+\_\+t target\+\_\+hits\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Number of targets hit. 
+

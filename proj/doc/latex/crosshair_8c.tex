@@ -1,0 +1,87 @@
+\doxysection{crosshair.\+c File Reference}
+\hypertarget{crosshair_8c}{}\label{crosshair_8c}\index{crosshair.c@{crosshair.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}crosshair.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{crosshair_8c_a0c5fa5cb42c9146b314a6d921d2cf715}{crosshair\+\_\+init}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Initializes the global crosshair at the given position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{crosshair_8c_a427fad0f4578528d21255b2567c4c667}{crosshair\+\_\+update\+\_\+position}} (int16\+\_\+t delta\+\_\+x, int16\+\_\+t delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Updates the position of the global crosshair by the given deltas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} \mbox{\hyperlink{crosshair_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}{crosshair}}
+\item 
+unsigned \mbox{\hyperlink{crosshair_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}{h\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{crosshair_8c_a5bda1b499253a8fbf3cab646f8760391}{v\+\_\+res}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{crosshair_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{crosshair_8c_a0c5fa5cb42c9146b314a6d921d2cf715}\index{crosshair.c@{crosshair.c}!crosshair\_init@{crosshair\_init}}
+\index{crosshair\_init@{crosshair\_init}!crosshair.c@{crosshair.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_init()}{crosshair\_init()}}
+{\footnotesize\ttfamily \label{crosshair_8c_a0c5fa5cb42c9146b314a6d921d2cf715} 
+void crosshair\+\_\+init (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the global crosshair at the given position. 
+
+Sets the initial x and y coordinates and default size of the crosshair.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial horizontal position on screen \\
+\hline
+{\em y} & Initial vertical position on screen \\
+\hline
+\end{DoxyParams}
+\Hypertarget{crosshair_8c_a427fad0f4578528d21255b2567c4c667}\index{crosshair.c@{crosshair.c}!crosshair\_update\_position@{crosshair\_update\_position}}
+\index{crosshair\_update\_position@{crosshair\_update\_position}!crosshair.c@{crosshair.c}}
+\doxysubsubsection{\texorpdfstring{crosshair\_update\_position()}{crosshair\_update\_position()}}
+{\footnotesize\ttfamily \label{crosshair_8c_a427fad0f4578528d21255b2567c4c667} 
+void crosshair\+\_\+update\+\_\+position (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{delta\+\_\+x}{, }\item[{int16\+\_\+t}]{delta\+\_\+y}{}\end{DoxyParamCaption})}
+
+
+
+Updates the position of the global crosshair by the given deltas. 
+
+Moves the crosshair and clamps it within the screen boundaries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+\_\+x} & Amount to move horizontally \\
+\hline
+{\em delta\+\_\+y} & Amount to move vertically \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-var-members}
+\Hypertarget{crosshair_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{crosshair_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}\index{crosshair.c@{crosshair.c}!crosshair@{crosshair}}
+\index{crosshair@{crosshair}!crosshair.c@{crosshair.c}}
+\doxysubsubsection{\texorpdfstring{crosshair}{crosshair}}
+{\footnotesize\ttfamily \label{crosshair_8c_a5f4ca3b28f7e431f02f63cda6f1337bd} 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} crosshair}
+
+\Hypertarget{crosshair_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}\index{crosshair.c@{crosshair.c}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!crosshair.c@{crosshair.c}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily \label{crosshair_8c_a43e7e5a0a8f9069e6413b2066ca52f3e} 
+unsigned h\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair_8c_a5bda1b499253a8fbf3cab646f8760391}\index{crosshair.c@{crosshair.c}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!crosshair.c@{crosshair.c}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily \label{crosshair_8c_a5bda1b499253a8fbf3cab646f8760391} 
+unsigned v\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+

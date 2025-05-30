@@ -1,0 +1,51 @@
+\doxysection{target\+\_\+controller.\+h}
+\hypertarget{target__controller_8h_source}{}\label{target__controller_8h_source}\index{target\_controller.h@{target\_controller.h}}
+\mbox{\hyperlink{target__controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TARGET\_CONTROLLER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TARGET\_CONTROLLER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{target_8h}{model/target.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ MAX\_ACTIVE\_TARGETS\ 3\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ TARGET\_WIDTH\ 75\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ TARGET\_HEIGHT\ 60\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ void\ (\mbox{\hyperlink{target__controller_8c_a76a327b536cf10226f6f7fcbc2e897fd}{target\_controller\_clear\_targets}})();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ void\ (\mbox{\hyperlink{target__controller_8c_ae1aa99d6f4b2fcc7ecbf3cdaa3af861e}{target\_controller\_init\_mode1}})();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ void\ (\mbox{\hyperlink{target__controller_8c_a53acf60a54472d43bebf92b6d15cc525}{target\_controller\_init\_mode2}})();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ void\ (\mbox{\hyperlink{target__controller_8c_a8bb0dc9b4c225975869258ddc28f0f73}{target\_controller\_init\_mode3}})();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ void\ (\mbox{\hyperlink{target__controller_8c_a40e5898c51bee01ccc1c129d273bd680}{target\_controller\_update\_mode1}})();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ void\ (\mbox{\hyperlink{target__controller_8c_a12131b116d7fc69de85aa6557d47fd0a}{target\_controller\_update\_mode2}})();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ void\ (\mbox{\hyperlink{target__controller_8c_ad58f5a5b64f33fe5725ddea16269fb51}{target\_controller\_update\_mode3}})();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ void\ (\mbox{\hyperlink{target__controller_8c_aa3d4c8018c7208f9032166701fa9b1a0}{target\_controller\_horizontal\_update}})();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ void\ (\mbox{\hyperlink{target__controller_8c_ab1aa37764e6c6c46ad36f72c78c257e7}{target\_controller\_fall\_update}})();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ void\ (\mbox{\hyperlink{target__controller_8c_a017eb4194cc5d0794482bdb2497fccb3}{target\_controller\_draw}})();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00069\ bool\ (\mbox{\hyperlink{target__controller_8c_aede1d7032f9237a36e42c88a1de49037}{target\_controller\_check\_hit}})(uint16\_t\ x,\ uint16\_t\ y);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{target__controller_8h_a8258e4260d4270f51a0a85f8f728fd85}{target\_controller\_check\_hit\_mode3}}(uint16\_t\ x,\ uint16\_t\ y);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{target__controller_8h_a417b71e004395b7afefdb4dc6733c13e}{generate\_random\_position\_in\_game\_area}}(int16\_t\ *x,\ int16\_t\ *y);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{target__controller_8h_afcf2c04abca937f5cb779b90d89365a1}{generate\_random\_position\_in\_game\_area\_mode2}}(int16\_t\ *x,\ int16\_t\ *y);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{target__controller_8h_a5bbbb40cd51bf1bfba7c3d18832190ca}{generate\_random\_position\_in\_game\_area\_mode3}}(int16\_t\ *x,\ int16\_t\ *y,\ \textcolor{keywordtype}{int}\ *direction);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{target__controller_8h_a1d594ca1abde546804126e2196be96fa}{is\_overlapping}}(\mbox{\hyperlink{struct_target}{Target}}\ *a,\ int16\_t\ x,\ int16\_t\ y,\ uint16\_t\ width,\ uint16\_t\ height);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00118\ }
+
+\end{DoxyCode}

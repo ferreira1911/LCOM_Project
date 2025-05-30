@@ -1,0 +1,123 @@
+\doxysection{game\+\_\+view.\+h File Reference}
+\hypertarget{game__view_8h}{}\label{game__view_8h}\index{game\_view.h@{game\_view.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__view_8h_a14057dbc03b01eb22556a2e05774eb18}{draw\+\_\+game\+\_\+over\+\_\+screen}} (uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a1f12f435de5095b24bdcb2a05a20c270}{mouse\+\_\+clicks}}, uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}}, uint8\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Draws the game over screen with logo, timer, hits and accuracy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8h_ac9a129ad456e63715b1e95a5692ca782}{draw\+\_\+timer}} (uint8\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Draws the timer text and remaining seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8h_a271a7b2db25bad7b59d0a307bab214d1}{draw\+\_\+hits}} (uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}})
+\begin{DoxyCompactList}\small\item\em Draws the hits text and number of successful hits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8h_a65b693ff0dd3f62e7203b2789921f79d}{draw\+\_\+fails}} (uint8\+\_\+t \mbox{\hyperlink{game_8c_a3f65ef594c14698c361291ecab93d206}{target\+\_\+fails}})
+\begin{DoxyCompactList}\small\item\em Draws the fails text and number of misses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8h_aaae079255502b6d9d3c18114d6c7bb38}{draw\+\_\+losses}} (uint8\+\_\+t \mbox{\hyperlink{game_8c_ac6345261bfc5ca0d9b467ffbfb041427}{target\+\_\+losses}})
+\begin{DoxyCompactList}\small\item\em Draws the losses text and number of lost targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8h_aebd5a93267cf2f190676c7335be2ac3a}{draw\+\_\+warning}} ()
+\begin{DoxyCompactList}\small\item\em Draws a warning image indicating the player has failed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{game__view_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{game__view_8h_a65b693ff0dd3f62e7203b2789921f79d}\index{game\_view.h@{game\_view.h}!draw\_fails@{draw\_fails}}
+\index{draw\_fails@{draw\_fails}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_fails()}{draw\_fails()}}
+{\footnotesize\ttfamily \label{game__view_8h_a65b693ff0dd3f62e7203b2789921f79d} 
+void draw\+\_\+fails (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+fails}{}\end{DoxyParamCaption})}
+
+
+
+Draws the fails text and number of misses. 
+
+Loads and displays the fail XPM, then draws the numeric fail count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+fails} & Number of targets missed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8h_a14057dbc03b01eb22556a2e05774eb18}\index{game\_view.h@{game\_view.h}!draw\_game\_over\_screen@{draw\_game\_over\_screen}}
+\index{draw\_game\_over\_screen@{draw\_game\_over\_screen}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_over\_screen()}{draw\_game\_over\_screen()}}
+{\footnotesize\ttfamily \label{game__view_8h_a14057dbc03b01eb22556a2e05774eb18} 
+void draw\+\_\+game\+\_\+over\+\_\+screen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mouse\+\_\+clicks}{, }\item[{uint8\+\_\+t}]{target\+\_\+hits}{, }\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Draws the game over screen with logo, timer, hits and accuracy. 
+
+Clears the screen, draws the logo and labels, computes accuracy percentage, and displays the relevant numbers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+clicks} & Total number of mouse clicks made by the player \\
+\hline
+{\em target\+\_\+hits} & Total number of targets successfully hit \\
+\hline
+{\em seconds} & Total time elapsed in seconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8h_a271a7b2db25bad7b59d0a307bab214d1}\index{game\_view.h@{game\_view.h}!draw\_hits@{draw\_hits}}
+\index{draw\_hits@{draw\_hits}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_hits()}{draw\_hits()}}
+{\footnotesize\ttfamily \label{game__view_8h_a271a7b2db25bad7b59d0a307bab214d1} 
+void draw\+\_\+hits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+hits}{}\end{DoxyParamCaption})}
+
+
+
+Draws the hits text and number of successful hits. 
+
+Loads and displays the hits XPM, then draws the numeric hit count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+hits} & Number of targets hit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8h_aaae079255502b6d9d3c18114d6c7bb38}\index{game\_view.h@{game\_view.h}!draw\_losses@{draw\_losses}}
+\index{draw\_losses@{draw\_losses}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_losses()}{draw\_losses()}}
+{\footnotesize\ttfamily \label{game__view_8h_aaae079255502b6d9d3c18114d6c7bb38} 
+void draw\+\_\+losses (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+losses}{}\end{DoxyParamCaption})}
+
+
+
+Draws the losses text and number of lost targets. 
+
+Loads and displays the lost XPM, then draws the numeric loss count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+losses} & Number of targets that disappeared before being hit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8h_ac9a129ad456e63715b1e95a5692ca782}\index{game\_view.h@{game\_view.h}!draw\_timer@{draw\_timer}}
+\index{draw\_timer@{draw\_timer}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_timer()}{draw\_timer()}}
+{\footnotesize\ttfamily \label{game__view_8h_ac9a129ad456e63715b1e95a5692ca782} 
+void draw\+\_\+timer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Draws the timer text and remaining seconds. 
+
+Loads and displays the timer XPM, then draws the numeric seconds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Remaining time in seconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8h_aebd5a93267cf2f190676c7335be2ac3a}\index{game\_view.h@{game\_view.h}!draw\_warning@{draw\_warning}}
+\index{draw\_warning@{draw\_warning}!game\_view.h@{game\_view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_warning()}{draw\_warning()}}
+{\footnotesize\ttfamily \label{game__view_8h_aebd5a93267cf2f190676c7335be2ac3a} 
+void draw\+\_\+warning (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws a warning image indicating the player has failed. 
+
+Displays the "{}you\+\_\+fail"{} XPM at a fixed position on the screen. 

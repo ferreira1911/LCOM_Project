@@ -1,0 +1,203 @@
+\doxysection{video.\+h File Reference}
+\hypertarget{video_8h}{}\label{video_8h}\index{video.h@{video.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{video_8h_a09de0a686f745ec21fe1b2add2146a9c}{AH\+\_\+\+TEXT\+\_\+\+MODE}}~0x00
+\begin{DoxyCompactList}\small\item\em AH Text mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_a83d1c5db7ca41fa92b381d3f1360e41f}{Al\+\_\+\+TEXT\+\_\+\+MODE}}~0x03
+\begin{DoxyCompactList}\small\item\em AL Text mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_a11388ced8a12b8a2f2f54505a58c72f1}{AX\+\_\+\+TEXT\+\_\+\+MODE}}~0x0003
+\begin{DoxyCompactList}\small\item\em AX Text mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_ab3a6c305fa931bcd68a149483e226d2c}{AH\+\_\+\+GRAPHIC\+\_\+\+MODE}}~0x4F
+\begin{DoxyCompactList}\small\item\em AH Graphic mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_ad5a6ea63d1e05bfe55898205e1aa26c9}{AL\+\_\+\+GRAPHIC\+\_\+\+MODE}}~0x02
+\begin{DoxyCompactList}\small\item\em AL Graphic mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_a06b79a1d26fff86f35ae53905db177d1}{AX\+\_\+\+GRAPHIC\+\_\+\+MODE}}~0x4\+F02
+\begin{DoxyCompactList}\small\item\em AX Graphic mode. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_a2617c1997f2516f4d0c0331bd0c600d6}{INTNO}}~0x10
+\begin{DoxyCompactList}\small\item\em BIOS video services. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{video_8h_a87dd568c1aab69cea6ccde662fe6806f}{LINEAR\+\_\+\+FB}}~BIT(14)
+\begin{DoxyCompactList}\small\item\em Linear Frame Buffer Mode bit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{video_8h_a545507674d17fcbbf7d69dd3e6aca18f}{vbe\+\_\+set\+\_\+mode}} (uint16\+\_\+t mode)
+\item 
+int \mbox{\hyperlink{video_8h_a4c3009990519cfb1cac645ab89efa347}{frame\+\_\+buffer\+\_\+init}} (uint16\+\_\+t mode)
+\item 
+int \mbox{\hyperlink{video_8h_a4d53728322f948683b768482bf4906e8}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
+\item 
+int \mbox{\hyperlink{video_8h_adb08b276272848bc7f3bccc0f5e770c8}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\item 
+int \mbox{\hyperlink{video_8h_a240fc458a4f42c9396bcc98d47f253e3}{vg\+\_\+draw\+\_\+vline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\item 
+int \mbox{\hyperlink{video_8h_a040c6b8ace545e05ed2aaaf2247d12d0}{color\+\_\+pixel}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}pixel\+\_\+ptr, uint32\+\_\+t color)
+\item 
+int \mbox{\hyperlink{video_8h_a4578f2c33c51cd562872754d7e21e41d}{vg\+\_\+draw\+\_\+xpm}} (uint16\+\_\+t x, uint16\+\_\+t y, const xpm\+\_\+image\+\_\+t \texorpdfstring{$\ast$}{*}img)
+\item 
+int \mbox{\hyperlink{video_8h_a1e3ca998dbdc63970a75fe220745710b}{vg\+\_\+clear\+\_\+screen}} ()
+\item 
+void \mbox{\hyperlink{video_8h_a0d157d997329169f936545f9985e334b}{swap\+\_\+buffers}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{video_8h_aee72d6b76b47020db364cc3531ad1571}{calculate\+\_\+indexed\+\_\+color}} (uint8\+\_\+t row, uint8\+\_\+t col, uint32\+\_\+t first, uint8\+\_\+t step, uint8\+\_\+t \mbox{\hyperlink{video_8c_a89fa3fb58e975d148fcb2413e24b78a1}{bits\+\_\+per\+\_\+pixel}}, uint8\+\_\+t no\+\_\+rectangles)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{video_8h_ab4d1705188788a3c7bb5324a1ad8714a}{calculate\+\_\+direct\+\_\+color}} (uint8\+\_\+t row, uint8\+\_\+t col, uint32\+\_\+t first, uint8\+\_\+t step, vbe\+\_\+mode\+\_\+info\+\_\+t vmi)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{video_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{video_8h_ab3a6c305fa931bcd68a149483e226d2c}\index{video.h@{video.h}!AH\_GRAPHIC\_MODE@{AH\_GRAPHIC\_MODE}}
+\index{AH\_GRAPHIC\_MODE@{AH\_GRAPHIC\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{AH\_GRAPHIC\_MODE}{AH\_GRAPHIC\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_ab3a6c305fa931bcd68a149483e226d2c} 
+\#define AH\+\_\+\+GRAPHIC\+\_\+\+MODE~0x4F}
+
+
+
+AH Graphic mode. 
+
+\Hypertarget{video_8h_a09de0a686f745ec21fe1b2add2146a9c}\index{video.h@{video.h}!AH\_TEXT\_MODE@{AH\_TEXT\_MODE}}
+\index{AH\_TEXT\_MODE@{AH\_TEXT\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{AH\_TEXT\_MODE}{AH\_TEXT\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_a09de0a686f745ec21fe1b2add2146a9c} 
+\#define AH\+\_\+\+TEXT\+\_\+\+MODE~0x00}
+
+
+
+AH Text mode. 
+
+\Hypertarget{video_8h_ad5a6ea63d1e05bfe55898205e1aa26c9}\index{video.h@{video.h}!AL\_GRAPHIC\_MODE@{AL\_GRAPHIC\_MODE}}
+\index{AL\_GRAPHIC\_MODE@{AL\_GRAPHIC\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{AL\_GRAPHIC\_MODE}{AL\_GRAPHIC\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_ad5a6ea63d1e05bfe55898205e1aa26c9} 
+\#define AL\+\_\+\+GRAPHIC\+\_\+\+MODE~0x02}
+
+
+
+AL Graphic mode. 
+
+\Hypertarget{video_8h_a83d1c5db7ca41fa92b381d3f1360e41f}\index{video.h@{video.h}!Al\_TEXT\_MODE@{Al\_TEXT\_MODE}}
+\index{Al\_TEXT\_MODE@{Al\_TEXT\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{Al\_TEXT\_MODE}{Al\_TEXT\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_a83d1c5db7ca41fa92b381d3f1360e41f} 
+\#define Al\+\_\+\+TEXT\+\_\+\+MODE~0x03}
+
+
+
+AL Text mode. 
+
+\Hypertarget{video_8h_a06b79a1d26fff86f35ae53905db177d1}\index{video.h@{video.h}!AX\_GRAPHIC\_MODE@{AX\_GRAPHIC\_MODE}}
+\index{AX\_GRAPHIC\_MODE@{AX\_GRAPHIC\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{AX\_GRAPHIC\_MODE}{AX\_GRAPHIC\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_a06b79a1d26fff86f35ae53905db177d1} 
+\#define AX\+\_\+\+GRAPHIC\+\_\+\+MODE~0x4\+F02}
+
+
+
+AX Graphic mode. 
+
+\Hypertarget{video_8h_a11388ced8a12b8a2f2f54505a58c72f1}\index{video.h@{video.h}!AX\_TEXT\_MODE@{AX\_TEXT\_MODE}}
+\index{AX\_TEXT\_MODE@{AX\_TEXT\_MODE}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{AX\_TEXT\_MODE}{AX\_TEXT\_MODE}}
+{\footnotesize\ttfamily \label{video_8h_a11388ced8a12b8a2f2f54505a58c72f1} 
+\#define AX\+\_\+\+TEXT\+\_\+\+MODE~0x0003}
+
+
+
+AX Text mode. 
+
+\Hypertarget{video_8h_a2617c1997f2516f4d0c0331bd0c600d6}\index{video.h@{video.h}!INTNO@{INTNO}}
+\index{INTNO@{INTNO}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{INTNO}{INTNO}}
+{\footnotesize\ttfamily \label{video_8h_a2617c1997f2516f4d0c0331bd0c600d6} 
+\#define INTNO~0x10}
+
+
+
+BIOS video services. 
+
+\Hypertarget{video_8h_a87dd568c1aab69cea6ccde662fe6806f}\index{video.h@{video.h}!LINEAR\_FB@{LINEAR\_FB}}
+\index{LINEAR\_FB@{LINEAR\_FB}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{LINEAR\_FB}{LINEAR\_FB}}
+{\footnotesize\ttfamily \label{video_8h_a87dd568c1aab69cea6ccde662fe6806f} 
+\#define LINEAR\+\_\+\+FB~BIT(14)}
+
+
+
+Linear Frame Buffer Mode bit. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{video_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{video_8h_ab4d1705188788a3c7bb5324a1ad8714a}\index{video.h@{video.h}!calculate\_direct\_color@{calculate\_direct\_color}}
+\index{calculate\_direct\_color@{calculate\_direct\_color}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_direct\_color()}{calculate\_direct\_color()}}
+{\footnotesize\ttfamily \label{video_8h_ab4d1705188788a3c7bb5324a1ad8714a} 
+uint32\+\_\+t calculate\+\_\+direct\+\_\+color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row}{, }\item[{uint8\+\_\+t}]{col}{, }\item[{uint32\+\_\+t}]{first}{, }\item[{uint8\+\_\+t}]{step}{, }\item[{vbe\+\_\+mode\+\_\+info\+\_\+t}]{vmi}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_aee72d6b76b47020db364cc3531ad1571}\index{video.h@{video.h}!calculate\_indexed\_color@{calculate\_indexed\_color}}
+\index{calculate\_indexed\_color@{calculate\_indexed\_color}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_indexed\_color()}{calculate\_indexed\_color()}}
+{\footnotesize\ttfamily \label{video_8h_aee72d6b76b47020db364cc3531ad1571} 
+uint32\+\_\+t calculate\+\_\+indexed\+\_\+color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{row}{, }\item[{uint8\+\_\+t}]{col}{, }\item[{uint32\+\_\+t}]{first}{, }\item[{uint8\+\_\+t}]{step}{, }\item[{uint8\+\_\+t}]{bits\+\_\+per\+\_\+pixel}{, }\item[{uint8\+\_\+t}]{no\+\_\+rectangles}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a040c6b8ace545e05ed2aaaf2247d12d0}\index{video.h@{video.h}!color\_pixel@{color\_pixel}}
+\index{color\_pixel@{color\_pixel}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{color\_pixel()}{color\_pixel()}}
+{\footnotesize\ttfamily \label{video_8h_a040c6b8ace545e05ed2aaaf2247d12d0} 
+int color\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{pixel\+\_\+ptr}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a4c3009990519cfb1cac645ab89efa347}\index{video.h@{video.h}!frame\_buffer\_init@{frame\_buffer\_init}}
+\index{frame\_buffer\_init@{frame\_buffer\_init}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{frame\_buffer\_init()}{frame\_buffer\_init()}}
+{\footnotesize\ttfamily \label{video_8h_a4c3009990519cfb1cac645ab89efa347} 
+int frame\+\_\+buffer\+\_\+init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a0d157d997329169f936545f9985e334b}\index{video.h@{video.h}!swap\_buffers@{swap\_buffers}}
+\index{swap\_buffers@{swap\_buffers}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{swap\_buffers()}{swap\_buffers()}}
+{\footnotesize\ttfamily \label{video_8h_a0d157d997329169f936545f9985e334b} 
+void swap\+\_\+buffers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a545507674d17fcbbf7d69dd3e6aca18f}\index{video.h@{video.h}!vbe\_set\_mode@{vbe\_set\_mode}}
+\index{vbe\_set\_mode@{vbe\_set\_mode}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vbe\_set\_mode()}{vbe\_set\_mode()}}
+{\footnotesize\ttfamily \label{video_8h_a545507674d17fcbbf7d69dd3e6aca18f} 
+int vbe\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a1e3ca998dbdc63970a75fe220745710b}\index{video.h@{video.h}!vg\_clear\_screen@{vg\_clear\_screen}}
+\index{vg\_clear\_screen@{vg\_clear\_screen}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_clear\_screen()}{vg\_clear\_screen()}}
+{\footnotesize\ttfamily \label{video_8h_a1e3ca998dbdc63970a75fe220745710b} 
+int vg\+\_\+clear\+\_\+screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_adb08b276272848bc7f3bccc0f5e770c8}\index{video.h@{video.h}!vg\_draw\_hline@{vg\_draw\_hline}}
+\index{vg\_draw\_hline@{vg\_draw\_hline}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_hline()}{vg\_draw\_hline()}}
+{\footnotesize\ttfamily \label{video_8h_adb08b276272848bc7f3bccc0f5e770c8} 
+int vg\+\_\+draw\+\_\+hline (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{len}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a4d53728322f948683b768482bf4906e8}\index{video.h@{video.h}!vg\_draw\_rectangle@{vg\_draw\_rectangle}}
+\index{vg\_draw\_rectangle@{vg\_draw\_rectangle}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_rectangle()}{vg\_draw\_rectangle()}}
+{\footnotesize\ttfamily \label{video_8h_a4d53728322f948683b768482bf4906e8} 
+int vg\+\_\+draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{width}{, }\item[{uint16\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a240fc458a4f42c9396bcc98d47f253e3}\index{video.h@{video.h}!vg\_draw\_vline@{vg\_draw\_vline}}
+\index{vg\_draw\_vline@{vg\_draw\_vline}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_vline()}{vg\_draw\_vline()}}
+{\footnotesize\ttfamily \label{video_8h_a240fc458a4f42c9396bcc98d47f253e3} 
+int vg\+\_\+draw\+\_\+vline (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{len}{, }\item[{uint32\+\_\+t}]{color}{}\end{DoxyParamCaption})}
+
+\Hypertarget{video_8h_a4578f2c33c51cd562872754d7e21e41d}\index{video.h@{video.h}!vg\_draw\_xpm@{vg\_draw\_xpm}}
+\index{vg\_draw\_xpm@{vg\_draw\_xpm}!video.h@{video.h}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_xpm()}{vg\_draw\_xpm()}}
+{\footnotesize\ttfamily \label{video_8h_a4578f2c33c51cd562872754d7e21e41d} 
+int vg\+\_\+draw\+\_\+xpm (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x}{, }\item[{uint16\+\_\+t}]{y}{, }\item[{const xpm\+\_\+image\+\_\+t \texorpdfstring{$\ast$}{*}}]{img}{}\end{DoxyParamCaption})}
+

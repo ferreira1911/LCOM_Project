@@ -1,0 +1,41 @@
+\doxysection{menu.\+h File Reference}
+\hypertarget{menu_8h}{}\label{menu_8h}\index{menu.h@{menu.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_menu_item}{Menu\+Item}}
+\begin{DoxyCompactList}\small\item\em Represents a single item in the game menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{menu_8h_af22ee6a5e0b34af3e4e4815e2c969592}{create\+\_\+menu\+\_\+item}} (\mbox{\hyperlink{struct_menu_item}{Menu\+Item}} \texorpdfstring{$\ast$}{*}item, int16\+\_\+t x, int16\+\_\+t y, xpm\+\_\+map\+\_\+t image)
+\begin{DoxyCompactList}\small\item\em Initializes a menu item with given position and image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{menu_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{menu_8h_af22ee6a5e0b34af3e4e4815e2c969592}\index{menu.h@{menu.h}!create\_menu\_item@{create\_menu\_item}}
+\index{create\_menu\_item@{create\_menu\_item}!menu.h@{menu.h}}
+\doxysubsubsection{\texorpdfstring{create\_menu\_item()}{create\_menu\_item()}}
+{\footnotesize\ttfamily \label{menu_8h_af22ee6a5e0b34af3e4e4815e2c969592} 
+void create\+\_\+menu\+\_\+item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_menu_item}{Menu\+Item}} \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{, }\item[{xpm\+\_\+map\+\_\+t}]{image}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a menu item with given position and image. 
+
+Sets the position, loads the XPM image, and initializes visibility and size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & Pointer to the \doxylink{struct_menu_item}{Menu\+Item} to initialize \\
+\hline
+{\em x} & Horizontal position on screen \\
+\hline
+{\em y} & Vertical position on screen \\
+\hline
+{\em image} & XPM map image to use for the menu item \\
+\hline
+\end{DoxyParams}

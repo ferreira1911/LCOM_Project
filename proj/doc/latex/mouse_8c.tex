@@ -1,0 +1,133 @@
+\doxysection{mouse.\+c File Reference}
+\hypertarget{mouse_8c}{}\label{mouse_8c}\index{mouse.c@{mouse.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}mouse.\+h"{}}\newline
+{\ttfamily \#include "{}kbc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mouse_8c_a9da18257ff113b686bb826d154bfaa87}{mouse\+\_\+subscribe\+\_\+int}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}bit\+\_\+no)
+\item 
+int \mbox{\hyperlink{mouse_8c_a685ad2706aca36d9869a30a19b9f446a}{mouse\+\_\+unsubscribe\+\_\+int}} ()
+\item 
+int \mbox{\hyperlink{mouse_8c_aecdd51f940be83961956458c45d902e4}{write\+\_\+mouse\+\_\+cmd}} (uint8\+\_\+t cmd)
+\item 
+void \mbox{\hyperlink{mouse_8c_a834b6d7efe311484d6da234db333cb97}{mouse\+\_\+ih}} ()
+\item 
+int \mbox{\hyperlink{mouse_8c_a10d723a0cdd4e10c5967d9ef952c84c8}{read\+\_\+mouse\+\_\+data}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}byte)
+\item 
+void \mbox{\hyperlink{mouse_8c_aa8915545644e131a6ebe4b4b4c3b45da}{sync\+\_\+bytes}} ()
+\item 
+void \mbox{\hyperlink{mouse_8c_ac907b362ca068c5d63a6fb92b1b1514d}{parse\+\_\+packet}} (struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}pp)
+\item 
+bool \mbox{\hyperlink{mouse_8c_ae33a7c2745f32618eceb2d4387ce4d0e}{mouse\+\_\+packet\+\_\+ready}} ()
+\item 
+void \mbox{\hyperlink{mouse_8c_ab0662431d9b9a0c61375757e4d89b10d}{get\+\_\+mouse\+\_\+packet}} (struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}pp)
+\item 
+void \mbox{\hyperlink{mouse_8c_aacc98e640edccc81b14fe3e652a8d0d1}{reset\+\_\+mouse\+\_\+packet}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mouse_8c_aec82064a6795ef73e30e4c1873dca2c6}{mouse\+\_\+byte}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mouse_8c_a8884dab9d88cd6c24f21afc6c7144a7b}{byte\+\_\+index}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \mbox{[}3\mbox{]}
+\item 
+int \mbox{\hyperlink{mouse_8c_a37cad7cad93664f8a1ed1b0258fe958b}{mouse\+\_\+hook\+\_\+id}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{mouse_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mouse_8c_ab0662431d9b9a0c61375757e4d89b10d}\index{mouse.c@{mouse.c}!get\_mouse\_packet@{get\_mouse\_packet}}
+\index{get\_mouse\_packet@{get\_mouse\_packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{get\_mouse\_packet()}{get\_mouse\_packet()}}
+{\footnotesize\ttfamily \label{mouse_8c_ab0662431d9b9a0c61375757e4d89b10d} 
+void get\+\_\+mouse\+\_\+packet (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}}]{pp}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_a834b6d7efe311484d6da234db333cb97}\index{mouse.c@{mouse.c}!mouse\_ih@{mouse\_ih}}
+\index{mouse\_ih@{mouse\_ih}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_ih()}{mouse\_ih()}}
+{\footnotesize\ttfamily \label{mouse_8c_a834b6d7efe311484d6da234db333cb97} 
+void mouse\+\_\+ih (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_ae33a7c2745f32618eceb2d4387ce4d0e}\index{mouse.c@{mouse.c}!mouse\_packet\_ready@{mouse\_packet\_ready}}
+\index{mouse\_packet\_ready@{mouse\_packet\_ready}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_packet\_ready()}{mouse\_packet\_ready()}}
+{\footnotesize\ttfamily \label{mouse_8c_ae33a7c2745f32618eceb2d4387ce4d0e} 
+bool mouse\+\_\+packet\+\_\+ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_a9da18257ff113b686bb826d154bfaa87}\index{mouse.c@{mouse.c}!mouse\_subscribe\_int@{mouse\_subscribe\_int}}
+\index{mouse\_subscribe\_int@{mouse\_subscribe\_int}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_subscribe\_int()}{mouse\_subscribe\_int()}}
+{\footnotesize\ttfamily \label{mouse_8c_a9da18257ff113b686bb826d154bfaa87} 
+int mouse\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{bit\+\_\+no}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_a685ad2706aca36d9869a30a19b9f446a}\index{mouse.c@{mouse.c}!mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}}
+\index{mouse\_unsubscribe\_int@{mouse\_unsubscribe\_int}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_unsubscribe\_int()}{mouse\_unsubscribe\_int()}}
+{\footnotesize\ttfamily \label{mouse_8c_a685ad2706aca36d9869a30a19b9f446a} 
+int mouse\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_ac907b362ca068c5d63a6fb92b1b1514d}\index{mouse.c@{mouse.c}!parse\_packet@{parse\_packet}}
+\index{parse\_packet@{parse\_packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{parse\_packet()}{parse\_packet()}}
+{\footnotesize\ttfamily \label{mouse_8c_ac907b362ca068c5d63a6fb92b1b1514d} 
+void parse\+\_\+packet (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}{packet}} \texorpdfstring{$\ast$}{*}}]{pp}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_a10d723a0cdd4e10c5967d9ef952c84c8}\index{mouse.c@{mouse.c}!read\_mouse\_data@{read\_mouse\_data}}
+\index{read\_mouse\_data@{read\_mouse\_data}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{read\_mouse\_data()}{read\_mouse\_data()}}
+{\footnotesize\ttfamily \label{mouse_8c_a10d723a0cdd4e10c5967d9ef952c84c8} 
+int read\+\_\+mouse\+\_\+data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{byte}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_aacc98e640edccc81b14fe3e652a8d0d1}\index{mouse.c@{mouse.c}!reset\_mouse\_packet@{reset\_mouse\_packet}}
+\index{reset\_mouse\_packet@{reset\_mouse\_packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{reset\_mouse\_packet()}{reset\_mouse\_packet()}}
+{\footnotesize\ttfamily \label{mouse_8c_aacc98e640edccc81b14fe3e652a8d0d1} 
+void reset\+\_\+mouse\+\_\+packet (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_aa8915545644e131a6ebe4b4b4c3b45da}\index{mouse.c@{mouse.c}!sync\_bytes@{sync\_bytes}}
+\index{sync\_bytes@{sync\_bytes}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{sync\_bytes()}{sync\_bytes()}}
+{\footnotesize\ttfamily \label{mouse_8c_aa8915545644e131a6ebe4b4b4c3b45da} 
+void sync\+\_\+bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{mouse_8c_aecdd51f940be83961956458c45d902e4}\index{mouse.c@{mouse.c}!write\_mouse\_cmd@{write\_mouse\_cmd}}
+\index{write\_mouse\_cmd@{write\_mouse\_cmd}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{write\_mouse\_cmd()}{write\_mouse\_cmd()}}
+{\footnotesize\ttfamily \label{mouse_8c_aecdd51f940be83961956458c45d902e4} 
+int write\+\_\+mouse\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{mouse_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{mouse_8c_a8884dab9d88cd6c24f21afc6c7144a7b}\index{mouse.c@{mouse.c}!byte\_index@{byte\_index}}
+\index{byte\_index@{byte\_index}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{byte\_index}{byte\_index}}
+{\footnotesize\ttfamily \label{mouse_8c_a8884dab9d88cd6c24f21afc6c7144a7b} 
+uint8\+\_\+t byte\+\_\+index = 0}
+
+\Hypertarget{mouse_8c_aec82064a6795ef73e30e4c1873dca2c6}\index{mouse.c@{mouse.c}!mouse\_byte@{mouse\_byte}}
+\index{mouse\_byte@{mouse\_byte}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_byte}{mouse\_byte}}
+{\footnotesize\ttfamily \label{mouse_8c_aec82064a6795ef73e30e4c1873dca2c6} 
+uint8\+\_\+t mouse\+\_\+byte}
+
+\Hypertarget{mouse_8c_a37cad7cad93664f8a1ed1b0258fe958b}\index{mouse.c@{mouse.c}!mouse\_hook\_id@{mouse\_hook\_id}}
+\index{mouse\_hook\_id@{mouse\_hook\_id}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_hook\_id}{mouse\_hook\_id}}
+{\footnotesize\ttfamily \label{mouse_8c_a37cad7cad93664f8a1ed1b0258fe958b} 
+int mouse\+\_\+hook\+\_\+id = 0}
+
+\Hypertarget{mouse_8c_ab234504ae156fa5b250e34cbb65a7807}\index{mouse.c@{mouse.c}!packet@{packet}}
+\index{packet@{packet}!mouse.c@{mouse.c}}
+\doxysubsubsection{\texorpdfstring{packet}{packet}}
+{\footnotesize\ttfamily \label{mouse_8c_ab234504ae156fa5b250e34cbb65a7807} 
+uint8\+\_\+t packet\mbox{[}3\mbox{]}}
+

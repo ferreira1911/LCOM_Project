@@ -1,0 +1,62 @@
+\doxysection{target.\+c File Reference}
+\hypertarget{target_8c}{}\label{target_8c}\index{target.c@{target.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}target.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{target_8c_a5f840555e2e72b30fc66e9a1d4ad37d5}{create\+\_\+target}} (\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}target, int16\+\_\+t x, int16\+\_\+t y, xpm\+\_\+map\+\_\+t image)
+\begin{DoxyCompactList}\small\item\em Initializes a target with given position and image. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{target_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}{h\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{target_8c_a5bda1b499253a8fbf3cab646f8760391}{v\+\_\+res}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{target_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{target_8c_a5f840555e2e72b30fc66e9a1d4ad37d5}\index{target.c@{target.c}!create\_target@{create\_target}}
+\index{create\_target@{create\_target}!target.c@{target.c}}
+\doxysubsubsection{\texorpdfstring{create\_target()}{create\_target()}}
+{\footnotesize\ttfamily \label{target_8c_a5f840555e2e72b30fc66e9a1d4ad37d5} 
+void create\+\_\+target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_target}{Target}} \texorpdfstring{$\ast$}{*}}]{target}{, }\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{, }\item[{xpm\+\_\+map\+\_\+t}]{image}{}\end{DoxyParamCaption})}
+
+
+
+Initializes a target with given position and image. 
+
+Sets the position, loads the XPM image, and initializes visibility and size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & Pointer to the \doxylink{struct_target}{Target} to initialize \\
+\hline
+{\em x} & Horizontal position on screen \\
+\hline
+{\em y} & Vertical position on screen \\
+\hline
+{\em image} & XPM map image to use for the target \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-var-members}
+\Hypertarget{target_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{target_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}\index{target.c@{target.c}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!target.c@{target.c}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily \label{target_8c_a43e7e5a0a8f9069e6413b2066ca52f3e} 
+unsigned h\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{target_8c_a5bda1b499253a8fbf3cab646f8760391}\index{target.c@{target.c}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!target.c@{target.c}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily \label{target_8c_a5bda1b499253a8fbf3cab646f8760391} 
+unsigned v\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+

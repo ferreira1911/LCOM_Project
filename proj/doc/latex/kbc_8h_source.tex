@@ -1,0 +1,49 @@
+\doxysection{kbc.\+h}
+\hypertarget{kbc_8h_source}{}\label{kbc_8h_source}\index{kbc.h@{kbc.h}}
+\mbox{\hyperlink{kbc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_KBC\_H\_}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_KBC\_H\_}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <lcom/lcf.h>}\ \ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*\ I/O\ port\ addresses\ */}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ KBC\_OUTPUT\_BUFFER\ 0x60\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ KBC\_INPUT\_BUFFER\ \ 0x60\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ KBC\_COMMAND\_REGISTER\ 0x64\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_REGISTER\ \ 0x64\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*\ Status\ register\ flags\ */}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_OB\_FULL\ BIT(0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_IB\_FULL\ BIT(1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_D\ BIT(5)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_TIMEOUT\_ERR\ BIT(6)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ KBC\_STATUS\_PARITY\_ERR\ \ BIT(7)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*\ KBC\ Commands\ */}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ KBC\_READ\_CMD\ \ 0x20\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ KBC\_WRITE\_CMD\ 0x60\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Command\ Byte\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ KBC\_CB\_EN\_KBD\_INT\ \ \ \ BIT(0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ KBC\_CB\_EN\_MOUSE\_INT\ \ BIT(1)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ KBC\_CB\_DISABLE\_KBD\ \ \ BIT(4)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ KBC\_CB\_DISABLE\_MOUSE\ BIT(5)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{/*\ Useful\ constants\ */}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ KBC\_DELAY\ 20000\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ Function\ declarations\ */}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{kbc_8h_aacee906b7620eea64ed72e294f00a682}{write\_kbc\_cmd}}(uint8\_t\ cmd,\ uint8\_t\ port);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{kbc_8h_ab0475cef314257084664f41397737f40}{read\_kbc\_cmd}}(uint8\_t\ *\textcolor{keywordtype}{byte});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\doxysection{numbers.\+c File Reference}
+\hypertarget{numbers_8c}{}\label{numbers_8c}\index{numbers.c@{numbers.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}numbers.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/0.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/1.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/2.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/3.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/4.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/5.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/6.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/7.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/8.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/9.\+xpm"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{numbers_8c_acc2b5e5bcee440b992902778fe5e2a24}{draw\+\_\+number}} (uint32\+\_\+t number, int x, int y)
+\begin{DoxyCompactList}\small\item\em Draws an unsigned integer on screen using digit XPMs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{numbers_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{numbers_8c_acc2b5e5bcee440b992902778fe5e2a24}\index{numbers.c@{numbers.c}!draw\_number@{draw\_number}}
+\index{draw\_number@{draw\_number}!numbers.c@{numbers.c}}
+\doxysubsubsection{\texorpdfstring{draw\_number()}{draw\_number()}}
+{\footnotesize\ttfamily \label{numbers_8c_acc2b5e5bcee440b992902778fe5e2a24} 
+void draw\+\_\+number (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{number}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Draws an unsigned integer on screen using digit XPMs. 
+
+Converts the given number to its decimal representation and renders each digit at the specified position, using the predefined digit width, height, and spacing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The unsigned integer to draw \\
+\hline
+{\em x} & X coordinate of the first digit (top-\/left corner) \\
+\hline
+{\em y} & Y coordinate of the first digit (top-\/left corner) \\
+\hline
+\end{DoxyParams}

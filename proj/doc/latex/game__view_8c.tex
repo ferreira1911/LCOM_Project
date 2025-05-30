@@ -1,0 +1,190 @@
+\doxysection{game\+\_\+view.\+c File Reference}
+\hypertarget{game__view_8c}{}\label{game__view_8c}\index{game\_view.c@{game\_view.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}game\+\_\+view.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+{\ttfamily \#include "{}numbers.\+h"{}}\newline
+{\ttfamily \#include "{}model/state.\+h"{}}\newline
+{\ttfamily \#include "{}xpms/logo.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/timer.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/hits.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/accuracy.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/numbers/percentage.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/fail.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/lost.\+xpm"{}}\newline
+{\ttfamily \#include "{}xpms/you\+\_\+fail.\+xpm"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game__view_8c_a271a7b2db25bad7b59d0a307bab214d1}{draw\+\_\+hits}} (uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}})
+\begin{DoxyCompactList}\small\item\em Draws the hits text and number of successful hits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8c_ac9a129ad456e63715b1e95a5692ca782}{draw\+\_\+timer}} (uint8\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Draws the timer text and remaining seconds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8c_a14057dbc03b01eb22556a2e05774eb18}{draw\+\_\+game\+\_\+over\+\_\+screen}} (uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a1f12f435de5095b24bdcb2a05a20c270}{mouse\+\_\+clicks}}, uint8\+\_\+t \mbox{\hyperlink{crosshair__controller_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}}, uint8\+\_\+t seconds)
+\begin{DoxyCompactList}\small\item\em Draws the game over screen with logo, timer, hits and accuracy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8c_a65b693ff0dd3f62e7203b2789921f79d}{draw\+\_\+fails}} (uint8\+\_\+t \mbox{\hyperlink{game_8c_a3f65ef594c14698c361291ecab93d206}{target\+\_\+fails}})
+\begin{DoxyCompactList}\small\item\em Draws the fails text and number of misses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8c_aaae079255502b6d9d3c18114d6c7bb38}{draw\+\_\+losses}} (uint8\+\_\+t \mbox{\hyperlink{game_8c_ac6345261bfc5ca0d9b467ffbfb041427}{target\+\_\+losses}})
+\begin{DoxyCompactList}\small\item\em Draws the losses text and number of lost targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game__view_8c_aebd5a93267cf2f190676c7335be2ac3a}{draw\+\_\+warning}} ()
+\begin{DoxyCompactList}\small\item\em Draws a warning image indicating the player has failed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{game__view_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}{game\+\_\+state}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{game__view_8c_a93a24e067b9083bed6fb5c0336fd7a01}{video\+\_\+mem}}
+\item 
+unsigned \mbox{\hyperlink{game__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}{h\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{game__view_8c_a5bda1b499253a8fbf3cab646f8760391}{v\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{game__view_8c_a89fa3fb58e975d148fcb2413e24b78a1}{bits\+\_\+per\+\_\+pixel}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{game__view_8c_a767d9dbba9c236b453eaaaf76976a6d0}{double\+\_\+buffer}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{game__view_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{game__view_8c_a65b693ff0dd3f62e7203b2789921f79d}\index{game\_view.c@{game\_view.c}!draw\_fails@{draw\_fails}}
+\index{draw\_fails@{draw\_fails}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_fails()}{draw\_fails()}}
+{\footnotesize\ttfamily \label{game__view_8c_a65b693ff0dd3f62e7203b2789921f79d} 
+void draw\+\_\+fails (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+fails}{}\end{DoxyParamCaption})}
+
+
+
+Draws the fails text and number of misses. 
+
+Loads and displays the fail XPM, then draws the numeric fail count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+fails} & Number of targets missed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8c_a14057dbc03b01eb22556a2e05774eb18}\index{game\_view.c@{game\_view.c}!draw\_game\_over\_screen@{draw\_game\_over\_screen}}
+\index{draw\_game\_over\_screen@{draw\_game\_over\_screen}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_over\_screen()}{draw\_game\_over\_screen()}}
+{\footnotesize\ttfamily \label{game__view_8c_a14057dbc03b01eb22556a2e05774eb18} 
+void draw\+\_\+game\+\_\+over\+\_\+screen (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{mouse\+\_\+clicks}{, }\item[{uint8\+\_\+t}]{target\+\_\+hits}{, }\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Draws the game over screen with logo, timer, hits and accuracy. 
+
+Clears the screen, draws the logo and labels, computes accuracy percentage, and displays the relevant numbers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+\_\+clicks} & Total number of mouse clicks made by the player \\
+\hline
+{\em target\+\_\+hits} & Total number of targets successfully hit \\
+\hline
+{\em seconds} & Total time elapsed in seconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8c_a271a7b2db25bad7b59d0a307bab214d1}\index{game\_view.c@{game\_view.c}!draw\_hits@{draw\_hits}}
+\index{draw\_hits@{draw\_hits}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_hits()}{draw\_hits()}}
+{\footnotesize\ttfamily \label{game__view_8c_a271a7b2db25bad7b59d0a307bab214d1} 
+void draw\+\_\+hits (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+hits}{}\end{DoxyParamCaption})}
+
+
+
+Draws the hits text and number of successful hits. 
+
+Loads and displays the hits XPM, then draws the numeric hit count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+hits} & Number of targets hit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8c_aaae079255502b6d9d3c18114d6c7bb38}\index{game\_view.c@{game\_view.c}!draw\_losses@{draw\_losses}}
+\index{draw\_losses@{draw\_losses}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_losses()}{draw\_losses()}}
+{\footnotesize\ttfamily \label{game__view_8c_aaae079255502b6d9d3c18114d6c7bb38} 
+void draw\+\_\+losses (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{target\+\_\+losses}{}\end{DoxyParamCaption})}
+
+
+
+Draws the losses text and number of lost targets. 
+
+Loads and displays the lost XPM, then draws the numeric loss count.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+losses} & Number of targets that disappeared before being hit \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8c_ac9a129ad456e63715b1e95a5692ca782}\index{game\_view.c@{game\_view.c}!draw\_timer@{draw\_timer}}
+\index{draw\_timer@{draw\_timer}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_timer()}{draw\_timer()}}
+{\footnotesize\ttfamily \label{game__view_8c_ac9a129ad456e63715b1e95a5692ca782} 
+void draw\+\_\+timer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{seconds}{}\end{DoxyParamCaption})}
+
+
+
+Draws the timer text and remaining seconds. 
+
+Loads and displays the timer XPM, then draws the numeric seconds.
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Remaining time in seconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{game__view_8c_aebd5a93267cf2f190676c7335be2ac3a}\index{game\_view.c@{game\_view.c}!draw\_warning@{draw\_warning}}
+\index{draw\_warning@{draw\_warning}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_warning()}{draw\_warning()}}
+{\footnotesize\ttfamily \label{game__view_8c_aebd5a93267cf2f190676c7335be2ac3a} 
+void draw\+\_\+warning (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws a warning image indicating the player has failed. 
+
+Displays the "{}you\+\_\+fail"{} XPM at a fixed position on the screen. 
+
+\label{doc-var-members}
+\Hypertarget{game__view_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{game__view_8c_a89fa3fb58e975d148fcb2413e24b78a1}\index{game\_view.c@{game\_view.c}!bits\_per\_pixel@{bits\_per\_pixel}}
+\index{bits\_per\_pixel@{bits\_per\_pixel}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{bits\_per\_pixel}{bits\_per\_pixel}}
+{\footnotesize\ttfamily \label{game__view_8c_a89fa3fb58e975d148fcb2413e24b78a1} 
+unsigned bits\+\_\+per\+\_\+pixel\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game__view_8c_a767d9dbba9c236b453eaaaf76976a6d0}\index{game\_view.c@{game\_view.c}!double\_buffer@{double\_buffer}}
+\index{double\_buffer@{double\_buffer}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{double\_buffer}{double\_buffer}}
+{\footnotesize\ttfamily \label{game__view_8c_a767d9dbba9c236b453eaaaf76976a6d0} 
+char\texorpdfstring{$\ast$}{*} double\+\_\+buffer\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game__view_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}\index{game\_view.c@{game\_view.c}!game\_state@{game\_state}}
+\index{game\_state@{game\_state}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{game\_state}{game\_state}}
+{\footnotesize\ttfamily \label{game__view_8c_ab8c8a2816ae974e5a2df22ec1e87fa51} 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+\_\+state\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}\index{game\_view.c@{game\_view.c}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily \label{game__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e} 
+unsigned h\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game__view_8c_a5bda1b499253a8fbf3cab646f8760391}\index{game\_view.c@{game\_view.c}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily \label{game__view_8c_a5bda1b499253a8fbf3cab646f8760391} 
+unsigned v\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game__view_8c_a93a24e067b9083bed6fb5c0336fd7a01}\index{game\_view.c@{game\_view.c}!video\_mem@{video\_mem}}
+\index{video\_mem@{video\_mem}!game\_view.c@{game\_view.c}}
+\doxysubsubsection{\texorpdfstring{video\_mem}{video\_mem}}
+{\footnotesize\ttfamily \label{game__view_8c_a93a24e067b9083bed6fb5c0336fd7a01} 
+char\texorpdfstring{$\ast$}{*} video\+\_\+mem\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -1,0 +1,74 @@
+\doxysection{crosshair\+\_\+view.\+c File Reference}
+\hypertarget{crosshair__view_8c}{}\label{crosshair__view_8c}\index{crosshair\_view.c@{crosshair\_view.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}crosshair\+\_\+view.\+h"{}}\newline
+{\ttfamily \#include "{}model/crosshair.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{crosshair__view_8c_a603f773a53c38958a891ad1c0d5c7a19}{draw\+\_\+crosshair}} ()
+\begin{DoxyCompactList}\small\item\em Draws the global crosshair on screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} \mbox{\hyperlink{crosshair__view_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}{crosshair}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{crosshair__view_8c_a93a24e067b9083bed6fb5c0336fd7a01}{video\+\_\+mem}}
+\item 
+unsigned \mbox{\hyperlink{crosshair__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}{h\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{crosshair__view_8c_a5bda1b499253a8fbf3cab646f8760391}{v\+\_\+res}}
+\item 
+unsigned \mbox{\hyperlink{crosshair__view_8c_a89fa3fb58e975d148fcb2413e24b78a1}{bits\+\_\+per\+\_\+pixel}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{crosshair__view_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{crosshair__view_8c_a603f773a53c38958a891ad1c0d5c7a19}\index{crosshair\_view.c@{crosshair\_view.c}!draw\_crosshair@{draw\_crosshair}}
+\index{draw\_crosshair@{draw\_crosshair}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{draw\_crosshair()}{draw\_crosshair()}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a603f773a53c38958a891ad1c0d5c7a19} 
+void draw\+\_\+crosshair (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws the global crosshair on screen. 
+
+Uses horizontal and vertical lines centered on the crosshair\textquotesingle{}s position. Relies on the global \doxylink{struct_crosshair}{Crosshair} model for coordinates and dimensions. 
+
+\label{doc-var-members}
+\Hypertarget{crosshair__view_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{crosshair__view_8c_a89fa3fb58e975d148fcb2413e24b78a1}\index{crosshair\_view.c@{crosshair\_view.c}!bits\_per\_pixel@{bits\_per\_pixel}}
+\index{bits\_per\_pixel@{bits\_per\_pixel}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{bits\_per\_pixel}{bits\_per\_pixel}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a89fa3fb58e975d148fcb2413e24b78a1} 
+unsigned bits\+\_\+per\+\_\+pixel\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__view_8c_a5f4ca3b28f7e431f02f63cda6f1337bd}\index{crosshair\_view.c@{crosshair\_view.c}!crosshair@{crosshair}}
+\index{crosshair@{crosshair}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{crosshair}{crosshair}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a5f4ca3b28f7e431f02f63cda6f1337bd} 
+\mbox{\hyperlink{struct_crosshair}{Crosshair}} crosshair\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e}\index{crosshair\_view.c@{crosshair\_view.c}!h\_res@{h\_res}}
+\index{h\_res@{h\_res}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{h\_res}{h\_res}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a43e7e5a0a8f9069e6413b2066ca52f3e} 
+unsigned h\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__view_8c_a5bda1b499253a8fbf3cab646f8760391}\index{crosshair\_view.c@{crosshair\_view.c}!v\_res@{v\_res}}
+\index{v\_res@{v\_res}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{v\_res}{v\_res}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a5bda1b499253a8fbf3cab646f8760391} 
+unsigned v\+\_\+res\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{crosshair__view_8c_a93a24e067b9083bed6fb5c0336fd7a01}\index{crosshair\_view.c@{crosshair\_view.c}!video\_mem@{video\_mem}}
+\index{video\_mem@{video\_mem}!crosshair\_view.c@{crosshair\_view.c}}
+\doxysubsubsection{\texorpdfstring{video\_mem}{video\_mem}}
+{\footnotesize\ttfamily \label{crosshair__view_8c_a93a24e067b9083bed6fb5c0336fd7a01} 
+char\texorpdfstring{$\ast$}{*} video\+\_\+mem\hspace{0.3cm}{\ttfamily [extern]}}
+

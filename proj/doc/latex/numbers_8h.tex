@@ -1,0 +1,66 @@
+\doxysection{numbers.\+h File Reference}
+\hypertarget{numbers_8h}{}\label{numbers_8h}\index{numbers.h@{numbers.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{numbers_8h_a1f9ab24c58660b3d90b2e9f978a85ddc}{DIGIT\+\_\+\+WIDTH}}~25
+\item 
+\#define \mbox{\hyperlink{numbers_8h_a1b4f54247ebb1b1811b8988a11431cdd}{DIGIT\+\_\+\+HEIGHT}}~28
+\item 
+\#define \mbox{\hyperlink{numbers_8h_a7c375bb5cb070281a84833193ff0d41b}{DIGIT\+\_\+\+SPACING}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{numbers_8h_acc2b5e5bcee440b992902778fe5e2a24}{draw\+\_\+number}} (uint32\+\_\+t number, int x, int y)
+\begin{DoxyCompactList}\small\item\em Draws an unsigned integer on screen using digit XPMs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{numbers_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{numbers_8h_a1b4f54247ebb1b1811b8988a11431cdd}\index{numbers.h@{numbers.h}!DIGIT\_HEIGHT@{DIGIT\_HEIGHT}}
+\index{DIGIT\_HEIGHT@{DIGIT\_HEIGHT}!numbers.h@{numbers.h}}
+\doxysubsubsection{\texorpdfstring{DIGIT\_HEIGHT}{DIGIT\_HEIGHT}}
+{\footnotesize\ttfamily \label{numbers_8h_a1b4f54247ebb1b1811b8988a11431cdd} 
+\#define DIGIT\+\_\+\+HEIGHT~28}
+
+\Hypertarget{numbers_8h_a7c375bb5cb070281a84833193ff0d41b}\index{numbers.h@{numbers.h}!DIGIT\_SPACING@{DIGIT\_SPACING}}
+\index{DIGIT\_SPACING@{DIGIT\_SPACING}!numbers.h@{numbers.h}}
+\doxysubsubsection{\texorpdfstring{DIGIT\_SPACING}{DIGIT\_SPACING}}
+{\footnotesize\ttfamily \label{numbers_8h_a7c375bb5cb070281a84833193ff0d41b} 
+\#define DIGIT\+\_\+\+SPACING~0}
+
+\Hypertarget{numbers_8h_a1f9ab24c58660b3d90b2e9f978a85ddc}\index{numbers.h@{numbers.h}!DIGIT\_WIDTH@{DIGIT\_WIDTH}}
+\index{DIGIT\_WIDTH@{DIGIT\_WIDTH}!numbers.h@{numbers.h}}
+\doxysubsubsection{\texorpdfstring{DIGIT\_WIDTH}{DIGIT\_WIDTH}}
+{\footnotesize\ttfamily \label{numbers_8h_a1f9ab24c58660b3d90b2e9f978a85ddc} 
+\#define DIGIT\+\_\+\+WIDTH~25}
+
+
+
+\label{doc-func-members}
+\Hypertarget{numbers_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{numbers_8h_acc2b5e5bcee440b992902778fe5e2a24}\index{numbers.h@{numbers.h}!draw\_number@{draw\_number}}
+\index{draw\_number@{draw\_number}!numbers.h@{numbers.h}}
+\doxysubsubsection{\texorpdfstring{draw\_number()}{draw\_number()}}
+{\footnotesize\ttfamily \label{numbers_8h_acc2b5e5bcee440b992902778fe5e2a24} 
+void draw\+\_\+number (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{number}{, }\item[{int}]{x}{, }\item[{int}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Draws an unsigned integer on screen using digit XPMs. 
+
+Converts the given number to its decimal representation and renders each digit at the specified position, using the predefined digit width, height, and spacing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em number} & The unsigned integer to draw \\
+\hline
+{\em x} & X coordinate of the first digit (top-\/left corner) \\
+\hline
+{\em y} & Y coordinate of the first digit (top-\/left corner) \\
+\hline
+\end{DoxyParams}

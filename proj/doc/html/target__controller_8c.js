@@ -1,0 +1,27 @@
+var target__controller_8c =
+[
+    [ "generate_random_position_in_game_area", "target__controller_8c.html#a417b71e004395b7afefdb4dc6733c13e", null ],
+    [ "generate_random_position_in_game_area_mode2", "target__controller_8c.html#afcf2c04abca937f5cb779b90d89365a1", null ],
+    [ "generate_random_position_in_game_area_mode3", "target__controller_8c.html#a5bbbb40cd51bf1bfba7c3d18832190ca", null ],
+    [ "is_overlapping", "target__controller_8c.html#a1d594ca1abde546804126e2196be96fa", null ],
+    [ "target_controller_check_hit", "target__controller_8c.html#aede1d7032f9237a36e42c88a1de49037", null ],
+    [ "target_controller_check_hit_mode3", "target__controller_8c.html#a8258e4260d4270f51a0a85f8f728fd85", null ],
+    [ "target_controller_clear_targets", "target__controller_8c.html#a76a327b536cf10226f6f7fcbc2e897fd", null ],
+    [ "target_controller_draw", "target__controller_8c.html#a017eb4194cc5d0794482bdb2497fccb3", null ],
+    [ "target_controller_fall_update", "target__controller_8c.html#ab1aa37764e6c6c46ad36f72c78c257e7", null ],
+    [ "target_controller_horizontal_update", "target__controller_8c.html#aa3d4c8018c7208f9032166701fa9b1a0", null ],
+    [ "target_controller_init_mode1", "target__controller_8c.html#ae1aa99d6f4b2fcc7ecbf3cdaa3af861e", null ],
+    [ "target_controller_init_mode2", "target__controller_8c.html#a53acf60a54472d43bebf92b6d15cc525", null ],
+    [ "target_controller_init_mode3", "target__controller_8c.html#a8bb0dc9b4c225975869258ddc28f0f73", null ],
+    [ "target_controller_update_mode1", "target__controller_8c.html#a40e5898c51bee01ccc1c129d273bd680", null ],
+    [ "target_controller_update_mode2", "target__controller_8c.html#a12131b116d7fc69de85aa6557d47fd0a", null ],
+    [ "target_controller_update_mode3", "target__controller_8c.html#ad58f5a5b64f33fe5725ddea16269fb51", null ],
+    [ "h_res", "target__controller_8c.html#a43e7e5a0a8f9069e6413b2066ca52f3e", null ],
+    [ "show_warning", "target__controller_8c.html#a49b688fda1029c38e6f613e2fc81fa24", null ],
+    [ "target_fails", "target__controller_8c.html#a3f65ef594c14698c361291ecab93d206", null ],
+    [ "target_hits", "target__controller_8c.html#a27e109f52105b239cd461fae194cb931", null ],
+    [ "target_losses", "target__controller_8c.html#ac6345261bfc5ca0d9b467ffbfb041427", null ],
+    [ "targets", "target__controller_8c.html#a3c4bdf322d9594b5b01638dce73f2bdb", null ],
+    [ "v_res", "target__controller_8c.html#a5bda1b499253a8fbf3cab646f8760391", null ],
+    [ "warning_timer", "target__controller_8c.html#a056a15c44fa8c41e65ba8f875a047975", null ]
+];

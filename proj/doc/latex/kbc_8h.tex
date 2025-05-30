@@ -1,0 +1,228 @@
+\doxysection{kbc.\+h File Reference}
+\hypertarget{kbc_8h}{}\label{kbc_8h}\index{kbc.h@{kbc.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{kbc_8h_abc0cabc0ed97536f24986153ffe96b78}{KBC\+\_\+\+OUTPUT\+\_\+\+BUFFER}}~0x60
+\begin{DoxyCompactList}\small\item\em Output buffer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a3eb2eccc6ccfd97b1b9d7a8d4ff204a4}{KBC\+\_\+\+INPUT\+\_\+\+BUFFER}}~0x60
+\begin{DoxyCompactList}\small\item\em Input buffer. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a10f3427db4a89cd3f03b31cb9204add6}{KBC\+\_\+\+COMMAND\+\_\+\+REGISTER}}~0x64
+\begin{DoxyCompactList}\small\item\em Command register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a75413083c19975f9e4f043c634487465}{KBC\+\_\+\+STATUS\+\_\+\+REGISTER}}~0x64
+\begin{DoxyCompactList}\small\item\em Status register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_ae25f117517ff0b0b4ab732c006be6467}{KBC\+\_\+\+STATUS\+\_\+\+OB\+\_\+\+FULL}}~BIT(0)
+\begin{DoxyCompactList}\small\item\em Output buffer full. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a572ac04f52270729180984d808a46676}{KBC\+\_\+\+STATUS\+\_\+\+IB\+\_\+\+FULL}}~BIT(1)
+\begin{DoxyCompactList}\small\item\em Input buffer full. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a067a96cb0c242f325fa13e195f3d383d}{KBC\+\_\+\+STATUS\+\_\+D}}~BIT(5)
+\begin{DoxyCompactList}\small\item\em Mouse data (1 = mouse, 0 = keyboard) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a80fea0573e16cc5c4ff7318d0b309baf}{KBC\+\_\+\+STATUS\+\_\+\+TIMEOUT\+\_\+\+ERR}}~BIT(6)
+\begin{DoxyCompactList}\small\item\em Timeout error. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a8818c8df49587254be71fc5526be496c}{KBC\+\_\+\+STATUS\+\_\+\+PARITY\+\_\+\+ERR}}~BIT(7)
+\begin{DoxyCompactList}\small\item\em Parity error. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a595a5cad2d3c793963da50865b2c1b47}{KBC\+\_\+\+READ\+\_\+\+CMD}}~0x20
+\begin{DoxyCompactList}\small\item\em Read Command Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_aaa62a6987753a109d2f7a609ce8b7334}{KBC\+\_\+\+WRITE\+\_\+\+CMD}}~0x60
+\begin{DoxyCompactList}\small\item\em Write Command Byte. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a2fe962a337cc74b0e3234478de0703c1}{KBC\+\_\+\+CB\+\_\+\+EN\+\_\+\+KBD\+\_\+\+INT}}~BIT(0)
+\begin{DoxyCompactList}\small\item\em Enable keyboard interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a8ad9d927c7d4ad4b443a113f7e56e382}{KBC\+\_\+\+CB\+\_\+\+EN\+\_\+\+MOUSE\+\_\+\+INT}}~BIT(1)
+\begin{DoxyCompactList}\small\item\em Enable mouse interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a4883e25c7f47716e0cc048e4cad9b824}{KBC\+\_\+\+CB\+\_\+\+DISABLE\+\_\+\+KBD}}~BIT(4)
+\begin{DoxyCompactList}\small\item\em Disable keyboard interface. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a814f77fcedfd8d6b5932b1919e9dca3f}{KBC\+\_\+\+CB\+\_\+\+DISABLE\+\_\+\+MOUSE}}~BIT(5)
+\begin{DoxyCompactList}\small\item\em Disable mouse interface. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{kbc_8h_a04c7ffb183924e067d98c73d15a4dc73}{KBC\+\_\+\+DELAY}}~20000
+\begin{DoxyCompactList}\small\item\em Delay in microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{kbc_8h_aacee906b7620eea64ed72e294f00a682}{write\+\_\+kbc\+\_\+cmd}} (uint8\+\_\+t cmd, uint8\+\_\+t port)
+\item 
+int \mbox{\hyperlink{kbc_8h_ab0475cef314257084664f41397737f40}{read\+\_\+kbc\+\_\+cmd}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}byte)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{kbc_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{kbc_8h_a4883e25c7f47716e0cc048e4cad9b824}\index{kbc.h@{kbc.h}!KBC\_CB\_DISABLE\_KBD@{KBC\_CB\_DISABLE\_KBD}}
+\index{KBC\_CB\_DISABLE\_KBD@{KBC\_CB\_DISABLE\_KBD}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_CB\_DISABLE\_KBD}{KBC\_CB\_DISABLE\_KBD}}
+{\footnotesize\ttfamily \label{kbc_8h_a4883e25c7f47716e0cc048e4cad9b824} 
+\#define KBC\+\_\+\+CB\+\_\+\+DISABLE\+\_\+\+KBD~BIT(4)}
+
+
+
+Disable keyboard interface. 
+
+\Hypertarget{kbc_8h_a814f77fcedfd8d6b5932b1919e9dca3f}\index{kbc.h@{kbc.h}!KBC\_CB\_DISABLE\_MOUSE@{KBC\_CB\_DISABLE\_MOUSE}}
+\index{KBC\_CB\_DISABLE\_MOUSE@{KBC\_CB\_DISABLE\_MOUSE}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_CB\_DISABLE\_MOUSE}{KBC\_CB\_DISABLE\_MOUSE}}
+{\footnotesize\ttfamily \label{kbc_8h_a814f77fcedfd8d6b5932b1919e9dca3f} 
+\#define KBC\+\_\+\+CB\+\_\+\+DISABLE\+\_\+\+MOUSE~BIT(5)}
+
+
+
+Disable mouse interface. 
+
+\Hypertarget{kbc_8h_a2fe962a337cc74b0e3234478de0703c1}\index{kbc.h@{kbc.h}!KBC\_CB\_EN\_KBD\_INT@{KBC\_CB\_EN\_KBD\_INT}}
+\index{KBC\_CB\_EN\_KBD\_INT@{KBC\_CB\_EN\_KBD\_INT}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_CB\_EN\_KBD\_INT}{KBC\_CB\_EN\_KBD\_INT}}
+{\footnotesize\ttfamily \label{kbc_8h_a2fe962a337cc74b0e3234478de0703c1} 
+\#define KBC\+\_\+\+CB\+\_\+\+EN\+\_\+\+KBD\+\_\+\+INT~BIT(0)}
+
+
+
+Enable keyboard interrupts. 
+
+\Hypertarget{kbc_8h_a8ad9d927c7d4ad4b443a113f7e56e382}\index{kbc.h@{kbc.h}!KBC\_CB\_EN\_MOUSE\_INT@{KBC\_CB\_EN\_MOUSE\_INT}}
+\index{KBC\_CB\_EN\_MOUSE\_INT@{KBC\_CB\_EN\_MOUSE\_INT}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_CB\_EN\_MOUSE\_INT}{KBC\_CB\_EN\_MOUSE\_INT}}
+{\footnotesize\ttfamily \label{kbc_8h_a8ad9d927c7d4ad4b443a113f7e56e382} 
+\#define KBC\+\_\+\+CB\+\_\+\+EN\+\_\+\+MOUSE\+\_\+\+INT~BIT(1)}
+
+
+
+Enable mouse interrupts. 
+
+\Hypertarget{kbc_8h_a10f3427db4a89cd3f03b31cb9204add6}\index{kbc.h@{kbc.h}!KBC\_COMMAND\_REGISTER@{KBC\_COMMAND\_REGISTER}}
+\index{KBC\_COMMAND\_REGISTER@{KBC\_COMMAND\_REGISTER}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_COMMAND\_REGISTER}{KBC\_COMMAND\_REGISTER}}
+{\footnotesize\ttfamily \label{kbc_8h_a10f3427db4a89cd3f03b31cb9204add6} 
+\#define KBC\+\_\+\+COMMAND\+\_\+\+REGISTER~0x64}
+
+
+
+Command register. 
+
+\Hypertarget{kbc_8h_a04c7ffb183924e067d98c73d15a4dc73}\index{kbc.h@{kbc.h}!KBC\_DELAY@{KBC\_DELAY}}
+\index{KBC\_DELAY@{KBC\_DELAY}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_DELAY}{KBC\_DELAY}}
+{\footnotesize\ttfamily \label{kbc_8h_a04c7ffb183924e067d98c73d15a4dc73} 
+\#define KBC\+\_\+\+DELAY~20000}
+
+
+
+Delay in microseconds. 
+
+\Hypertarget{kbc_8h_a3eb2eccc6ccfd97b1b9d7a8d4ff204a4}\index{kbc.h@{kbc.h}!KBC\_INPUT\_BUFFER@{KBC\_INPUT\_BUFFER}}
+\index{KBC\_INPUT\_BUFFER@{KBC\_INPUT\_BUFFER}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_INPUT\_BUFFER}{KBC\_INPUT\_BUFFER}}
+{\footnotesize\ttfamily \label{kbc_8h_a3eb2eccc6ccfd97b1b9d7a8d4ff204a4} 
+\#define KBC\+\_\+\+INPUT\+\_\+\+BUFFER~0x60}
+
+
+
+Input buffer. 
+
+\Hypertarget{kbc_8h_abc0cabc0ed97536f24986153ffe96b78}\index{kbc.h@{kbc.h}!KBC\_OUTPUT\_BUFFER@{KBC\_OUTPUT\_BUFFER}}
+\index{KBC\_OUTPUT\_BUFFER@{KBC\_OUTPUT\_BUFFER}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_OUTPUT\_BUFFER}{KBC\_OUTPUT\_BUFFER}}
+{\footnotesize\ttfamily \label{kbc_8h_abc0cabc0ed97536f24986153ffe96b78} 
+\#define KBC\+\_\+\+OUTPUT\+\_\+\+BUFFER~0x60}
+
+
+
+Output buffer. 
+
+\Hypertarget{kbc_8h_a595a5cad2d3c793963da50865b2c1b47}\index{kbc.h@{kbc.h}!KBC\_READ\_CMD@{KBC\_READ\_CMD}}
+\index{KBC\_READ\_CMD@{KBC\_READ\_CMD}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_READ\_CMD}{KBC\_READ\_CMD}}
+{\footnotesize\ttfamily \label{kbc_8h_a595a5cad2d3c793963da50865b2c1b47} 
+\#define KBC\+\_\+\+READ\+\_\+\+CMD~0x20}
+
+
+
+Read Command Byte. 
+
+\Hypertarget{kbc_8h_a067a96cb0c242f325fa13e195f3d383d}\index{kbc.h@{kbc.h}!KBC\_STATUS\_D@{KBC\_STATUS\_D}}
+\index{KBC\_STATUS\_D@{KBC\_STATUS\_D}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_D}{KBC\_STATUS\_D}}
+{\footnotesize\ttfamily \label{kbc_8h_a067a96cb0c242f325fa13e195f3d383d} 
+\#define KBC\+\_\+\+STATUS\+\_\+D~BIT(5)}
+
+
+
+Mouse data (1 = mouse, 0 = keyboard) 
+
+\Hypertarget{kbc_8h_a572ac04f52270729180984d808a46676}\index{kbc.h@{kbc.h}!KBC\_STATUS\_IB\_FULL@{KBC\_STATUS\_IB\_FULL}}
+\index{KBC\_STATUS\_IB\_FULL@{KBC\_STATUS\_IB\_FULL}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_IB\_FULL}{KBC\_STATUS\_IB\_FULL}}
+{\footnotesize\ttfamily \label{kbc_8h_a572ac04f52270729180984d808a46676} 
+\#define KBC\+\_\+\+STATUS\+\_\+\+IB\+\_\+\+FULL~BIT(1)}
+
+
+
+Input buffer full. 
+
+\Hypertarget{kbc_8h_ae25f117517ff0b0b4ab732c006be6467}\index{kbc.h@{kbc.h}!KBC\_STATUS\_OB\_FULL@{KBC\_STATUS\_OB\_FULL}}
+\index{KBC\_STATUS\_OB\_FULL@{KBC\_STATUS\_OB\_FULL}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_OB\_FULL}{KBC\_STATUS\_OB\_FULL}}
+{\footnotesize\ttfamily \label{kbc_8h_ae25f117517ff0b0b4ab732c006be6467} 
+\#define KBC\+\_\+\+STATUS\+\_\+\+OB\+\_\+\+FULL~BIT(0)}
+
+
+
+Output buffer full. 
+
+\Hypertarget{kbc_8h_a8818c8df49587254be71fc5526be496c}\index{kbc.h@{kbc.h}!KBC\_STATUS\_PARITY\_ERR@{KBC\_STATUS\_PARITY\_ERR}}
+\index{KBC\_STATUS\_PARITY\_ERR@{KBC\_STATUS\_PARITY\_ERR}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_PARITY\_ERR}{KBC\_STATUS\_PARITY\_ERR}}
+{\footnotesize\ttfamily \label{kbc_8h_a8818c8df49587254be71fc5526be496c} 
+\#define KBC\+\_\+\+STATUS\+\_\+\+PARITY\+\_\+\+ERR~BIT(7)}
+
+
+
+Parity error. 
+
+\Hypertarget{kbc_8h_a75413083c19975f9e4f043c634487465}\index{kbc.h@{kbc.h}!KBC\_STATUS\_REGISTER@{KBC\_STATUS\_REGISTER}}
+\index{KBC\_STATUS\_REGISTER@{KBC\_STATUS\_REGISTER}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_REGISTER}{KBC\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \label{kbc_8h_a75413083c19975f9e4f043c634487465} 
+\#define KBC\+\_\+\+STATUS\+\_\+\+REGISTER~0x64}
+
+
+
+Status register. 
+
+\Hypertarget{kbc_8h_a80fea0573e16cc5c4ff7318d0b309baf}\index{kbc.h@{kbc.h}!KBC\_STATUS\_TIMEOUT\_ERR@{KBC\_STATUS\_TIMEOUT\_ERR}}
+\index{KBC\_STATUS\_TIMEOUT\_ERR@{KBC\_STATUS\_TIMEOUT\_ERR}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_STATUS\_TIMEOUT\_ERR}{KBC\_STATUS\_TIMEOUT\_ERR}}
+{\footnotesize\ttfamily \label{kbc_8h_a80fea0573e16cc5c4ff7318d0b309baf} 
+\#define KBC\+\_\+\+STATUS\+\_\+\+TIMEOUT\+\_\+\+ERR~BIT(6)}
+
+
+
+Timeout error. 
+
+\Hypertarget{kbc_8h_aaa62a6987753a109d2f7a609ce8b7334}\index{kbc.h@{kbc.h}!KBC\_WRITE\_CMD@{KBC\_WRITE\_CMD}}
+\index{KBC\_WRITE\_CMD@{KBC\_WRITE\_CMD}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{KBC\_WRITE\_CMD}{KBC\_WRITE\_CMD}}
+{\footnotesize\ttfamily \label{kbc_8h_aaa62a6987753a109d2f7a609ce8b7334} 
+\#define KBC\+\_\+\+WRITE\+\_\+\+CMD~0x60}
+
+
+
+Write Command Byte. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{kbc_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{kbc_8h_ab0475cef314257084664f41397737f40}\index{kbc.h@{kbc.h}!read\_kbc\_cmd@{read\_kbc\_cmd}}
+\index{read\_kbc\_cmd@{read\_kbc\_cmd}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{read\_kbc\_cmd()}{read\_kbc\_cmd()}}
+{\footnotesize\ttfamily \label{kbc_8h_ab0475cef314257084664f41397737f40} 
+int read\+\_\+kbc\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{byte}{}\end{DoxyParamCaption})}
+
+\Hypertarget{kbc_8h_aacee906b7620eea64ed72e294f00a682}\index{kbc.h@{kbc.h}!write\_kbc\_cmd@{write\_kbc\_cmd}}
+\index{write\_kbc\_cmd@{write\_kbc\_cmd}!kbc.h@{kbc.h}}
+\doxysubsubsection{\texorpdfstring{write\_kbc\_cmd()}{write\_kbc\_cmd()}}
+{\footnotesize\ttfamily \label{kbc_8h_aacee906b7620eea64ed72e294f00a682} 
+int write\+\_\+kbc\+\_\+cmd (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd}{, }\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+

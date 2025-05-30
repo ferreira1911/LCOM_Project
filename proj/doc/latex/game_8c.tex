@@ -1,0 +1,207 @@
+\doxysection{game.\+c File Reference}
+\hypertarget{game_8c}{}\label{game_8c}\index{game.c@{game.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include "{}game.\+h"{}}\newline
+{\ttfamily \#include "{}crosshair\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}target\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}model/state.\+h"{}}\newline
+{\ttfamily \#include "{}menu\+\_\+controller.\+h"{}}\newline
+{\ttfamily \#include "{}view/game\+\_\+view.\+h"{}}\newline
+{\ttfamily \#include "{}devices/i8254.\+h"{}}\newline
+{\ttfamily \#include "{}devices/kbc.\+h"{}}\newline
+{\ttfamily \#include "{}devices/keyboard.\+h"{}}\newline
+{\ttfamily \#include "{}devices/mouse.\+h"{}}\newline
+{\ttfamily \#include "{}devices/video.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{game_8c_a99a267e0549de96c12d18f0e765f7167}{draw\+\_\+game\+\_\+elements}} ()
+\begin{DoxyCompactList}\small\item\em Draws all current game elements to the screen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a47d86c55c1bc9d2a93df0b9476c4d630}{game\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes game resources and resets state for a new session. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a04e415c2c57bcb7efab2055169302eed}{game\+\_\+loop}} ()
+\begin{DoxyCompactList}\small\item\em Main game loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_abc1fb57f21dfdfe8414ed5ff0c744a10}{game\+\_\+exit}} ()
+\begin{DoxyCompactList}\small\item\em Cleans up and exits the game. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_ace843de16cbda4204489f2bfa387c34c}{game\+\_\+controller}} ()
+\begin{DoxyCompactList}\small\item\em Main controller function for the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a8884dab9d88cd6c24f21afc6c7144a7b}{byte\+\_\+index}}
+\item 
+int \mbox{\hyperlink{game_8c_a617a47c70795bcff659815ad0efd2266}{counter}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a27e109f52105b239cd461fae194cb931}{target\+\_\+hits}}
+\begin{DoxyCompactList}\small\item\em Number of targets hit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{game_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}{game\+\_\+state}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_aab809b6de1b8b88959c915b6c62f5a77}{seconds\+\_\+counter}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a1f12f435de5095b24bdcb2a05a20c270}{mouse\+\_\+clicks}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_a3f65ef594c14698c361291ecab93d206}{target\+\_\+fails}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_ac6345261bfc5ca0d9b467ffbfb041427}{target\+\_\+losses}}
+\item 
+bool \mbox{\hyperlink{game_8c_a49b688fda1029c38e6f613e2fc81fa24}{show\+\_\+warning}}
+\item 
+int \mbox{\hyperlink{game_8c_a056a15c44fa8c41e65ba8f875a047975}{warning\+\_\+timer}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{game_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{game_8c_a99a267e0549de96c12d18f0e765f7167}\index{game.c@{game.c}!draw\_game\_elements@{draw\_game\_elements}}
+\index{draw\_game\_elements@{draw\_game\_elements}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_elements()}{draw\_game\_elements()}}
+{\footnotesize\ttfamily \label{game_8c_a99a267e0549de96c12d18f0e765f7167} 
+int draw\+\_\+game\+\_\+elements (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Draws all current game elements to the screen. 
+
+Includes targets, timer, hit/fail counters, crosshair, and optional warning messages.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8c_ace843de16cbda4204489f2bfa387c34c}\index{game.c@{game.c}!game\_controller@{game\_controller}}
+\index{game\_controller@{game\_controller}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_controller()}{game\_controller()}}
+{\footnotesize\ttfamily \label{game_8c_ace843de16cbda4204489f2bfa387c34c} 
+int game\+\_\+controller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main controller function for the game. 
+
+Initializes the frame buffer, enters the main loop alternating between the menu and gameplay.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8c_abc1fb57f21dfdfe8414ed5ff0c744a10}\index{game.c@{game.c}!game\_exit@{game\_exit}}
+\index{game\_exit@{game\_exit}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_exit()}{game\_exit()}}
+{\footnotesize\ttfamily \label{game_8c_abc1fb57f21dfdfe8414ed5ff0c744a10} 
+int game\+\_\+exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Cleans up and exits the game. 
+
+Displays game statistics and frees video memory.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8c_a47d86c55c1bc9d2a93df0b9476c4d630}\index{game.c@{game.c}!game\_init@{game\_init}}
+\index{game\_init@{game\_init}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_init()}{game\_init()}}
+{\footnotesize\ttfamily \label{game_8c_a47d86c55c1bc9d2a93df0b9476c4d630} 
+int game\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes game resources and resets state for a new session. 
+
+Resets counters, initializes targets and crosshair based on the game mode.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{game_8c_a04e415c2c57bcb7efab2055169302eed}\index{game.c@{game.c}!game\_loop@{game\_loop}}
+\index{game\_loop@{game\_loop}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_loop()}{game\_loop()}}
+{\footnotesize\ttfamily \label{game_8c_a04e415c2c57bcb7efab2055169302eed} 
+int game\+\_\+loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main game loop. 
+
+Handles timer, keyboard, and mouse interrupts. Updates the game state, renders elements, and checks for timeout or exit conditions.
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure. 
+\end{DoxyReturn}
+
+
+\label{doc-var-members}
+\Hypertarget{game_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{game_8c_a8884dab9d88cd6c24f21afc6c7144a7b}\index{game.c@{game.c}!byte\_index@{byte\_index}}
+\index{byte\_index@{byte\_index}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{byte\_index}{byte\_index}}
+{\footnotesize\ttfamily \label{game_8c_a8884dab9d88cd6c24f21afc6c7144a7b} 
+uint8\+\_\+t byte\+\_\+index\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_a617a47c70795bcff659815ad0efd2266}\index{game.c@{game.c}!counter@{counter}}
+\index{counter@{counter}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily \label{game_8c_a617a47c70795bcff659815ad0efd2266} 
+int counter\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_ab8c8a2816ae974e5a2df22ec1e87fa51}\index{game.c@{game.c}!game\_state@{game\_state}}
+\index{game\_state@{game\_state}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{game\_state}{game\_state}}
+{\footnotesize\ttfamily \label{game_8c_ab8c8a2816ae974e5a2df22ec1e87fa51} 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+\_\+state}
+
+\Hypertarget{game_8c_a1f12f435de5095b24bdcb2a05a20c270}\index{game.c@{game.c}!mouse\_clicks@{mouse\_clicks}}
+\index{mouse\_clicks@{mouse\_clicks}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_clicks}{mouse\_clicks}}
+{\footnotesize\ttfamily \label{game_8c_a1f12f435de5095b24bdcb2a05a20c270} 
+uint8\+\_\+t mouse\+\_\+clicks\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_aa1de7a5557e9d96b83cf03f73c92163f}\index{game.c@{game.c}!scancode@{scancode}}
+\index{scancode@{scancode}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{scancode}{scancode}}
+{\footnotesize\ttfamily \label{game_8c_aa1de7a5557e9d96b83cf03f73c92163f} 
+uint8\+\_\+t scancode\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_aab809b6de1b8b88959c915b6c62f5a77}\index{game.c@{game.c}!seconds\_counter@{seconds\_counter}}
+\index{seconds\_counter@{seconds\_counter}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{seconds\_counter}{seconds\_counter}}
+{\footnotesize\ttfamily \label{game_8c_aab809b6de1b8b88959c915b6c62f5a77} 
+uint8\+\_\+t seconds\+\_\+counter = 0}
+
+\Hypertarget{game_8c_a49b688fda1029c38e6f613e2fc81fa24}\index{game.c@{game.c}!show\_warning@{show\_warning}}
+\index{show\_warning@{show\_warning}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{show\_warning}{show\_warning}}
+{\footnotesize\ttfamily \label{game_8c_a49b688fda1029c38e6f613e2fc81fa24} 
+bool show\+\_\+warning\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_a3f65ef594c14698c361291ecab93d206}\index{game.c@{game.c}!target\_fails@{target\_fails}}
+\index{target\_fails@{target\_fails}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{target\_fails}{target\_fails}}
+{\footnotesize\ttfamily \label{game_8c_a3f65ef594c14698c361291ecab93d206} 
+uint8\+\_\+t target\+\_\+fails\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_a27e109f52105b239cd461fae194cb931}\index{game.c@{game.c}!target\_hits@{target\_hits}}
+\index{target\_hits@{target\_hits}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{target\_hits}{target\_hits}}
+{\footnotesize\ttfamily \label{game_8c_a27e109f52105b239cd461fae194cb931} 
+uint8\+\_\+t target\+\_\+hits\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Number of targets hit. 
+
+\Hypertarget{game_8c_ac6345261bfc5ca0d9b467ffbfb041427}\index{game.c@{game.c}!target\_losses@{target\_losses}}
+\index{target\_losses@{target\_losses}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{target\_losses}{target\_losses}}
+{\footnotesize\ttfamily \label{game_8c_ac6345261bfc5ca0d9b467ffbfb041427} 
+uint8\+\_\+t target\+\_\+losses\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{game_8c_a056a15c44fa8c41e65ba8f875a047975}\index{game.c@{game.c}!warning\_timer@{warning\_timer}}
+\index{warning\_timer@{warning\_timer}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{warning\_timer}{warning\_timer}}
+{\footnotesize\ttfamily \label{game_8c_a056a15c44fa8c41e65ba8f875a047975} 
+int warning\+\_\+timer\hspace{0.3cm}{\ttfamily [extern]}}
+

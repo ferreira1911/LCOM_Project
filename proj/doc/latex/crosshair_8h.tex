@@ -1,0 +1,58 @@
+\doxysection{crosshair.\+h File Reference}
+\hypertarget{crosshair_8h}{}\label{crosshair_8h}\index{crosshair.h@{crosshair.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_crosshair}{Crosshair}}
+\begin{DoxyCompactList}\small\item\em Represents the crosshair cursor in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{crosshair_8h_a0c5fa5cb42c9146b314a6d921d2cf715}{crosshair\+\_\+init}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Initializes the global crosshair at the given position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{crosshair_8h_a427fad0f4578528d21255b2567c4c667}{crosshair\+\_\+update\+\_\+position}} (int16\+\_\+t delta\+\_\+x, int16\+\_\+t delta\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Updates the position of the global crosshair by the given deltas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{crosshair_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{crosshair_8h_a0c5fa5cb42c9146b314a6d921d2cf715}\index{crosshair.h@{crosshair.h}!crosshair\_init@{crosshair\_init}}
+\index{crosshair\_init@{crosshair\_init}!crosshair.h@{crosshair.h}}
+\doxysubsubsection{\texorpdfstring{crosshair\_init()}{crosshair\_init()}}
+{\footnotesize\ttfamily \label{crosshair_8h_a0c5fa5cb42c9146b314a6d921d2cf715} 
+void crosshair\+\_\+init (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x}{, }\item[{int16\+\_\+t}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the global crosshair at the given position. 
+
+Sets the initial x and y coordinates and default size of the crosshair.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Initial horizontal position on screen \\
+\hline
+{\em y} & Initial vertical position on screen \\
+\hline
+\end{DoxyParams}
+\Hypertarget{crosshair_8h_a427fad0f4578528d21255b2567c4c667}\index{crosshair.h@{crosshair.h}!crosshair\_update\_position@{crosshair\_update\_position}}
+\index{crosshair\_update\_position@{crosshair\_update\_position}!crosshair.h@{crosshair.h}}
+\doxysubsubsection{\texorpdfstring{crosshair\_update\_position()}{crosshair\_update\_position()}}
+{\footnotesize\ttfamily \label{crosshair_8h_a427fad0f4578528d21255b2567c4c667} 
+void crosshair\+\_\+update\+\_\+position (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{delta\+\_\+x}{, }\item[{int16\+\_\+t}]{delta\+\_\+y}{}\end{DoxyParamCaption})}
+
+
+
+Updates the position of the global crosshair by the given deltas. 
+
+Moves the crosshair and clamps it within the screen boundaries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+\_\+x} & Amount to move horizontally \\
+\hline
+{\em delta\+\_\+y} & Amount to move vertically \\
+\hline
+\end{DoxyParams}
