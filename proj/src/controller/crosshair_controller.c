@@ -19,9 +19,9 @@ void (crosshair_controller_init)() {
 void (crosshair_controller_update)(struct packet *pp) {
     crosshair_update_position(pp->delta_x, pp->delta_y);
 
-    static bool prev_lb = false; // Guarda o estado anterior do botão
+    static bool prev_lb = false;
 
-    if(pp->lb && !prev_lb){ // Só conta se acabou de carregar
+    if(pp->lb && !prev_lb){
         if(game_state != MENU) {
             mouse_clicks++;
         }
@@ -40,7 +40,7 @@ void (crosshair_controller_update)(struct packet *pp) {
         }
     }
 
-    prev_lb = pp->lb; // Atualiza o estado anterior
+    prev_lb = pp->lb;
 }
 
 void (crosshair_controller_draw)(){

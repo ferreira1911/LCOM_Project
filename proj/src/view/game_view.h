@@ -42,7 +42,21 @@ void (draw_hits)(uint8_t target_hits);
  * @param target_fails Number of targets missed
  */
 void (draw_fails)(uint8_t target_fails);
+
+/**
+ * @brief Draws the losses text and number of lost targets.
+ *
+ * Loads and displays the lost XPM, then draws the numeric loss count.
+ *
+ * @param target_losses Number of targets that disappeared before being hit
+ */
 void (draw_losses)(uint8_t target_losses);
+
+/**
+ * @brief Draws a warning image indicating the player has failed.
+ *
+ * Displays the "you_fail" XPM at a fixed position on the screen.
+ */
 void (draw_warning)();
 
 #endif

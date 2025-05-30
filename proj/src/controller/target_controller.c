@@ -237,8 +237,8 @@ void target_controller_update_mode3() {
 
             if (valid_position) {
                 create_target(&targets[i], x, y, (xpm_map_t) target);
-                targets[i].move_speed = rand() % 8 + 3; // velocidade de movimento aleatória entre 8 e 3
-                targets[i].fall_speed = rand() % 3 + 1; // velocidade de queda aleatória entre 1 e 3
+                targets[i].move_speed = rand() % 8 + 3;
+                targets[i].fall_speed = rand() % 3 + 1;
                 targets[i].direction = direction;
             }
         }
@@ -274,7 +274,7 @@ bool (target_controller_check_hit)(uint16_t x, uint16_t y) {
 }
 
 bool target_controller_check_hit_mode3(uint16_t x, uint16_t y) {
-    for (int i = 0; i < 1; i++) { // modo 3 só tem 1 alvo
+    for (int i = 0; i < 1; i++) {
         if (!targets[i].isVisible) continue;
 
         int16_t tx = targets[i].x;
@@ -292,12 +292,6 @@ bool target_controller_check_hit_mode3(uint16_t x, uint16_t y) {
     show_warning = true;
     warning_timer = 30; 
     return false;
-}
-
-void (target_controller_reset)() {
-    for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
-        targets[i].isVisible = false;
-    }
 }
 
 
@@ -318,8 +312,7 @@ void target_controller_horizontal_update() {
     for (int i = 0; i < MAX_ACTIVE_TARGETS; i++) {
         if (targets[i].isVisible) {
             targets[i].x += targets[i].move_speed * targets[i].direction;
-            targets[i].y += targets[i].fall_speed; // mantém a velocidade de queda
-            // Se sair do ecrã, torna invisível
+            targets[i].y += targets[i].fall_speed;
             if (targets[i].x < -100 || targets[i].x > 800 || targets[i].y > 650 || targets[i].y < 40) {
                 targets[i].isVisible = false;
                 target_losses++;
